@@ -1,0 +1,96 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+// IWYU pragma: private, include "ReplicationSampleCharacter.h"
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+#ifdef REPLICATIONSAMPLE_ReplicationSampleCharacter_generated_h
+#error "ReplicationSampleCharacter.generated.h already included, missing '#pragma once' in ReplicationSampleCharacter.h"
+#endif
+#define REPLICATIONSAMPLE_ReplicationSampleCharacter_generated_h
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_SPARSE_DATA
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_RPC_WRAPPERS
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_ACCESSORS
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesAReplicationSampleCharacter(); \
+	friend struct Z_Construct_UClass_AReplicationSampleCharacter_Statics; \
+public: \
+	DECLARE_CLASS(AReplicationSampleCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ReplicationSample"), NO_API) \
+	DECLARE_SERIALIZER(AReplicationSampleCharacter)
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_INCLASS \
+private: \
+	static void StaticRegisterNativesAReplicationSampleCharacter(); \
+	friend struct Z_Construct_UClass_AReplicationSampleCharacter_Statics; \
+public: \
+	DECLARE_CLASS(AReplicationSampleCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ReplicationSample"), NO_API) \
+	DECLARE_SERIALIZER(AReplicationSampleCharacter)
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_STANDARD_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API AReplicationSampleCharacter(const FObjectInitializer& ObjectInitializer); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AReplicationSampleCharacter) \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AReplicationSampleCharacter); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AReplicationSampleCharacter); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API AReplicationSampleCharacter(AReplicationSampleCharacter&&); \
+	NO_API AReplicationSampleCharacter(const AReplicationSampleCharacter&); \
+public: \
+	NO_API virtual ~AReplicationSampleCharacter();
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API AReplicationSampleCharacter(AReplicationSampleCharacter&&); \
+	NO_API AReplicationSampleCharacter(const AReplicationSampleCharacter&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AReplicationSampleCharacter); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AReplicationSampleCharacter); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AReplicationSampleCharacter) \
+	NO_API virtual ~AReplicationSampleCharacter();
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_11_PROLOG
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_GENERATED_BODY_LEGACY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_SPARSE_DATA \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_RPC_WRAPPERS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_ACCESSORS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_INCLASS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_STANDARD_CONSTRUCTORS \
+public: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_SPARSE_DATA \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_ACCESSORS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_INCLASS_NO_PURE_DECLS \
+	FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_14_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> REPLICATIONSAMPLE_API UClass* StaticClass<class AReplicationSampleCharacter>();
+
+#undef CURRENT_FILE_ID
+#define CURRENT_FILE_ID FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h
+
+
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

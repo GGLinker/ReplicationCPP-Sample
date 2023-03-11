@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "z:\\unrealengineprojects\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\replicationsample.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "z:\\unrealengineprojects\\replicationsample\\intermediate\\build\\win64\\replicationsampleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "z:\\unrealengineprojects\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\development\\replicationsample\\definitions.replicationsample.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

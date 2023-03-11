@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"Z:\\UnrealEngineProjects\\ReplicationSample\\Source\\ReplicationSample\\ReplicationSample.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationSample\\Source\\ReplicationSample.Target.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationSample\\Source\\ReplicationSampleEditor.Target.cs"
+	],
+	"EngineVersion": "5.1.1"
+}
