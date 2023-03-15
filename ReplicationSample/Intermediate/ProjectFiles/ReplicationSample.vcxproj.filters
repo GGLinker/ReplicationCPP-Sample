@@ -11,6 +11,7 @@
     <None Include="..\..\Source\ReplicationSampleEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -32,6 +33,12 @@
     <Filter Include="Source\ReplicationSample">
       <UniqueIdentifier>{2595B43C-EC9F-34E8-9A2D-27A0A333D082}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ReplicationSample\InteractionPlayerController.cpp">
+      <Filter>Source\ReplicationSample</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ReplicationSample\InteractionPlayerController.h">
+      <Filter>Source\ReplicationSample</Filter>
+    </ClInclude>
     <None Include="..\..\Source\ReplicationSample\ReplicationSample.Build.cs">
       <Filter>Source\ReplicationSample</Filter>
     </None>

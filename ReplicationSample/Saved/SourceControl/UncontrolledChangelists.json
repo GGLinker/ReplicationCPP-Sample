@@ -5,6 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/IMC_Default.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/OG/KDQDMXAXZXD8VLDDU4K3JL.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
 				"Z:/UnrealEngineProjects/ReplicationSample/Content/StarterContent/Particles/P_Ambient_Dust.uasset"
 			]
 		}

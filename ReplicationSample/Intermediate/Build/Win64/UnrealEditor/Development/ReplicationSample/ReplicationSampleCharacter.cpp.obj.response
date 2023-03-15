@@ -1,18 +1,16 @@
-Z:\UnrealEngineProjects\ReplicationSample\Source\ReplicationSample\ReplicationSampleCharacter.cpp
+Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Source\ReplicationSample\ReplicationSampleCharacter.cpp
 /I .
-/I Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Inc\ReplicationSample\UHT
-/I Z:\UnrealEngineProjects\ReplicationSample\Source
-/I Runtime
-/I Runtime\TraceLog\Public
-/I Runtime\Core\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT
-/I Runtime\CoreUObject\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\UHT
+/I Runtime
 /I ..\Shaders\Shared
 /I Runtime\Engine\Classes
 /I Runtime\Engine\Public
+/I Runtime\TraceLog\Public
+/I Runtime\Core\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreOnline\UHT
 /I Runtime\CoreOnline\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT
+/I Runtime\CoreUObject\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\NetCore\UHT
 /I Runtime\Net
 /I Runtime\Net\Core\Classes
@@ -271,6 +269,8 @@ Z:\UnrealEngineProjects\ReplicationSample\Source\ReplicationSample\ReplicationSa
 /I Runtime\MovieSceneCapture\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController\UHT
 /I Developer\AnimationDataController\Public
+/I Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Inc\ReplicationSample\UHT
+/I Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Source
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AugmentedReality\UHT
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MRMesh\UHT
@@ -286,12 +286,12 @@ Z:\UnrealEngineProjects\ReplicationSample\Source\ReplicationSample\ReplicationSa
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
-/FI"Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\Definitions.ReplicationSample.h"
-/Yu"Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\ReplicationSampleCharacter.cpp.obj"
-/sourceDependencies Z:\UnrealEngineProjects\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\ReplicationSampleCharacter.cpp.dep.json
+/FI"Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\Definitions.ReplicationSample.h"
+/Yu"Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\ReplicationSampleEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\ReplicationSampleCharacter.cpp.obj"
+/sourceDependencies Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\ReplicationSampleCharacter.cpp.dep.json
 /Zc:inline
 /nologo
 /Oi

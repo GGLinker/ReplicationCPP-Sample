@@ -1,0 +1,17 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\interactionplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\replicationsampleeditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\debuggame\\replicationsample\\definitions.replicationsample.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\interactionplayercontroller.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\usableitems\\usableitemscontainer.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\usableitemscontainer.generated.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\interactionplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "ReplicationSample",
-			"Path": "Z:\\UnrealEngineProjects\\ReplicationSample\\Source\\ReplicationSample.Target.cs",
+			"Path": "Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Source\\ReplicationSample.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "ReplicationSampleEditor",
-			"Path": "Z:\\UnrealEngineProjects\\ReplicationSample\\Source\\ReplicationSampleEditor.Target.cs",
+			"Path": "Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Source\\ReplicationSampleEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

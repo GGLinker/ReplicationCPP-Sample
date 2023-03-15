@@ -1,0 +1,15 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\interactionplayercontroller.cpp",
+        "ProvidedModule": "",
+        "PCH": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\replicationsampleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\development\\replicationsample\\definitions.replicationsample.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\interactionplayercontroller.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\interactionplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
