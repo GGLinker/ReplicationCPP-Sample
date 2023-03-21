@@ -10,6 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InteractionPlayerController.h"
+#include "Components/SphereComponent.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/TriggerSphere.h"
 #include "UsableItems/ItemUsabilityTag.h"
@@ -50,14 +51,6 @@ AReplicationSampleCharacter::AReplicationSampleCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to armz
-
-	// Setup trigger
-	TriggerSphere = CreateDefaultSubobject<ATriggerSphere>("TriggerSphere");
-	TriggerSphere->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform, TEXT("TriggerSphere"));
-	RegisterWorldObjItem.BindUFunction(this, "OnTriggerSphereBeginOverlap");
-	TriggerSphere->OnActorBeginOverlap.Add(RegisterWorldObjItem);
-	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
-	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
 }
 
 void AReplicationSampleCharacter::BeginPlay()
@@ -72,6 +65,20 @@ void AReplicationSampleCharacter::BeginPlay()
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
 	}
+
+
+	// Setup trigger
+	TriggerSphere = GetWorld()->SpawnActor<ATriggerSphere>(ATriggerSphere::StaticClass(), FVector::Zero(), FRotator::ZeroRotator);
+	const auto collisionSphere = Cast<USphereComponent>(TriggerSphere->GetCollisionComponent());
+	collisionSphere->SetSphereRadius(120);
+	collisionSphere->SetGenerateOverlapEvents(true);
+	collisionSphere->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
+
+	TriggerSphere->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform, TEXT("TriggerSphere"));
+	RegisterWorldObjItem.BindUFunction(this, "OnTriggerSphereBeginOverlap");
+	TriggerSphere->OnActorBeginOverlap.Add(RegisterWorldObjItem);
+	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
+	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
 }
 
 
