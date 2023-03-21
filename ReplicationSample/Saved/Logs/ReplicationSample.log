@@ -1428,3 +1428,129 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2023.03.21-23.11.23:685][512]LogPlayLevel: Display: Destroying online subsystem :Context_5
 [2023.03.21-23.11.24:513][573]LogUObjectHash: Compacting FUObjectHashTables data took   1.20ms
 [2023.03.21-23.11.37:656][927]LogUObjectHash: Compacting FUObjectHashTables data took   0.62ms
+[2023.03.21-23.12.30:772][859]LogShaderCompilers: Display: ================================================
+[2023.03.21-23.12.30:772][859]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: Total job queries 113, among them cache hits 10 (8.85%)
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: Tracking 103 distinct input hashes that result in 87 distinct outputs (84.47%)
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: RAM used: 0.90 MB (0.00 GB) of 1638.40 MB (1.60 GB) budget. Usage: 0.06%
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: Shaders Compiled: 0
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: Jobs assigned 0, completed 0 (0.00%)
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 0.00 s
+[2023.03.21-23.12.30:773][859]LogShaderCompilers: Display: ================================================
+[2023.03.21-23.12.35:326][390]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-23.12.35:326][390]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-23.12.35:333][390]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-23.12.35:338][390]LogSlate: Warning: The command 'UMGEditor.OpenAnimDrawer' has the same default chord as 'EditorViewport.Next' [Ctrl+Shift+Space Bar]
+[2023.03.21-23.12.35:669][390]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-23.12.35:669][390]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-23.12.35:724][390]LogSlateStyle: Warning: Missing Resource from 'CoreStyle' Style: 'Unable to find SlateColor 'Foreground'.'
+[2023.03.21-23.12.35:724][390]LogSlate: Took 0.000112 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2023.03.21-23.12.43:377][259]LogWorld: UWorld::CleanupWorld for World_3, bSessionEnded=true, bCleanupResources=true
+[2023.03.21-23.12.43:377][259]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-23.12.43:385][259]LogWorld: UWorld::CleanupWorld for World_2, bSessionEnded=true, bCleanupResources=true
+[2023.03.21-23.12.43:385][259]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-23.12.47:159][705]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-23.12.47:160][705]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-23.12.47:166][705]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-23.12.47:528][705]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-23.12.47:528][705]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-23.21.00:235][ 51]AssetReimport: New page: Outstanding source content changes 05:21:00
+[2023.03.21-23.21.00:286][ 52]LogFactory: FactoryCreateFile: Texture with TextureFactory (0 0 Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/RedCubeIcon.png)
+[2023.03.21-23.21.00:288][ 52]LogCore: PNG has complex alpha channel, will not fill RGB in transparent background
+[2023.03.21-23.21.00:292][ 52]LogFactory: FactoryCreateFile: Texture with TextureFactory (0 0 Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/GreenCubeIcon.png)
+[2023.03.21-23.21.00:294][ 52]LogCore: PNG has complex alpha channel, will not fill RGB in transparent background
+[2023.03.21-23.21.00:296][ 52]LogFactory: FactoryCreateFile: Texture with TextureFactory (0 0 Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/BlueCubeIcon.png)
+[2023.03.21-23.21.00:297][ 52]LogCore: PNG has complex alpha channel, will not fill RGB in transparent background
+[2023.03.21-23.21.00:301][ 52]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-23.21.00:510][ 52]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Bitmaps/RedCubeIcon" FILE="Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/RedCubeIcon.uasset" SILENT=true
+[2023.03.21-23.21.00:515][ 52]LogSavePackage: Moving output files for package: /Game/Bitmaps/RedCubeIcon
+[2023.03.21-23.21.00:515][ 52]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/RedCubeIconDA1CE23F45855EDDF23434BEF60FF357.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/RedCubeIcon.uasset'
+[2023.03.21-23.21.00:517][ 52]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Bitmaps/GreenCubeIcon" FILE="Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/GreenCubeIcon.uasset" SILENT=true
+[2023.03.21-23.21.00:520][ 52]LogSavePackage: Moving output files for package: /Game/Bitmaps/GreenCubeIcon
+[2023.03.21-23.21.00:520][ 52]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/GreenCubeIcon3B2B1A28485F787F5BA50ABABB3FBE16.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/GreenCubeIcon.uasset'
+[2023.03.21-23.21.00:522][ 52]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Bitmaps/BlueCubeIcon" FILE="Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/BlueCubeIcon.uasset" SILENT=true
+[2023.03.21-23.21.00:547][ 52]LogSavePackage: Moving output files for package: /Game/Bitmaps/BlueCubeIcon
+[2023.03.21-23.21.00:547][ 52]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/BlueCubeIconC3FA382F4498167BF472709D73E54DE0.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/Bitmaps/BlueCubeIcon.uasset'
+[2023.03.21-23.21.00:636][ 52]LogFileHelpers: InternalPromptForCheckoutAndSave took 335 ms (total: 380 ms)
+[2023.03.21-23.21.00:682][ 53]AssetCheck: New page: Asset Save: multiple assets
+[2023.03.21-23.21.00:682][ 53]LogContentValidation: Display: Validating /Script/Engine.Texture2D /Game/Bitmaps/RedCubeIcon.RedCubeIcon
+[2023.03.21-23.21.00:682][ 53]LogContentValidation: Display: Validating /Script/Engine.Texture2D /Game/Bitmaps/GreenCubeIcon.GreenCubeIcon
+[2023.03.21-23.21.00:682][ 53]LogContentValidation: Display: Validating /Script/Engine.Texture2D /Game/Bitmaps/BlueCubeIcon.BlueCubeIcon
+[2023.03.21-23.21.03:640][395]AssetReimport: Importing new asset /Game/Bitmaps/RedCubeIcon.
+[2023.03.21-23.21.03:640][395]AssetReimport: Importing new asset /Game/Bitmaps/GreenCubeIcon.
+[2023.03.21-23.21.03:640][395]AssetReimport: Importing new asset /Game/Bitmaps/BlueCubeIcon.
+[2023.03.21-23.21.14:568][605]LogUObjectHash: Compacting FUObjectHashTables data took   2.34ms
+[2023.03.21-23.21.14:571][605]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-23.21.14:636][605]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-23.21.14:637][605]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPE2D5B0914E8810177D86389EB13DD903.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-23.21.14:642][605]LogFileHelpers: InternalPromptForCheckoutAndSave took 70 ms (total: 451 ms)
+[2023.03.21-23.21.14:648][605]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-23.21.14:648][605]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-23.21.15:638][724]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-23.21.15:727][724]LogUObjectHash: Compacting FUObjectHashTables data took   1.51ms
+[2023.03.21-23.21.15:897][736]LogUObjectHash: Compacting FUObjectHashTables data took   1.32ms
+[2023.03.21-23.21.19:148][ 71]LogDebuggerCommands: Repeating last play command: Selected Viewport
+[2023.03.21-23.21.19:153][ 71]LogContentBundle: [Container: ThirdPersonMap] Generating Streaming for 0 Content Bundles.
+[2023.03.21-23.21.19:154][ 71]LogWorldPartition: Display: GenerateStreaming started...
+[2023.03.21-23.21.19:154][ 71]LogWorldPartition: Display: GetPartitionedActors started...
+[2023.03.21-23.21.19:154][ 71]LogWorldPartition: Display: GetPartitionedActors took 7 us (total: 35 us)
+[2023.03.21-23.21.19:154][ 71]LogWorldPartition: Display: GenerateStreaming took 185 us (total: 877 us)
+[2023.03.21-23.21.19:155][ 71]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2023.03.21-23.21.19:155][ 71]PIE: New page: PIE session: ThirdPersonMap (22 мар. 2023 г., 05:21:19)
+[2023.03.21-23.21.19:182][ 71]LogPlayLevel: Creating play world package: /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap
+[2023.03.21-23.21.19:186][ 71]LogPlayLevel: PIE: StaticDuplicateObject took: (0.003148s)
+[2023.03.21-23.21.19:186][ 71]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap to /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap (0.003194s)
+[2023.03.21-23.21.19:186][ 71]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-23.21.19:186][ 71]LogAIModule: Creating AISystem for world ThirdPersonMap
+[2023.03.21-23.21.19:186][ 71]LogWorldPartition: ULevel::OnLevelLoaded(ThirdPersonMap)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, bIsValidLevelInstance=0, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=0)
+[2023.03.21-23.21.19:186][ 71]LogWorldPartition: Display: WorldPartition initialize started...
+[2023.03.21-23.21.19:186][ 71]LogWorldPartition: UWorldPartition::Initialize(Asset=ThirdPersonMap, IsEditor=0, bPIEWorldTravel=0 IsGame=0, IsCooking=0)
+[2023.03.21-23.21.19:187][ 71]LogContentBundle: [Container: ThirdPersonMap] Creating new contrainer.
+[2023.03.21-23.21.19:187][ 71]LogWorldPartition: Display: WorldPartition initialize took 740 us (total: 187 ms)
+[2023.03.21-23.21.19:187][ 71]LogPlayLevel: PIE: World Init took: (0.001522s)
+[2023.03.21-23.21.19:219][ 71]LogUObjectHash: Compacting FUObjectHashTables data took   1.55ms
+[2023.03.21-23.21.19:220][ 71]LogAudio: Display: Creating Audio Device:                 Id: 6, Scope: Unique, Realtime: True
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Max Channels (voices):				  0
+[2023.03.21-23.21.19:220][ 71]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2023.03.21-23.21.19:220][ 71]LogAudio: Display: AudioDevice MaxSources: 32
+[2023.03.21-23.21.19:220][ 71]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2023.03.21-23.21.19:220][ 71]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2023.03.21-23.21.19:220][ 71]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2023.03.21-23.21.19:222][ 71]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2023.03.21-23.21.19:233][ 71]LogAudioMixer: Display: Using Audio Hardware Device Динамики (High Definition Audio Device)
+[2023.03.21-23.21.19:233][ 71]LogAudioMixer: Display: Initializing Sound Submixes...
+[2023.03.21-23.21.19:233][ 71]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2023.03.21-23.21.19:233][ 71]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2023.03.21-23.21.19:234][ 71]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=6
+[2023.03.21-23.21.19:234][ 71]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=6
+[2023.03.21-23.21.19:235][ 71]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=6
+[2023.03.21-23.21.19:235][ 71]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=6
+[2023.03.21-23.21.19:235][ 71]LogInit: FAudioDevice initialized.
+[2023.03.21-23.21.19:235][ 71]LogAudio: Display: Audio Device (ID: 6) registered with world 'ThirdPersonMap'.
+[2023.03.21-23.21.19:237][ 71]LogLoad: Game class is 'ReplicationSampleGameMode'
+[2023.03.21-23.21.19:238][ 71]LogWorld: Bringing World /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap up for play (max tick rate 0) at 2023.03.22-02.21.19
+[2023.03.21-23.21.19:239][ 71]LogWorld: Bringing up level for play took: 0.001208
+[2023.03.21-23.21.19:240][ 71]LogOnline: OSS: Created online subsystem instance for: :Context_11
+[2023.03.21-23.21.19:242][ 71]LogWorldPartition: New Streaming Source: BP_InteractionPlayerController_C_0 -> Position: X=900.000 Y=1110.000 Z=92.013
+[2023.03.21-23.21.19:243][ 71]PIE: Server logged in
+[2023.03.21-23.21.19:243][ 71]PIE: Play in editor total start time 0,091 seconds.
+[2023.03.21-23.21.22:371][355]LogTemp: Error: 汣獡⁳瑳㩤攺捸灥楴湯灟牴
+[2023.03.21-23.21.38:633][723]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2023.03.21-23.21.38:633][723]LogWorld: BeginTearingDown for /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap
+[2023.03.21-23.21.38:633][723]LogWorld: UWorld::CleanupWorld for ThirdPersonMap, bSessionEnded=true, bCleanupResources=true
+[2023.03.21-23.21.38:634][723]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-23.21.38:634][723]LogContentBundle: [Container: ThirdPersonMap] Deleting container.
+[2023.03.21-23.21.38:636][723]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2023.03.21-23.21.38:641][723]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-23.21.38:673][723]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2023.03.21-23.21.38:673][723]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=6
+[2023.03.21-23.21.38:675][723]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=6
+[2023.03.21-23.21.38:679][723]LogUObjectHash: Compacting FUObjectHashTables data took   1.40ms
+[2023.03.21-23.21.38:727][724]LogPlayLevel: Display: Destroying online subsystem :Context_11
+[2023.03.21-23.22.06:863][404]LogUObjectHash: Compacting FUObjectHashTables data took   0.89ms
