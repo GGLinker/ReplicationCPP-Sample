@@ -13,6 +13,10 @@ AInteractionPlayerController::AInteractionPlayerController()
 	});
 }
 
+void AInteractionPlayerController::SetupEntitiesRepresentation(TArray<FInteractableItemEntity> Data)
+{
+	ItemsContainer->SetParams(Data);
+}
 TArray<FInteractableItemEntity> AInteractionPlayerController::GetItemsRepresentation() const
 {
 	return ItemsContainer->GetRepresentation();

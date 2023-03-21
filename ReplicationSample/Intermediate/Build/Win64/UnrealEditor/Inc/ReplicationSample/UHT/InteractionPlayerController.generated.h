@@ -52,6 +52,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execSwitchSelected); \
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
+	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
 	DECLARE_FUNCTION(execGetSelected);
 
 
@@ -62,6 +63,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execSwitchSelected); \
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
+	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
 	DECLARE_FUNCTION(execGetSelected);
 
 

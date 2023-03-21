@@ -31,6 +31,9 @@ protected:
 	
 public:
 
+
+	UFUNCTION(BlueprintCallable)
+	void SetupEntitiesRepresentation(TArray<FInteractableItemEntity> Data);
 	UFUNCTION(BlueprintCallable)
 	TArray<FInteractableItemEntity> GetItemsRepresentation() const;
 	
