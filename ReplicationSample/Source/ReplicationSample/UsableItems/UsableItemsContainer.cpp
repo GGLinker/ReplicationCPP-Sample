@@ -7,46 +7,46 @@ UsableItemsContainer::UsableItemsContainer()
 {}
 
 UsableItemsContainer::EntitySet UsableItemsContainer::GetRepresentation() const
-{ return entitiesRepresentation; }
+{ return EntitiesRepresentation; }
 
-int UsableItemsContainer::OperateEntities(EInteractableItemType operateEntityType, int accum)
+int UsableItemsContainer::OperateEntities(EInteractableItemType OperateEntityType, int Accum)
 {
-	for(int i = 0; i < entitiesRepresentation.Num(); i++)
+	for(int i = 0; i < EntitiesRepresentation.Num(); i++)
 	{
-		if(entitiesRepresentation[i].entityType == operateEntityType)
+		if(EntitiesRepresentation[i].entityType == OperateEntityType)
 		{
-			const int accumulated = entitiesRepresentation[i].itemsAmount + accum;
-			if(accumulated < 0) throw std::range_error("");
+			const int accumulated = EntitiesRepresentation[i].itemsAmount + Accum;
+			if(accumulated < 0) throw std::range_error("Entities range error");
 			
-			return entitiesRepresentation[i].itemsAmount = accumulated;
+			return EntitiesRepresentation[i].itemsAmount = accumulated;
 		}
 	}
 
 	throw "Entity not found";
 }
 
-int UsableItemsContainer::SwitchSelected(bool next)
+int UsableItemsContainer::SwitchSelected(const bool bNext)
 {
-	auto res = selectedIndex + (next ? 1 : -1);
-	if(res >= 0 && res < entitiesRepresentation.Num())
+	const auto Res = SelectedIndex + (bNext ? 1 : -1);
+	if(Res >= 0 && Res < EntitiesRepresentation.Num())
 	{
-		return selectedIndex = res;
+		return SelectedIndex = Res;
 	}
 
-	if(res < 0)
+	if(Res < 0)
 	{
-		return selectedIndex = entitiesRepresentation.Num() - 1;
+		return SelectedIndex = EntitiesRepresentation.Num() - 1;
 	}
 
-	return selectedIndex = 0;
+	return SelectedIndex = 0;
 }
 
 EInteractableItemType UsableItemsContainer::GetSelected() const
 {
-	return entitiesRepresentation[selectedIndex].entityType;
+	return EntitiesRepresentation[SelectedIndex].entityType;
 }
 
 UMaterialInstance* UsableItemsContainer::GetSelectedMaterial() const
 {
-	return entitiesRepresentation[selectedIndex].material;
+	return EntitiesRepresentation[SelectedIndex].material;
 }

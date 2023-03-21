@@ -37,7 +37,7 @@ public:
 	UFUNCTION()
 	void OperateItemsContainer(EInteractableItemType operateEntityType, int accum) const;
 	UFUNCTION()
-	void SwitchSelected(bool next) const;
+	void SwitchSelected(bool bNext) const;
 	//Returns true if there's an item to shoot
 	UFUNCTION()
 	bool Shoot() const;

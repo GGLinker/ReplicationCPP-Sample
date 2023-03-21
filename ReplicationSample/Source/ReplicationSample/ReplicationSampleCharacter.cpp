@@ -213,11 +213,11 @@ void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 
 void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
 {
-	const bool WheelAxis = Value.Get<bool>();
+	const float WheelAxis = Value.Get<float>();
 	
 	if (interactionController)
 	{
-		interactionController->SwitchSelected(WheelAxis);
+		interactionController->SwitchSelected(WheelAxis > 0);
 	}
 }
 

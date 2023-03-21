@@ -48,8 +48,8 @@ class REPLICATIONSAMPLE_API UsableItemsContainer final : public UObject
 	using EntitySet = TArray<FInteractableItemEntity>;
 
 	UPROPERTY(meta = (AllowPrivateAccess = true))
-	TArray<FInteractableItemEntity> entitiesRepresentation;
-	int selectedIndex;
+	TArray<FInteractableItemEntity> EntitiesRepresentation;
+	int SelectedIndex;
 
 public:
 
@@ -57,17 +57,17 @@ public:
 
 	//SETUP
 	UFUNCTION()
-	void SetParams(TArray<FInteractableItemEntity> representation)
+	void SetParams(const TArray<FInteractableItemEntity> Representation)
 	{
-		entitiesRepresentation = representation;
+		EntitiesRepresentation = Representation;
 	}
 	UFUNCTION()
 	TArray<FInteractableItemEntity> GetRepresentation() const;
 
 	UFUNCTION()
-	int OperateEntities(EInteractableItemType operateEntityType, int accum);
+	int OperateEntities(EInteractableItemType OperateEntityType, int Accum);
 	UFUNCTION()
-	int SwitchSelected(bool next);
+	int SwitchSelected(bool bNext);
 	UFUNCTION()
 	EInteractableItemType GetSelected() const;
 

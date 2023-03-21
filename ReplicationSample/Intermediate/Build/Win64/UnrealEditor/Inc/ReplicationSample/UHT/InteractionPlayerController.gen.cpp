@@ -104,10 +104,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execSwitchSelected)
 	{
-		P_GET_UBOOL(Z_Param_next);
+		P_GET_UBOOL(Z_Param_bNext);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SwitchSelected(Z_Param_next);
+		P_THIS->SwitchSelected(Z_Param_bNext);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execOperateItemsContainer)
@@ -324,23 +324,23 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	{
 		struct InteractionPlayerController_eventSwitchSelected_Parms
 		{
-			bool next;
+			bool bNext;
 		};
-		static void NewProp_next_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_next;
+		static void NewProp_bNext_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bNext;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_next_SetBit(void* Obj)
+	void Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_bNext_SetBit(void* Obj)
 	{
-		((InteractionPlayerController_eventSwitchSelected_Parms*)Obj)->next = 1;
+		((InteractionPlayerController_eventSwitchSelected_Parms*)Obj)->bNext = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_next = { "next", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(InteractionPlayerController_eventSwitchSelected_Parms), &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_next_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_bNext = { "bNext", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, sizeof(bool), sizeof(InteractionPlayerController_eventSwitchSelected_Parms), &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_bNext_SetBit, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_next,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::NewProp_bNext,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::Function_MetaDataParams[] = {
@@ -391,7 +391,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedMaterialInstance, "GetSelectedMaterialInstance" }, // 2232665896
 		{ &Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer, "OperateItemsContainer" }, // 2906705278
 		{ &Z_Construct_UFunction_AInteractionPlayerController_Shoot, "Shoot" }, // 3372537794
-		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 2671225027
+		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 364108946
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::Class_MetaDataParams[] = {
@@ -457,9 +457,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 3430186773U) },
+		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 2338501171U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_3086679608(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_950915608(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

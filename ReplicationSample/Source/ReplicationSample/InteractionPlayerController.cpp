@@ -23,21 +23,12 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 	try
 	{
 		const auto NewAmount = ItemsContainer->OperateEntities(operateEntityType, accum);
-		OnItemsContainerStateUpdate.Broadcast(operateEntityType, NewAmount);
-	}
-	catch(std::range_error e)
-	{
-		UE_LOG(LogTemp, Error, TEXT("There's no such overlapped elements in %s)"), operateEntityType);
-		throw;
-	}
-	catch(std::string e)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("There's no such Element type tack: %s"), operateEntityType);
-		throw;
+		OnItemsContainerStateUpdate.Broadcast(operateEntityType, NewAmount);		
 	}
 	catch(...)
 	{
 		UE_LOG(LogTemp, Error, TEXT("%s"), typeid(std::current_exception()).name());
+		throw;
 	}
 }
 bool AInteractionPlayerController::Shoot() const
@@ -56,9 +47,9 @@ bool AInteractionPlayerController::Shoot() const
 }
 
 
-void AInteractionPlayerController::SwitchSelected(bool next) const
+void AInteractionPlayerController::SwitchSelected(const bool bNext) const
 {
-	OnSelectedItemSwitch.Broadcast(ItemsContainer->SwitchSelected(next));
+	OnSelectedItemSwitch.Broadcast(ItemsContainer->SwitchSelected(bNext));
 }
 
 EInteractableItemType AInteractionPlayerController::GetSelected() const
