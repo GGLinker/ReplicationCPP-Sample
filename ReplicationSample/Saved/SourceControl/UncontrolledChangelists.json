@@ -8,6 +8,20 @@
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/IMC_Default.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/OG/KDQDMXAXZXD8VLDDU4K3JL.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_Move.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_PickItem.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_SelectItems.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_Shoot.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/LevelPrototyping/Materials/MI_Solid_Green.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/LevelPrototyping/Materials/MI_Solid_Blue.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/LevelPrototyping/Materials/MI_Solid_Red.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/OX/HO5YY42L282J85KOD7V3K4.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Maps/ThirdPersonMap.umap",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/BP_InteractionPlayerController.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_MyBaseSampleHUD.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_Shoot1.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_ShootStart.uasset",
 				"Z:/UnrealEngineProjects/ReplicationSample/Content/StarterContent/Particles/P_Ambient_Dust.uasset"
 			]
 		}

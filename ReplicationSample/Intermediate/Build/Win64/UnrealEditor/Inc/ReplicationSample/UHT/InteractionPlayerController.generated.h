@@ -9,14 +9,62 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UMaterialInstance;
+struct FInteractableItemEntity;
 #ifdef REPLICATIONSAMPLE_InteractionPlayerController_generated_h
 #error "InteractionPlayerController.generated.h already included, missing '#pragma once' in InteractionPlayerController.h"
 #endif
 #define REPLICATIONSAMPLE_InteractionPlayerController_generated_h
 
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_10_DELEGATE \
+struct _Script_ReplicationSample_eventItemsContainerStateUpdate_Parms \
+{ \
+	TEnumAsByte<EInteractableItemType> EntityType; \
+	int32 Accum; \
+}; \
+static inline void FItemsContainerStateUpdate_DelegateWrapper(const FMulticastScriptDelegate& ItemsContainerStateUpdate, EInteractableItemType EntityType, int32 Accum) \
+{ \
+	_Script_ReplicationSample_eventItemsContainerStateUpdate_Parms Parms; \
+	Parms.EntityType=EntityType; \
+	Parms.Accum=Accum; \
+	ItemsContainerStateUpdate.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_11_DELEGATE \
+struct _Script_ReplicationSample_eventItemsContainerSelectionOperate_Parms \
+{ \
+	int32 NewIndex; \
+}; \
+static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMulticastScriptDelegate& ItemsContainerSelectionOperate, int32 NewIndex) \
+{ \
+	_Script_ReplicationSample_eventItemsContainerSelectionOperate_Parms Parms; \
+	Parms.NewIndex=NewIndex; \
+	ItemsContainerSelectionOperate.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_SPARSE_DATA
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
+	DECLARE_FUNCTION(execShoot); \
+	DECLARE_FUNCTION(execSwitchSelected); \
+	DECLARE_FUNCTION(execOperateItemsContainer); \
+	DECLARE_FUNCTION(execGetItemsRepresentation); \
+	DECLARE_FUNCTION(execGetSelected);
+
+
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
+	DECLARE_FUNCTION(execShoot); \
+	DECLARE_FUNCTION(execSwitchSelected); \
+	DECLARE_FUNCTION(execOperateItemsContainer); \
+	DECLARE_FUNCTION(execGetItemsRepresentation); \
+	DECLARE_FUNCTION(execGetSelected);
+
+
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_ACCESSORS
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_INCLASS_NO_PURE_DECLS \
 private: \

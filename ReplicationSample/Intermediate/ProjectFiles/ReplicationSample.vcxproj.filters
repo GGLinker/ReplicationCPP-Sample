@@ -11,6 +11,7 @@
     <None Include="..\..\Source\ReplicationSampleEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -29,6 +30,18 @@
     </None>
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
+    </None>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{ED49A36C-4FD5-37E5-A2AC-E11BEF4F21CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens">
+      <UniqueIdentifier>{28125F47-4973-377C-9D77-EBC3C72EC856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\HoloLens\Config">
+      <UniqueIdentifier>{D3BF39CB-FA64-39E2-A327-B5021BA69773}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Platforms\HoloLens\Config\HoloLensEngine.ini">
+      <Filter>Platforms\HoloLens\Config</Filter>
     </None>
     <Filter Include="Source\ReplicationSample">
       <UniqueIdentifier>{2595B43C-EC9F-34E8-9A2D-27A0A333D082}</UniqueIdentifier>
@@ -59,6 +72,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\ReplicationSample\ReplicationSampleGameMode.h">
       <Filter>Source\ReplicationSample</Filter>
+    </ClInclude>
+    <Filter Include="Source\ReplicationSample\UsableItems">
+      <UniqueIdentifier>{F032F7F3-E5D8-3B8E-8DAD-4A113CEAF894}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ReplicationSample\UsableItems\ItemUsabilityTag.cpp">
+      <Filter>Source\ReplicationSample\UsableItems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ReplicationSample\UsableItems\ItemUsabilityTag.h">
+      <Filter>Source\ReplicationSample\UsableItems</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ReplicationSample\UsableItems\UsableItemsContainer.cpp">
+      <Filter>Source\ReplicationSample\UsableItems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ReplicationSample\UsableItems\UsableItemsContainer.h">
+      <Filter>Source\ReplicationSample\UsableItems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

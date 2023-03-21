@@ -9,6 +9,10 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "InteractionPlayerController.h"
+#include "Engine/StaticMeshActor.h"
+#include "Engine/TriggerSphere.h"
+#include "UsableItems/ItemUsabilityTag.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -45,10 +49,15 @@ AReplicationSampleCharacter::AReplicationSampleCharacter()
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
-	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to armz
 
-	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
-	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+	// Setup trigger
+	TriggerSphere = CreateDefaultSubobject<ATriggerSphere>("TriggerSphere");
+	TriggerSphere->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform, TEXT("TriggerSphere"));
+	RegisterWorldObjItem.BindUFunction(this, "OnTriggerSphereBeginOverlap");
+	TriggerSphere->OnActorBeginOverlap.Add(RegisterWorldObjItem);
+	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
+	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
 }
 
 void AReplicationSampleCharacter::BeginPlay()
@@ -57,11 +66,45 @@ void AReplicationSampleCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	//Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	interactionController = Cast<AInteractionPlayerController>(Controller);
+
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(interactionController->GetLocalPlayer()))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+	}
+}
+
+
+void AReplicationSampleCharacter::OnTriggerSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (const auto tagComponent = OtherActor->FindComponentByClass<UItemUsabilityTag>())
+	{
+		TriggerHandler(tagComponent, OtherActor, true);
+	}
+}
+void AReplicationSampleCharacter::OnTriggerSphereEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (const auto tagComponent = OtherActor->FindComponentByClass<UItemUsabilityTag>())
+	{
+		TriggerHandler(tagComponent, OtherActor, false);
+	}
+}
+
+void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, AActor* actorRef, bool overlap)
+{
+	const auto type {tag->GetType()};
+	
+	if(overlap)
+	{
+		OverlappedItemsContainer.Add(FOverlapElem{type, actorRef});
+		return;
+	}
+
+	for(auto item : OverlappedItemsContainer)
+	{
+		if(!item.actorRef || actorRef == item.actorRef)
 		{
-			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+			OverlappedItemsContainer.Remove(item);
 		}
 	}
 }
@@ -84,6 +127,14 @@ void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponen
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AReplicationSampleCharacter::Look);
 
+		/**/
+		//Pickup items
+		EnhancedInputComponent->BindAction(PickupAction, ETriggerEvent::Triggered, this, &AReplicationSampleCharacter::Pickup);
+		//Select items
+		EnhancedInputComponent->BindAction(SelectItemAction, ETriggerEvent::Triggered, this, &AReplicationSampleCharacter::SelectItem);
+		//Shoot
+		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Started, this, &AReplicationSampleCharacter::StartLoadTimer);
+		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AReplicationSampleCharacter::Shoot);
 	}
 
 }
@@ -91,7 +142,7 @@ void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponen
 void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D MovementVector = Value.Get<FVector2D>();
+	const FVector2D MovementVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
 	{
@@ -114,7 +165,7 @@ void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
 void AReplicationSampleCharacter::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
-	FVector2D LookAxisVector = Value.Get<FVector2D>();
+	const FVector2D LookAxisVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
 	{
@@ -124,6 +175,82 @@ void AReplicationSampleCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
+void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
+{
+	if (interactionController && OverlappedItemsContainer.Num() > 0)
+	{
+		float MinDist = std::numeric_limits<float>::max();
+		int MinIndex = 0;
+		
+		for(int i = 0; i < OverlappedItemsContainer.Num(); i++)
+		{
+			const auto Item = OverlappedItemsContainer[i];
+			if(!Item.actorRef)
+			{
+				OverlappedItemsContainer.RemoveAt(i);
+				continue;
+			}
 
+			if(const float Dist = FVector::Dist(Item.actorRef->GetActorTransform().GetLocation(), this->GetTransform().GetLocation()) < MinDist)
+			{
+				MinDist = Dist;
+				MinIndex = i;
+			}
+		}
 
+		{
+			const auto SelectedItem = OverlappedItemsContainer[MinIndex];
+			if(const auto Actor = SelectedItem.actorRef)
+			{
+				Actor->Destroy();
+			}
 
+			interactionController->OperateItemsContainer(SelectedItem.type, 1);
+			OverlappedItemsContainer.Remove(SelectedItem);
+		}
+	}
+}
+
+void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
+{
+	const bool WheelAxis = Value.Get<bool>();
+	
+	if (interactionController)
+	{
+		interactionController->SwitchSelected(WheelAxis);
+	}
+}
+
+void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
+{
+	LoadingStartTimespan = FDateTime::UtcNow();
+}
+void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
+{
+	if (interactionController)
+	{
+		const auto HoldTime = FDateTime::UtcNow() - LoadingStartTimespan;
+		const double NormalizedHoldTime = (HoldTime < HoldNormalizedThreshold ? HoldTime : HoldNormalizedThreshold).GetTotalSeconds() / HoldNormalizedThreshold.GetTotalSeconds();
+		
+		if(interactionController->Shoot())
+		{
+			const FRotator Rotation = Controller->GetControlRotation();
+			const FRotator YawRotation(0, Rotation.Yaw, 0);
+			// get forward vector
+			const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+			
+			auto Missile = Controller->GetWorld()->SpawnActor<AStaticMeshActor>(
+				Controller->GetTargetLocation() + ForwardDirection,
+				YawRotation,
+				FActorSpawnParameters());
+
+			auto MeshComponent = Missile->GetStaticMeshComponent();
+			MeshComponent->SetMaterial(0, interactionController->GetSelectedMaterialInstance());
+			Missile->SetMobility(EComponentMobility::Movable);
+
+			auto ForwardNormalizedVector {ForwardDirection};
+			ForwardNormalizedVector.Normalize(0.0001f);
+			MeshComponent->AddImpulse(ForwardNormalizedVector * NormalizedHoldTime * ShootingImpulseIntense);
+		}
+	}
+}

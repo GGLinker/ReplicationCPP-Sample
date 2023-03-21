@@ -3,10 +3,51 @@
 
 #include "UsableItemsContainer.h"
 
+UsableItemsContainer::UsableItemsContainer()
+{}
 
-UUsableItemsContainer::UUsableItemsContainer() :
-	entitiesRepresentation{{}}
-{}
-UUsableItemsContainer::UUsableItemsContainer(const TArray<FInteractableItemEntity>& initialRepresentation) :
-	entitiesRepresentation{initialRepresentation}
-{}
+UsableItemsContainer::EntitySet UsableItemsContainer::GetRepresentation() const
+{ return entitiesRepresentation; }
+
+void UsableItemsContainer::OperateEntities(EInteractableItemType operateEntityType, int accum)
+{
+	for(int i = 0; i < entitiesRepresentation.Num(); i++)
+	{
+		if(entitiesRepresentation[i].entityType == operateEntityType)
+		{
+			const int accumulated = entitiesRepresentation[i].itemsAmount + accum;
+			if(accumulated < 0) throw std::range_error("");
+
+			entitiesRepresentation[i].itemsAmount = accumulated;
+			return;
+		}
+	}
+
+	throw "Entity not found";
+}
+
+int UsableItemsContainer::SwitchSelected(bool next)
+{
+	auto res = selectedIndex + (next ? 1 : -1);
+	if(res >= 0 && res < entitiesRepresentation.Num())
+	{
+		return selectedIndex = res;
+	}
+
+	if(res < 0)
+	{
+		return selectedIndex = entitiesRepresentation.Num() - 1;
+	}
+
+	return selectedIndex = 0;
+}
+
+EInteractableItemType UsableItemsContainer::GetSelected() const
+{
+	return entitiesRepresentation[selectedIndex].entityType;
+}
+
+UMaterialInstance* UsableItemsContainer::GetSelectedMaterial() const
+{
+	return entitiesRepresentation[selectedIndex].material;
+}
