@@ -25,10 +25,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		struct _Script_ReplicationSample_eventItemsContainerStateUpdate_Parms
 		{
 			TEnumAsByte<EInteractableItemType> EntityType;
-			int32 Accum;
+			int32 UpdatedAmount;
 		};
 		static const UECodeGen_Private::FBytePropertyParams NewProp_EntityType;
-		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_Accum;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_UpdatedAmount;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -36,10 +36,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_EntityType = { "EntityType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_ReplicationSample_eventItemsContainerStateUpdate_Parms, EntityType), Z_Construct_UEnum_ReplicationSample_EInteractableItemType, METADATA_PARAMS(nullptr, 0) }; // 668409034
-	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_Accum = { "Accum", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_ReplicationSample_eventItemsContainerStateUpdate_Parms, Accum), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_UpdatedAmount = { "UpdatedAmount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(_Script_ReplicationSample_eventItemsContainerStateUpdate_Parms, UpdatedAmount), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_EntityType,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_Accum,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::NewProp_UpdatedAmount,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature_Statics::Function_MetaDataParams[] = {
@@ -407,7 +407,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ToolTip", "/UI update delegate*/\nUpdate items consistency" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate = { "OnItemsContainerStateUpdate", nullptr, (EPropertyFlags)0x0040000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, OnItemsContainerStateUpdate), Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate_MetaData)) }; // 3452278012
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate = { "OnItemsContainerStateUpdate", nullptr, (EPropertyFlags)0x0040000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, OnItemsContainerStateUpdate), Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate_MetaData)) }; // 1533068288
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch_MetaData[] = {
 		{ "Comment", "//Update selected item\n" },
@@ -457,9 +457,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 309942605U) },
+		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 3430186773U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_3414267899(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_3086679608(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

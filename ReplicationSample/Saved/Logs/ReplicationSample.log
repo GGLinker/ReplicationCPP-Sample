@@ -1235,3 +1235,519 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2023.03.21-22.05.17:586][980]LogUObjectHash: Compacting FUObjectHashTables data took   1.09ms
 [2023.03.21-22.05.17:612][980]Display: HotReload took  2.1s.
 [2023.03.21-22.05.17:612][980]Display: Reload/Re-instancing Complete: 1 package changed, 6 classes unchanged, 1 enum unchanged, 2 scriptstructs unchanged, 15 functions remapped, 2 scriptstructs remapped
+[2023.03.21-22.08.56:512][575]LogUObjectHash: Compacting FUObjectHashTables data took   1.72ms
+[2023.03.21-22.08.56:516][575]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.08.56:583][575]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD
+[2023.03.21-22.08.56:583][575]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/BP_ReplicationSampleHUDD4FE49364C336D6462EF428C6B03C4CA.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.uasset'
+[2023.03.21-22.08.56:588][575]LogFileHelpers: InternalPromptForCheckoutAndSave took 71 ms (total: 370 ms)
+[2023.03.21-22.08.56:594][575]AssetCheck: New page: Asset Save: BP_ReplicationSampleHUD
+[2023.03.21-22.08.56:594][575]LogContentValidation: Display: Validating /Script/Engine.Blueprint /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.BP_ReplicationSampleHUD
+[2023.03.21-22.09.05:190][305]LogSlate: Window 'Pick Root Widget for New Widget Blueprint' being destroyed
+[2023.03.21-22.09.05:194][305]LogContentBrowser: Deferred new asset file creation: NewWidgetBlueprint
+[2023.03.21-22.09.05:198][305]LogContentBrowser: Creating deferred item: NewWidgetBlueprint
+[2023.03.21-22.09.05:210][306]LogContentBrowser: Renaming the item being created (Deferred Item: NewWidgetBlueprint).
+[2023.03.21-22.09.52:590][991]LogContentBrowser: Attempting asset rename: NewWidgetBlueprint -> OnScreenContainerWidget_WBP
+[2023.03.21-22.09.52:599][991]LogContentBrowser: End creating deferred item NewWidgetBlueprint
+[2023.03.21-22.09.53:552][105]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.09.53:552][105]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.09.53:559][105]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.09.53:565][105]LogSlate: Warning: The command 'UMGEditor.OpenAnimDrawer' has the same default chord as 'EditorViewport.Next' [Ctrl+Shift+Space Bar]
+[2023.03.21-22.09.53:891][105]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.09.53:891][105]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.09.54:007][105]LogSlateStyle: Warning: Missing Resource from 'CoreStyle' Style: 'Unable to find SlateColor 'Foreground'.'
+[2023.03.21-22.09.54:011][105]LogSlate: Took 0.004049 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2023.03.21-22.09.55:535][251]LogUObjectHash: Compacting FUObjectHashTables data took   1.74ms
+[2023.03.21-22.09.55:537][251]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.09.55:581][251]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.09.55:581][251]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP3BA48A0D42F3379216FFFEB19AEACE1D.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.09.55:586][251]LogFileHelpers: InternalPromptForCheckoutAndSave took 47 ms (total: 418 ms)
+[2023.03.21-22.09.55:593][251]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.09.55:593][251]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.11.30:524][492]LogEditorTransaction: Undo Edit Bottom
+[2023.03.21-22.11.30:788][496]Cmd: TRANSACTION UNDO
+[2023.03.21-22.11.30:788][496]LogEditorTransaction: Undo Edit Top
+[2023.03.21-22.11.30:869][497]Cmd: TRANSACTION UNDO
+[2023.03.21-22.11.30:869][497]LogEditorTransaction: Undo Edit Right
+[2023.03.21-22.11.31:312][531]Cmd: TRANSACTION UNDO
+[2023.03.21-22.11.31:312][531]LogEditorTransaction: Undo Edit Top
+[2023.03.21-22.11.31:636][566]Cmd: TRANSACTION UNDO
+[2023.03.21-22.11.31:636][566]LogEditorTransaction: Undo Edit Left
+[2023.03.21-22.11.40:269][399]LogSlate: Window 'Pick Root Widget for New Widget Blueprint' being destroyed
+[2023.03.21-22.11.40:272][399]LogContentBrowser: Deferred new asset file creation: NewWidgetBlueprint
+[2023.03.21-22.11.40:276][399]LogContentBrowser: Creating deferred item: NewWidgetBlueprint
+[2023.03.21-22.11.40:282][400]LogContentBrowser: Renaming the item being created (Deferred Item: NewWidgetBlueprint).
+[2023.03.21-22.11.51:712][772]LogContentBrowser: Attempting asset rename: NewWidgetBlueprint -> ItemDetails_WBP
+[2023.03.21-22.11.51:716][772]LogContentBrowser: End creating deferred item NewWidgetBlueprint
+[2023.03.21-22.11.52:261][836]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.11.52:261][836]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.11.52:270][836]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.11.52:607][836]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.11.52:607][836]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.11.53:510][933]LogUObjectHash: Compacting FUObjectHashTables data took   2.05ms
+[2023.03.21-22.11.53:513][933]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.11.53:561][933]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.11.53:561][933]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPA9BA667D4A1EB0D872F96B904723F9CD.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.11.53:565][933]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.11.53:565][933]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPA21C4CEF42A7865DED1D19AF28D7612F.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.11.53:569][933]LogFileHelpers: InternalPromptForCheckoutAndSave took 56 ms (total: 474 ms)
+[2023.03.21-22.11.53:577][933]AssetCheck: New page: Asset Save: multiple assets
+[2023.03.21-22.11.53:577][933]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.11.53:577][933]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.13.05:704][440]LogEditorTransaction: Undo Move Anchor
+[2023.03.21-22.14.32:362][660]LogEditorTransaction: Undo Edit Bottom
+[2023.03.21-22.14.36:455][ 90]LogEditorTransaction: Undo Edit Size To Content
+[2023.03.21-22.14.36:953][ 99]Cmd: TRANSACTION UNDO
+[2023.03.21-22.14.36:953][ 99]LogEditorTransaction: Undo Edit Bottom
+[2023.03.21-22.15.00:076][801]LogUObjectHash: Compacting FUObjectHashTables data took   1.95ms
+[2023.03.21-22.15.00:080][801]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.15.00:113][801]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.15.00:113][801]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPDF180B3649F2505651EA25A0220DDC22.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.15.00:117][801]LogFileHelpers: InternalPromptForCheckoutAndSave took 36 ms (total: 511 ms)
+[2023.03.21-22.15.00:127][801]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.15.00:127][801]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.15.13:867][432]LogUObjectHash: Compacting FUObjectHashTables data took   0.79ms
+[2023.03.21-22.15.13:870][432]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.15.13:918][432]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.15.13:918][432]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPB48551EC4129787A2D2D7ABF87FA18F5.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.15.13:921][432]LogFileHelpers: InternalPromptForCheckoutAndSave took 51 ms (total: 562 ms)
+[2023.03.21-22.15.13:931][432]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.15.13:931][432]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.15.24:961][721]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.15.25:306][755]LogUObjectHash: Compacting FUObjectHashTables data took   0.70ms
+[2023.03.21-22.15.25:309][755]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.15.25:338][755]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.15.25:338][755]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP58B11EDD43BE37A187988790FDEC80D4.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.15.25:342][755]LogFileHelpers: InternalPromptForCheckoutAndSave took 32 ms (total: 595 ms)
+[2023.03.21-22.15.25:352][755]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.15.25:352][755]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.15.42:862][821]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.15.42:935][821]LogUObjectHash: Compacting FUObjectHashTables data took   1.84ms
+[2023.03.21-22.15.58:718][694]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.15.58:788][694]LogUObjectHash: Compacting FUObjectHashTables data took   1.76ms
+[2023.03.21-22.16.23:829][683]LogSlate: Took 0.003541 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensedItalic.ttf' (160K)
+[2023.03.21-22.16.33:097][772]LogBlueprint: Warning: [AssetLog] Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Content\ThirdPerson\Blueprints\UI\ItemDetails_WBP.uasset: [Compiler] Variable IconAsset is marked as 'Expose on Spawn' but not marked as 'Instance Editable'; please make it 'Instance Editable'
+[2023.03.21-22.16.54:047][270]LogBlueprint: Warning: [AssetLog] Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Content\ThirdPerson\Blueprints\UI\ItemDetails_WBP.uasset: [Compiler] Variable DisplayText is marked as 'Expose on Spawn' but not marked as 'Instance Editable'; please make it 'Instance Editable'
+[2023.03.21-22.16.56:655][578]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.16.56:663][578]LogClass: Warning: Type mismatch in IconAsset of ItemDetails_WBP_C - Previous (BoolProperty) Current(ObjectProperty) for package:  FObjectReader
+[2023.03.21-22.16.56:732][578]LogUObjectHash: Compacting FUObjectHashTables data took   2.35ms
+[2023.03.21-22.17.36:013][186]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.17.36:087][186]LogUObjectHash: Compacting FUObjectHashTables data took   1.72ms
+[2023.03.21-22.17.36:322][203]LogUObjectHash: Compacting FUObjectHashTables data took   1.87ms
+[2023.03.21-22.17.36:326][203]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.17.36:372][203]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.17.36:372][203]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPB25142F14EC4A5304F49CEA02DB1137E.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.17.36:376][203]LogFileHelpers: InternalPromptForCheckoutAndSave took 50 ms (total: 646 ms)
+[2023.03.21-22.17.36:385][203]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.17.36:385][203]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.17.40:906][709]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.17.40:906][709]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.18.14:902][638]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.18.14:978][638]LogUObjectHash: Compacting FUObjectHashTables data took   1.77ms
+[2023.03.21-22.18.15:322][667]LogUObjectHash: Compacting FUObjectHashTables data took   1.80ms
+[2023.03.21-22.18.15:324][667]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.18.15:387][667]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.18.15:387][667]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPB60A30844D280D82A23C82B10E9777D8.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.18.15:391][667]LogFileHelpers: InternalPromptForCheckoutAndSave took 65 ms (total: 711 ms)
+[2023.03.21-22.18.15:399][667]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.18.15:399][667]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.18.15:982][731]LogUObjectHash: Compacting FUObjectHashTables data took   0.77ms
+[2023.03.21-22.18.53:733][ 89]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.18.53:806][ 89]LogUObjectHash: Compacting FUObjectHashTables data took   1.85ms
+[2023.03.21-22.18.54:836][202]LogUObjectHash: Compacting FUObjectHashTables data took   1.68ms
+[2023.03.21-22.18.54:839][202]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.18.54:904][202]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.18.54:904][202]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP1A7355574FD739E5CE87309DF1B0B3D5.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.18.54:908][202]LogFileHelpers: InternalPromptForCheckoutAndSave took 67 ms (total: 779 ms)
+[2023.03.21-22.18.54:917][202]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.18.54:917][202]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.18.58:110][571]LogUObjectHash: Compacting FUObjectHashTables data took   0.71ms
+[2023.03.21-22.18.58:113][571]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.18.58:171][571]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.18.58:171][571]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPD3D7308141EC956EFE5F91BB83E9589E.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.18.58:174][571]LogFileHelpers: InternalPromptForCheckoutAndSave took 60 ms (total: 840 ms)
+[2023.03.21-22.18.58:183][571]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.18.58:183][571]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.18.59:460][722]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.18.59:537][722]LogUObjectHash: Compacting FUObjectHashTables data took   1.90ms
+[2023.03.21-22.18.59:785][742]LogUObjectHash: Compacting FUObjectHashTables data took   2.25ms
+[2023.03.21-22.19.00:727][853]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.19.00:727][853]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.19.12:756][264]LogSlate: Took 0.005540 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansFallback.ttf' (3848K)
+[2023.03.21-22.19.51:365][839]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_13:ItemDetails_WBP_C_66
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.19.52:403][961]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_13:ItemDetails_WBP_C_67
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.19.54:800][240]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.19.54:895][240]LogUObjectHash: Compacting FUObjectHashTables data took   1.84ms
+[2023.03.21-22.19.55:379][284]LogUObjectHash: Compacting FUObjectHashTables data took   1.75ms
+[2023.03.21-22.19.55:382][284]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.19.55:440][284]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.19.55:440][284]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPEEAA5C8B4E2AF2B24CC16086B8FC27A3.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.19.55:446][284]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.19.55:446][284]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPDF8B60CA4389E0C3699C72994E0FDF10.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.19.55:450][284]LogFileHelpers: InternalPromptForCheckoutAndSave took 67 ms (total: 907 ms)
+[2023.03.21-22.19.55:458][284]AssetCheck: New page: Asset Save: multiple assets
+[2023.03.21-22.19.55:458][284]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.19.55:458][284]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.20.04:961][414]Cmd: TRANSACTION UNDO
+[2023.03.21-22.20.04:961][414]LogEditorTransaction: Undo Paste clipboard contents
+[2023.03.21-22.20.05:019][414]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_13:ItemDetails_WBP_C_71
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.20.05:119][417]Cmd: TRANSACTION UNDO
+[2023.03.21-22.20.05:119][417]LogEditorTransaction: Undo Remove Widget
+[2023.03.21-22.20.05:168][417]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_13:ItemDetails_WBP_C_72
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.20.05:274][420]Cmd: TRANSACTION UNDO
+[2023.03.21-22.20.05:274][420]LogEditorTransaction: Undo Remove Widget
+[2023.03.21-22.20.36:380][ 95]LogUObjectHash: Compacting FUObjectHashTables data took   1.89ms
+[2023.03.21-22.20.36:384][ 95]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.20.36:428][ 95]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.20.36:428][ 95]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPC9A75093441DE51C5E9A0F913BCBA941.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.20.36:432][ 95]LogFileHelpers: InternalPromptForCheckoutAndSave took 48 ms (total: 956 ms)
+[2023.03.21-22.20.36:442][ 95]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.20.36:442][ 95]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.20.36:889][147]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.20.36:991][147]LogUObjectHash: Compacting FUObjectHashTables data took   1.86ms
+[2023.03.21-22.20.37:202][160]LogUObjectHash: Compacting FUObjectHashTables data took   1.75ms
+[2023.03.21-22.22.21:822][477]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.22.21:894][477]LogUObjectHash: Compacting FUObjectHashTables data took   1.85ms
+[2023.03.21-22.22.22:082][485]LogUObjectHash: Compacting FUObjectHashTables data took   1.78ms
+[2023.03.21-22.22.22:085][485]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.22.22:129][485]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.22.22:130][485]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPBA719A384C8D57534337B4BA3E15DC5A.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.22.22:133][485]LogFileHelpers: InternalPromptForCheckoutAndSave took 47 ms (total: 1.00 sec)
+[2023.03.21-22.22.22:142][485]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.22.22:142][485]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.22.24:242][727]LogUObjectHash: Compacting FUObjectHashTables data took   0.83ms
+[2023.03.21-22.22.38:746][285]LogSlate: Window 'Pick Root Widget for New Widget Blueprint' being destroyed
+[2023.03.21-22.22.38:749][285]LogContentBrowser: Deferred new asset file creation: NewWidgetBlueprint
+[2023.03.21-22.22.38:754][285]LogContentBrowser: Creating deferred item: NewWidgetBlueprint
+[2023.03.21-22.22.38:761][286]LogContentBrowser: Renaming the item being created (Deferred Item: NewWidgetBlueprint).
+[2023.03.21-22.23.01:331][994]LogContentBrowser: Attempting asset rename: NewWidgetBlueprint -> ScreenUI_Global_WBP
+[2023.03.21-22.23.01:335][994]LogContentBrowser: End creating deferred item NewWidgetBlueprint
+[2023.03.21-22.23.02:256][102]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.23.02:257][102]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.23.02:263][102]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.23.02:552][102]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.23.02:552][102]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.23.03:581][214]LogUObjectHash: Compacting FUObjectHashTables data took   2.16ms
+[2023.03.21-22.23.03:584][214]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.23.03:643][214]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.23.03:643][214]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP599B429C4D0E6042BE686BBC608EC740.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.23.03:646][214]LogFileHelpers: InternalPromptForCheckoutAndSave took 62 ms (total: 1.06 sec)
+[2023.03.21-22.23.03:654][214]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.23.03:654][214]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.26.15:958][917]LogWorld: UWorld::CleanupWorld for World_13, bSessionEnded=true, bCleanupResources=true
+[2023.03.21-22.26.15:958][917]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-22.26.15:969][917]LogWorld: UWorld::CleanupWorld for World_12, bSessionEnded=true, bCleanupResources=true
+[2023.03.21-22.26.15:969][917]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.03.21-22.26.27:122][202]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.26.27:232][202]LogUObjectHash: Compacting FUObjectHashTables data took   1.85ms
+[2023.03.21-22.26.27:464][214]LogUObjectHash: Compacting FUObjectHashTables data took   2.06ms
+[2023.03.21-22.26.27:469][214]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.26.27:522][214]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.26.27:522][214]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP28DE21D4480AAC66EED30B8EA0274A65.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.26.27:526][214]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.26.27:527][214]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP2F6C062F4DE05F78239B13BF64963DF9.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.26.27:532][214]LogFileHelpers: InternalPromptForCheckoutAndSave took 62 ms (total: 1.12 sec)
+[2023.03.21-22.26.27:540][214]AssetCheck: New page: Asset Save: multiple assets
+[2023.03.21-22.26.27:540][214]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.26.27:540][214]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.28.13:367][700]LogUObjectHash: Compacting FUObjectHashTables data took   2.49ms
+[2023.03.21-22.28.13:375][700]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.28.13:427][700]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.28.13:427][700]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP485844D040116374E8ADC8A82A715375.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.28.13:431][700]LogFileHelpers: InternalPromptForCheckoutAndSave took 56 ms (total: 1.18 sec)
+[2023.03.21-22.28.13:439][700]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.28.13:439][700]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.28.27:205][291]LogEditorTransaction: Undo Resize Widget
+[2023.03.21-22.28.29:954][557]LogUObjectHash: Compacting FUObjectHashTables data took   2.47ms
+[2023.03.21-22.28.29:960][557]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.28.30:017][557]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.28.30:017][557]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBPBEFD631E40CA0ABCD98FEF8C90EDBA8A.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.28.30:022][557]LogFileHelpers: InternalPromptForCheckoutAndSave took 62 ms (total: 1.24 sec)
+[2023.03.21-22.28.30:030][557]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.28.30:030][557]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.28.40:756][843]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.28.40:756][843]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.28.40:763][843]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2023.03.21-22.28.41:068][843]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.28.41:068][843]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.29.02:322][349]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_2
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.29.06:957][886]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_3
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.29.12:148][478]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_6
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.30.04:692][541]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_17
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.30.06:144][710]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_18
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.30.09:552][ 77]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_19
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.30.24:484][809]LogUObjectHash: Compacting FUObjectHashTables data took   1.82ms
+[2023.03.21-22.30.24:487][809]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.30.24:530][809]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.30.24:530][809]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBPF39A42C94D8F1FBAAD39EBA0BEE50C39.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.30.24:534][809]LogFileHelpers: InternalPromptForCheckoutAndSave took 46 ms (total: 1.29 sec)
+[2023.03.21-22.30.24:542][809]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.30.24:542][809]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.30.25:637][938]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.30.25:762][938]LogUObjectHash: Compacting FUObjectHashTables data took   1.87ms
+[2023.03.21-22.30.25:923][940]LogUObjectHash: Compacting FUObjectHashTables data took   1.71ms
+[2023.03.21-22.30.54:162][309]LogUObjectHash: Compacting FUObjectHashTables data took   1.20ms
+[2023.03.21-22.31.00:044][993]LogUObjectHash: Compacting FUObjectHashTables data took   1.74ms
+[2023.03.21-22.31.00:048][993]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.31.00:110][993]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.31.00:111][993]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP9A28BA0541E1A1E25DA8D68BBB782010.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.31.00:115][993]LogFileHelpers: InternalPromptForCheckoutAndSave took 67 ms (total: 1.36 sec)
+[2023.03.21-22.31.00:123][993]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.31.00:123][993]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.31.03:532][402]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.31.03:629][402]LogUObjectHash: Compacting FUObjectHashTables data took   1.76ms
+[2023.03.21-22.31.03:777][407]LogUObjectHash: Compacting FUObjectHashTables data took   1.92ms
+[2023.03.21-22.31.44:767][249]LogUObjectHash: Compacting FUObjectHashTables data took   1.76ms
+[2023.03.21-22.31.44:771][249]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/ThirdPerson/Maps/ThirdPersonMap' took 0.064
+[2023.03.21-22.31.44:771][249]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP] ([2] browsable assets)...
+[2023.03.21-22.31.44:775][249]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP]
+[2023.03.21-22.31.44:775][249]OBJ SavePackage: Finished generating thumbnails for package [/Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP]
+[2023.03.21-22.31.44:777][249]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP_Auto2
+[2023.03.21-22.31.44:777][249]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP_Auto380DDDE04ED3C89D99DFE09323F0CA2B.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/Autosaves/Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP_Auto2.uasset'
+[2023.03.21-22.31.44:777][249]LogFileHelpers: Auto-saving content packages took 0.006
+[2023.03.21-22.32.43:971][314]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.32.44:069][314]LogUObjectHash: Compacting FUObjectHashTables data took   1.74ms
+[2023.03.21-22.37.36:474][767]LogHotReload: New module detected: UnrealEditor-ReplicationSample-0007.dll
+[2023.03.21-22.37.37:147][770]LogHotReload: Starting Hot-Reload from IDE
+[2023.03.21-22.37.37:266][770]LogUObjectHash: Compacting FUObjectHashTables data took   2.54ms
+[2023.03.21-22.37.37:297][770]LogClass: UPackage /Script/ReplicationSample Reload.
+[2023.03.21-22.37.37:297][770]LogClass: UClass InteractionPlayerController Reload.
+[2023.03.21-22.37.37:297][770]LogClass: UClass sableItemsContainer Reload.
+[2023.03.21-22.37.37:300][770]LogClass: Could not find existing class InteractionPlayerController in package /Script/ReplicationSample for reload, assuming new or modified class
+[2023.03.21-22.37.37:300][770]LogClass: Function GetItemsRepresentation is new or belongs to a modified class.
+[2023.03.21-22.37.37:300][770]LogClass: Function GetSelected is new or belongs to a modified class.
+[2023.03.21-22.37.37:300][770]LogClass: Function GetSelectedMaterialInstance is new or belongs to a modified class.
+[2023.03.21-22.37.37:300][770]LogClass: Function OperateItemsContainer is new or belongs to a modified class.
+[2023.03.21-22.37.37:300][770]LogClass: Function Shoot is new or belongs to a modified class.
+[2023.03.21-22.37.37:300][770]LogClass: Function SwitchSelected is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Could not find existing class sableItemsContainer in package /Script/ReplicationSample for reload, assuming new or modified class
+[2023.03.21-22.37.37:310][770]LogClass: Function GetRepresentation is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Function GetSelected is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Function GetSelectedMaterial is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Function OperateEntities is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Function SetParams is new or belongs to a modified class.
+[2023.03.21-22.37.37:310][770]LogClass: Function SwitchSelected is new or belongs to a modified class.
+[2023.03.21-22.37.37:335][770]Re-instancing InteractionPlayerController after reload.
+[2023.03.21-22.37.37:412][770]Re-instancing sableItemsContainer after reload.
+[2023.03.21-22.37.37:663][770]LogUObjectHash: Compacting FUObjectHashTables data took   2.31ms
+[2023.03.21-22.37.37:723][770]Display: HotReload took  0.6s.
+[2023.03.21-22.37.37:723][770]Display: Reload/Re-instancing Complete: 1 package changed, 2 classes changed, 4 classes unchanged, 1 enum unchanged, 2 scriptstructs unchanged, 3 functions remapped, 2 scriptstructs remapped
+[2023.03.21-22.37.40:909][960]Candidate modules for hot reload:
+[2023.03.21-22.37.40:909][960]  ReplicationSample
+[2023.03.21-22.37.40:913][960]Launching UnrealBuildTool... [D:/UnrealEngine/UE_5.1/Engine/Build/BatchFiles/Build.bat  -ModuleWithSuffix=ReplicationSample,6753 ReplicationSampleEditor Win64 Development -Project="Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/ReplicationSample.uproject" "Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/ReplicationSample.uproject"  -IgnoreJunk]
+[2023.03.21-22.37.40:916][960]Warning: Starting HotReload took  0.0s.
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: New page: Compilation - 22 мар. 2023 г., 04:37:42
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" -ModuleWithSuffix=ReplicationSample,6753 ReplicationSampleEditor Win64 Development -Project="Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/ReplicationSample.uproject" "Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/ReplicationSample.uproject"  -IgnoreJunk
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Log file: C:\Users\GGLinker\AppData\Local\UnrealBuildTool\Log.txt
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (Z:\UnrealEngineProjects\ReplicationCPP-Sample).
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Building ReplicationSampleEditor...
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Using Visual Studio 2019 14.29.30147 toolchain (D:\DeveloperTools\VS 2019\VC\Tools\MSVC\14.29.30133) and Windows 10.0.22000.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: [Adaptive Build] Excluded from ReplicationSample unity file: InteractionPlayerController.cpp, UsableItemsContainer.cpp
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Determining max actions to execute in parallel (12 physical cores, 24 logical cores)
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog:   Executing up to 12 processes, one per physical core
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Building 3 actions with 3 processes...
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: [1/3] Link UnrealEditor-ReplicationSample-6753.lib
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog:    ??????????????⥪? Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\UnrealEditor-ReplicationSample-6753.lib ? ??ꥪ?Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\UnrealEditor-ReplicationSample-6753.exp
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: [2/3] Link UnrealEditor-ReplicationSample-6753.dll
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog:    ??????????????⥪? Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\UnrealEditor-ReplicationSample-6753.suppressed.lib ? ??ꥪ?Z:\UnrealEngineProjects\ReplicationCPP-Sample\ReplicationSample\Intermediate\Build\Win64\UnrealEditor\Development\ReplicationSample\UnrealEditor-ReplicationSample-6753.suppressed.exp
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: [3/3] WriteMetadata ReplicationSampleEditor.target
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Total time in Parallel executor: 1.02 seconds
+[2023.03.21-22.37.42:521][ 64]CompilerResultsLog: Total execution time: 1.52 seconds
+[2023.03.21-22.37.42:521][ 64]LogMainFrame: MainFrame: Module compiling took 1.630 seconds
+[2023.03.21-22.37.42:610][ 64]LogUObjectHash: Compacting FUObjectHashTables data took   2.31ms
+[2023.03.21-22.37.42:887][ 64]LogUObjectHash: Compacting FUObjectHashTables data took   2.24ms
+[2023.03.21-22.37.42:917][ 64]Display: HotReload took  2.0s.
+[2023.03.21-22.37.42:917][ 64]Display: Reload/Re-instancing Complete: 1 package changed, 6 classes unchanged, 1 enum unchanged, 2 scriptstructs unchanged, 15 functions remapped, 2 scriptstructs remapped
+[2023.03.21-22.38.04:680][541]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.38.04:803][541]LogUObjectHash: Compacting FUObjectHashTables data took   2.42ms
+[2023.03.21-22.38.05:736][639]LogUObjectHash: Compacting FUObjectHashTables data took   2.03ms
+[2023.03.21-22.38.05:739][639]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.38.05:793][639]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.38.05:793][639]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP8BFD01C048EA2A234247459DF8DB0A44.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.38.05:797][639]LogFileHelpers: InternalPromptForCheckoutAndSave took 58 ms (total: 1.41 sec)
+[2023.03.21-22.38.05:807][639]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.38.05:807][639]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.38.42:840][ 46]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.38.42:840][ 46]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.38.43:315][ 86]LogUObjectHash: Compacting FUObjectHashTables data took   2.13ms
+[2023.03.21-22.38.43:319][ 86]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.38.43:360][ 86]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.38.43:361][ 86]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP2B6DFA244187A743F7B3339CC1534AD7.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.38.43:367][ 86]LogFileHelpers: InternalPromptForCheckoutAndSave took 48 ms (total: 1.46 sec)
+[2023.03.21-22.38.43:377][ 86]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.38.43:377][ 86]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.38.55:831][567]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_30
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.38.57:474][752]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_31
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.39.00:140][ 36]LogUObjectHash: Compacting FUObjectHashTables data took   2.11ms
+[2023.03.21-22.39.00:143][ 36]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.39.00:196][ 36]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.39.00:197][ 36]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP83F3FA564EC24FD41AD2AC87269A9435.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.39.00:201][ 36]LogFileHelpers: InternalPromptForCheckoutAndSave took 57 ms (total: 1.52 sec)
+[2023.03.21-22.39.00:211][ 36]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.39.00:211][ 36]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.39.44:421][301]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.39.44:818][348]LogEditorTransaction: Undo Edit Specified Color
+[2023.03.21-22.39.45:462][370]LogEditorTransaction: Undo Paste clipboard contents
+[2023.03.21-22.39.45:482][370]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_35
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.39.46:168][453]LogEditorTransaction: Undo Add Widget
+[2023.03.21-22.39.46:185][453]LogScript: Warning: Accessed None trying to read property ItemIcon
+	ItemDetails_WBP_C /Engine/Transient.World_35:ItemDetails_WBP_C_36
+	Function /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP_C:ExecuteUbergraph_ItemDetails_WBP:0017
+[2023.03.21-22.39.46:753][522]LogEditorTransaction: Undo Remove Widget
+[2023.03.21-22.39.48:651][735]LogUObjectHash: Compacting FUObjectHashTables data took   2.85ms
+[2023.03.21-22.39.48:655][735]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.39.48:714][735]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.39.48:714][735]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP7DF71D1043FE841C93A7CC83BCCBD83F.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.39.48:718][735]LogFileHelpers: InternalPromptForCheckoutAndSave took 62 ms (total: 1.58 sec)
+[2023.03.21-22.39.48:727][735]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.39.48:727][735]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.39.49:278][798]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.39.49:402][798]LogUObjectHash: Compacting FUObjectHashTables data took   2.11ms
+[2023.03.21-22.39.49:542][802]LogUObjectHash: Compacting FUObjectHashTables data took   2.30ms
+[2023.03.21-22.39.53:613][268]BlueprintLog: New page: Compile ItemDetails_WBP
+[2023.03.21-22.39.53:713][268]LogUObjectHash: Compacting FUObjectHashTables data took   2.13ms
+[2023.03.21-22.39.54:001][287]LogUObjectHash: Compacting FUObjectHashTables data took   2.10ms
+[2023.03.21-22.39.54:006][287]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.39.54:050][287]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP
+[2023.03.21-22.39.54:050][287]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ItemDetails_WBP351E950C42480D866867FEA24D2E7106.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset'
+[2023.03.21-22.39.54:054][287]LogFileHelpers: InternalPromptForCheckoutAndSave took 48 ms (total: 1.63 sec)
+[2023.03.21-22.39.54:063][287]AssetCheck: New page: Asset Save: ItemDetails_WBP
+[2023.03.21-22.39.54:064][287]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ItemDetails_WBP.ItemDetails_WBP
+[2023.03.21-22.39.57:834][733]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.39.57:834][733]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.40.40:549][624]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.40.45:727][229]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.40.56:811][503]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.41.13:830][499]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.41.38:418][327]LogUObjectHash: Compacting FUObjectHashTables data took   2.30ms
+[2023.03.21-22.41.38:422][327]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.41.38:474][327]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.41.38:474][327]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP37A732434E1D1CEBAD32FD9C4A3CF1DF.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.41.38:478][327]LogFileHelpers: InternalPromptForCheckoutAndSave took 56 ms (total: 1.69 sec)
+[2023.03.21-22.41.38:488][327]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.41.38:488][327]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.41.49:724][634]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.41.50:471][715]LogUObjectHash: Compacting FUObjectHashTables data took   1.00ms
+[2023.03.21-22.41.50:475][715]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.41.50:526][715]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.41.50:526][715]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPD967BB1F4F9084CD69E072A2B672AB39.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.41.50:530][715]LogFileHelpers: InternalPromptForCheckoutAndSave took 55 ms (total: 1.74 sec)
+[2023.03.21-22.41.50:541][715]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.41.50:541][715]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.42.58:999][848]LogUObjectHash: Compacting FUObjectHashTables data took   2.17ms
+[2023.03.21-22.42.59:004][848]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.42.59:052][848]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.42.59:052][848]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBPD95ED8654FFC1DBE5BC4A582A1797261.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.42.59:056][848]LogFileHelpers: InternalPromptForCheckoutAndSave took 51 ms (total: 1.79 sec)
+[2023.03.21-22.42.59:067][848]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.42.59:067][848]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.43.00:110][973]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.43.00:203][973]LogUObjectHash: Compacting FUObjectHashTables data took   2.13ms
+[2023.03.21-22.43.00:347][975]LogUObjectHash: Compacting FUObjectHashTables data took   2.07ms
+[2023.03.21-22.44.07:176][645]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.44.07:268][645]LogUObjectHash: Compacting FUObjectHashTables data took   2.07ms
+[2023.03.21-22.44.08:321][756]LogUObjectHash: Compacting FUObjectHashTables data took   2.12ms
+[2023.03.21-22.44.08:326][756]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.44.08:367][756]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.44.08:367][756]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP35F26EF941F00B9E6E1438BFB519738D.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.44.08:372][756]LogFileHelpers: InternalPromptForCheckoutAndSave took 46 ms (total: 1.84 sec)
+[2023.03.21-22.44.08:384][756]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.44.08:384][756]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.45.10:126][920]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.45.10:126][920]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.45.22:063][320]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.45.46:425][213]LogSlate: Window 'Color Picker' being destroyed
+[2023.03.21-22.45.47:518][334]LogUObjectHash: Compacting FUObjectHashTables data took   3.02ms
+[2023.03.21-22.45.47:522][334]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.45.47:585][334]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.45.47:586][334]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP30170B3A43BD37CA2093429932DC40F9.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.45.47:589][334]LogFileHelpers: InternalPromptForCheckoutAndSave took 66 ms (total: 1.91 sec)
+[2023.03.21-22.45.47:602][334]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.45.47:602][334]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.46.26:301][882]BlueprintLog: New page: Compile OnScreenContainerWidget_WBP
+[2023.03.21-22.46.26:407][882]LogUObjectHash: Compacting FUObjectHashTables data took   2.28ms
+[2023.03.21-22.46.26:809][915]LogUObjectHash: Compacting FUObjectHashTables data took   2.29ms
+[2023.03.21-22.46.26:813][915]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.46.26:868][915]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP
+[2023.03.21-22.46.26:868][915]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/OnScreenContainerWidget_WBP962715EC41B01622864DA1A5ED5EE805.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset'
+[2023.03.21-22.46.26:872][915]LogFileHelpers: InternalPromptForCheckoutAndSave took 58 ms (total: 1.97 sec)
+[2023.03.21-22.46.26:883][915]AssetCheck: New page: Asset Save: OnScreenContainerWidget_WBP
+[2023.03.21-22.46.26:883][915]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.OnScreenContainerWidget_WBP
+[2023.03.21-22.46.27:972][ 44]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.46.27:972][ 44]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.46.32:203][527]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.46.32:204][527]LogSlateStyle: Warning: Unable to find Slate Widget Style 'None'. Using FToolbarStyle defaults instead.
+[2023.03.21-22.46.40:233][462]BlueprintLog: New page: Compile ScreenUI_Global_WBP
+[2023.03.21-22.46.40:325][462]LogUObjectHash: Compacting FUObjectHashTables data took   2.26ms
+[2023.03.21-22.46.40:683][491]LogUObjectHash: Compacting FUObjectHashTables data took   2.04ms
+[2023.03.21-22.46.40:687][491]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.46.40:737][491]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.46.40:737][491]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP1730F3C146444A22E0B5558A76E7953F.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.46.40:741][491]LogFileHelpers: InternalPromptForCheckoutAndSave took 53 ms (total: 2.02 sec)
+[2023.03.21-22.46.40:752][491]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.46.40:752][491]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.46.44:167][893]BlueprintLog: New page: Compile ScreenUI_Global_WBP
+[2023.03.21-22.46.44:257][893]LogUObjectHash: Compacting FUObjectHashTables data took   2.17ms
+[2023.03.21-22.46.44:521][908]LogUObjectHash: Compacting FUObjectHashTables data took   2.26ms
+[2023.03.21-22.46.44:526][908]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.46.44:573][908]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.46.44:573][908]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP7D3BB7D2444ECF1142F34A9572B7DC9F.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.46.44:577][908]LogFileHelpers: InternalPromptForCheckoutAndSave took 51 ms (total: 2.07 sec)
+[2023.03.21-22.46.44:588][908]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.46.44:588][908]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.46.46:934][174]BlueprintLog: New page: Compile ScreenUI_Global_WBP
+[2023.03.21-22.46.47:024][174]LogUObjectHash: Compacting FUObjectHashTables data took   2.26ms
+[2023.03.21-22.46.47:275][191]LogUObjectHash: Compacting FUObjectHashTables data took   2.10ms
+[2023.03.21-22.46.47:280][191]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.46.47:324][191]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP
+[2023.03.21-22.46.47:324][191]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/ScreenUI_Global_WBP23FF6E414423D031F7B4028E74D4F5D7.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset'
+[2023.03.21-22.46.47:328][191]LogFileHelpers: InternalPromptForCheckoutAndSave took 48 ms (total: 2.12 sec)
+[2023.03.21-22.46.47:339][191]AssetCheck: New page: Asset Save: ScreenUI_Global_WBP
+[2023.03.21-22.46.47:339][191]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.ScreenUI_Global_WBP
+[2023.03.21-22.48.15:995][594]LogEditorClassViewer: Warning: Class /Script/InteractiveToolsFramework.GizmoActor has parent /Script/InteractiveToolsFramework.InternalToolFrameworkActor, but this parent is not found. The Class will not be shown in ClassViewer.
+[2023.03.21-22.48.15:995][594]LogEditorClassViewer: Warning: Class /Script/ModelingComponents.PreviewGeometryActor has parent /Script/InteractiveToolsFramework.InternalToolFrameworkActor, but this parent is not found. The Class will not be shown in ClassViewer.
+[2023.03.21-22.48.15:995][594]LogEditorClassViewer: Warning: Class /Script/ModelingComponents.PreviewMeshActor has parent /Script/InteractiveToolsFramework.InternalToolFrameworkActor, but this parent is not found. The Class will not be shown in ClassViewer.
+[2023.03.21-22.50.23:134][428]BlueprintLog: New page: Compile BP_ReplicationSampleHUD
+[2023.03.21-22.50.23:235][428]LogUObjectHash: Compacting FUObjectHashTables data took   2.92ms
+[2023.03.21-22.50.23:396][432]LogUObjectHash: Compacting FUObjectHashTables data took   2.23ms
+[2023.03.21-22.50.23:400][432]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.50.23:454][432]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD
+[2023.03.21-22.50.23:455][432]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/BP_ReplicationSampleHUD173D086748627FC15790BC8EA73A5A23.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.uasset'
+[2023.03.21-22.50.23:459][432]LogFileHelpers: InternalPromptForCheckoutAndSave took 58 ms (total: 2.18 sec)
+[2023.03.21-22.50.23:470][432]AssetCheck: New page: Asset Save: BP_ReplicationSampleHUD
+[2023.03.21-22.50.23:470][432]LogContentValidation: Display: Validating /Script/Engine.Blueprint /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.BP_ReplicationSampleHUD
+[2023.03.21-22.53.22:068][284]BlueprintLog: New page: Compile BP_ReplicationSampleHUD
+[2023.03.21-22.53.22:170][284]LogUObjectHash: Compacting FUObjectHashTables data took   2.25ms
+[2023.03.21-22.53.22:606][320]LogUObjectHash: Compacting FUObjectHashTables data took   2.26ms
+[2023.03.21-22.53.22:610][320]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.03.21-22.53.22:669][320]LogSavePackage: Moving output files for package: /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD
+[2023.03.21-22.53.22:669][320]LogSavePackage: Moving 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Saved/BP_ReplicationSampleHUDFE9475614D339FB6C6426DB15AF3460D.tmp' to 'Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.uasset'
+[2023.03.21-22.53.22:674][320]LogFileHelpers: InternalPromptForCheckoutAndSave took 63 ms (total: 2.24 sec)
+[2023.03.21-22.53.22:684][320]AssetCheck: New page: Asset Save: BP_ReplicationSampleHUD
+[2023.03.21-22.53.22:685][320]LogContentValidation: Display: Validating /Script/Engine.Blueprint /Game/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.BP_ReplicationSampleHUD
+[2023.03.21-22.53.30:731][227]LogUObjectHash: Compacting FUObjectHashTables data took   0.91ms

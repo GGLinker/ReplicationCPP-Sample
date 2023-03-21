@@ -20,13 +20,13 @@ struct FInteractableItemEntity;
 struct _Script_ReplicationSample_eventItemsContainerStateUpdate_Parms \
 { \
 	TEnumAsByte<EInteractableItemType> EntityType; \
-	int32 Accum; \
+	int32 UpdatedAmount; \
 }; \
-static inline void FItemsContainerStateUpdate_DelegateWrapper(const FMulticastScriptDelegate& ItemsContainerStateUpdate, EInteractableItemType EntityType, int32 Accum) \
+static inline void FItemsContainerStateUpdate_DelegateWrapper(const FMulticastScriptDelegate& ItemsContainerStateUpdate, EInteractableItemType EntityType, int32 UpdatedAmount) \
 { \
 	_Script_ReplicationSample_eventItemsContainerStateUpdate_Parms Parms; \
 	Parms.EntityType=EntityType; \
-	Parms.Accum=Accum; \
+	Parms.UpdatedAmount=UpdatedAmount; \
 	ItemsContainerStateUpdate.ProcessMulticastDelegate<UObject>(&Parms); \
 }
 

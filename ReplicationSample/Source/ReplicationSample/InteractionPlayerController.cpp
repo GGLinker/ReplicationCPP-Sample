@@ -22,13 +22,8 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 {
 	try
 	{
-		ItemsContainer->OperateEntities(operateEntityType, accum);
-
-		for(auto e : OnItemsContainerStateUpdate.GetAllObjects())
-		{
-			std::cerr << e << std::endl;
-		}	
-		OnItemsContainerStateUpdate.Broadcast(operateEntityType, accum);
+		const auto NewAmount = ItemsContainer->OperateEntities(operateEntityType, accum);
+		OnItemsContainerStateUpdate.Broadcast(operateEntityType, NewAmount);
 	}
 	catch(std::range_error e)
 	{
@@ -47,16 +42,16 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 }
 bool AInteractionPlayerController::Shoot() const
 {
-	const auto shootingItem = GetSelected();
+	const auto ShootingItem = GetSelected();
 	try
 	{
-		OperateItemsContainer(shootingItem, -1);
+		OperateItemsContainer(ShootingItem, -1);
 	}
 	catch(...)
 	{
 		return false;
 	}
-	OnItemsContainerStateUpdate.Broadcast(shootingItem, -1);
+	OnItemsContainerStateUpdate.Broadcast(ShootingItem, -1);
 	return true;
 }
 

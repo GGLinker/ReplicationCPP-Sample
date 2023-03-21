@@ -20,6 +20,9 @@
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/BP_InteractionPlayerController.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_MyBaseSampleHUD.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/BP_ReplicationSampleHUD.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/OnScreenContainerWidget_WBP.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ItemDetails_WBP.uasset",
+				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Blueprints/UI/ScreenUI_Global_WBP.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_Shoot1.uasset",
 				"Z:/UnrealEngineProjects/ReplicationCPP-Sample/ReplicationSample/Content/ThirdPerson/Input/Actions/IA_ShootStart.uasset",
 				"Z:/UnrealEngineProjects/ReplicationSample/Content/StarterContent/Particles/P_Ambient_Dust.uasset"

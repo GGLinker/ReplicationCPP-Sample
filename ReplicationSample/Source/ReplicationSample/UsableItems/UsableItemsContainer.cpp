@@ -9,7 +9,7 @@ UsableItemsContainer::UsableItemsContainer()
 UsableItemsContainer::EntitySet UsableItemsContainer::GetRepresentation() const
 { return entitiesRepresentation; }
 
-void UsableItemsContainer::OperateEntities(EInteractableItemType operateEntityType, int accum)
+int UsableItemsContainer::OperateEntities(EInteractableItemType operateEntityType, int accum)
 {
 	for(int i = 0; i < entitiesRepresentation.Num(); i++)
 	{
@@ -17,9 +17,8 @@ void UsableItemsContainer::OperateEntities(EInteractableItemType operateEntityTy
 		{
 			const int accumulated = entitiesRepresentation[i].itemsAmount + accum;
 			if(accumulated < 0) throw std::range_error("");
-
-			entitiesRepresentation[i].itemsAmount = accumulated;
-			return;
+			
+			return entitiesRepresentation[i].itemsAmount = accumulated;
 		}
 	}
 

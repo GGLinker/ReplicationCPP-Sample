@@ -7,7 +7,7 @@
 #include "UsableItems/UsableItemsContainer.h"
 #include "InteractionPlayerController.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FItemsContainerStateUpdate, EInteractableItemType, EntityType, int, Accum);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FItemsContainerStateUpdate, EInteractableItemType, EntityType, int, UpdatedAmount);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemsContainerSelectionOperate, int, NewIndex);
 
 UCLASS()

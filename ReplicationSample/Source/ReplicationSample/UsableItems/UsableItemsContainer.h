@@ -65,7 +65,7 @@ public:
 	TArray<FInteractableItemEntity> GetRepresentation() const;
 
 	UFUNCTION()
-	void OperateEntities(EInteractableItemType operateEntityType, int accum);
+	int OperateEntities(EInteractableItemType operateEntityType, int accum);
 	UFUNCTION()
 	int SwitchSelected(bool next);
 	UFUNCTION()

@@ -190,7 +190,7 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		P_GET_PROPERTY(FIntProperty,Z_Param_accum);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OperateEntities(EInteractableItemType(Z_Param_operateEntityType),Z_Param_accum);
+		*(int32*)Z_Param__Result=P_THIS->OperateEntities(EInteractableItemType(Z_Param_operateEntityType),Z_Param_accum);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UsableItemsContainer::execGetRepresentation)
@@ -326,9 +326,11 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		{
 			TEnumAsByte<EInteractableItemType> operateEntityType;
 			int32 accum;
+			int32 ReturnValue;
 		};
 		static const UECodeGen_Private::FBytePropertyParams NewProp_operateEntityType;
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_accum;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -337,9 +339,11 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 	};
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_operateEntityType = { "operateEntityType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventOperateEntities_Parms, operateEntityType), Z_Construct_UEnum_ReplicationSample_EInteractableItemType, METADATA_PARAMS(nullptr, 0) }; // 668409034
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_accum = { "accum", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventOperateEntities_Parms, accum), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventOperateEntities_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_operateEntityType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_accum,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics::Function_MetaDataParams[] = {
@@ -463,7 +467,7 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		{ &Z_Construct_UFunction_UsableItemsContainer_GetRepresentation, "GetRepresentation" }, // 1549361303
 		{ &Z_Construct_UFunction_UsableItemsContainer_GetSelected, "GetSelected" }, // 3613297422
 		{ &Z_Construct_UFunction_UsableItemsContainer_GetSelectedMaterial, "GetSelectedMaterial" }, // 1315529434
-		{ &Z_Construct_UFunction_UsableItemsContainer_OperateEntities, "OperateEntities" }, // 1728338459
+		{ &Z_Construct_UFunction_UsableItemsContainer_OperateEntities, "OperateEntities" }, // 3616938141
 		{ &Z_Construct_UFunction_UsableItemsContainer_SetParams, "SetParams" }, // 433765263
 		{ &Z_Construct_UFunction_UsableItemsContainer_SwitchSelected, "SwitchSelected" }, // 318196601
 	};
@@ -532,9 +536,9 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		{ FInteractableItemEntity::StaticStruct, Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewStructOps, TEXT("InteractableItemEntity"), &Z_Registration_Info_UScriptStruct_InteractableItemEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractableItemEntity), 4030801916U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UsableItemsContainer, UsableItemsContainer::StaticClass, TEXT("UsableItemsContainer"), &Z_Registration_Info_UClass_UsableItemsContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UsableItemsContainer), 1808662043U) },
+		{ Z_Construct_UClass_UsableItemsContainer, UsableItemsContainer::StaticClass, TEXT("UsableItemsContainer"), &Z_Registration_Info_UClass_UsableItemsContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UsableItemsContainer), 4165725191U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_8594254(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_3828700475(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::EnumInfo));
