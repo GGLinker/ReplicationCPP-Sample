@@ -1263,3 +1263,4 @@ Script Stack (1 frames) :
 [2023.03.22-18.50.12:190][420]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=2
 [2023.03.22-18.50.12:227][420]LogUObjectHash: Compacting FUObjectHashTables data took   1.70ms
 [2023.03.22-18.50.12:269][421]LogPlayLevel: Display: Destroying online subsystem :Context_5
+[2023.03.22-18.51.32:379][830]LogDerivedDataCache: C:/Users/GGLinker/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:16.097 and deleted 0 files with total size 0 MiB. Scanned 8892 files in 8767 folders with total size 969 MiB.
