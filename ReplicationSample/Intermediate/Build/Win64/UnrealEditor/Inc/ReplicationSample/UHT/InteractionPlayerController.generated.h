@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 class UMaterialInstance;
 struct FInteractableItemEntity;
 #ifdef REPLICATIONSAMPLE_InteractionPlayerController_generated_h
@@ -47,6 +48,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_SPARSE_DATA
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
 	DECLARE_FUNCTION(execGetSelectedType); \
 	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
 	DECLARE_FUNCTION(execShoot); \
@@ -59,6 +61,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
 	DECLARE_FUNCTION(execGetSelectedType); \
 	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
 	DECLARE_FUNCTION(execShoot); \

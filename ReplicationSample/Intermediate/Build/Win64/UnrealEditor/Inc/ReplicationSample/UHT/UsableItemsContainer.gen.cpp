@@ -9,7 +9,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUsableItemsContainer() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstance_NoRegister();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_UsableItemsContainer();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_UsableItemsContainer_NoRegister();
@@ -100,6 +102,10 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_material;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_actorSpawnClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_actorSpawnClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_itemsAmount_MetaData[];
 #endif
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_itemsAmount;
@@ -131,6 +137,13 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_material = { "material", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FInteractableItemEntity, material), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_material_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_material_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_actorSpawnClass_MetaData[] = {
+		{ "Category", "InteractableItemEntity" },
+		{ "ModuleRelativePath", "UsableItems/UsableItemsContainer.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_actorSpawnClass = { "actorSpawnClass", nullptr, (EPropertyFlags)0x0014000000000004, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(FInteractableItemEntity, actorSpawnClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_actorSpawnClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_actorSpawnClass_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_itemsAmount_MetaData[] = {
 		{ "ModuleRelativePath", "UsableItems/UsableItemsContainer.h" },
 	};
@@ -139,6 +152,7 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_entityType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_material,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_actorSpawnClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewProp_itemsAmount,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::ReturnStructParams = {
@@ -161,6 +175,13 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_InteractableItemEntity.InnerSingleton, Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::ReturnStructParams);
 		}
 		return Z_Registration_Info_UScriptStruct_InteractableItemEntity.InnerSingleton;
+	}
+	DEFINE_FUNCTION(UsableItemsContainer::execGetSelectedSpawnActor)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TSubclassOf<AActor> *)Z_Param__Result=P_THIS->GetSelectedSpawnActor();
+		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UsableItemsContainer::execGetSelectedMaterial)
 	{
@@ -215,6 +236,7 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 			{ "GetRepresentation", &UsableItemsContainer::execGetRepresentation },
 			{ "GetSelected", &UsableItemsContainer::execGetSelected },
 			{ "GetSelectedMaterial", &UsableItemsContainer::execGetSelectedMaterial },
+			{ "GetSelectedSpawnActor", &UsableItemsContainer::execGetSelectedSpawnActor },
 			{ "OperateEntities", &UsableItemsContainer::execOperateEntities },
 			{ "SetParams", &UsableItemsContainer::execSetParams },
 			{ "SwitchSelected", &UsableItemsContainer::execSwitchSelected },
@@ -235,8 +257,8 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 4030801916
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventGetRepresentation_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 4030801916
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 144391771
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventGetRepresentation_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 144391771
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_GetRepresentation_Statics::NewProp_ReturnValue,
@@ -320,6 +342,38 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics
+	{
+		struct sableItemsContainer_eventGetSelectedSpawnActor_Parms
+		{
+			TSubclassOf<AActor>  ReturnValue;
+		};
+		static const UECodeGen_Private::FClassPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0014000000000580, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventGetSelectedSpawnActor_Parms, ReturnValue), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UsableItems/UsableItemsContainer.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UsableItemsContainer, nullptr, "GetSelectedSpawnActor", nullptr, nullptr, sizeof(Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::sableItemsContainer_eventGetSelectedSpawnActor_Parms), Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UsableItemsContainer_OperateEntities_Statics
 	{
 		struct sableItemsContainer_eventOperateEntities_Parms
@@ -377,13 +431,13 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_Inner = { "Representation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 4030801916
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_Inner = { "Representation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 144391771
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_MetaData[] = {
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation = { "Representation", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventSetParams_Parms, Representation), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_MetaData)) }; // 4030801916
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation = { "Representation", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(sableItemsContainer_eventSetParams_Parms, Representation), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_MetaData)) }; // 144391771
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UsableItemsContainer_SetParams_Statics::NewProp_Representation,
@@ -472,11 +526,12 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		(UObject* (*)())Z_Construct_UPackage__Script_ReplicationSample,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UsableItemsContainer_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UsableItemsContainer_GetRepresentation, "GetRepresentation" }, // 1549361303
+		{ &Z_Construct_UFunction_UsableItemsContainer_GetRepresentation, "GetRepresentation" }, // 2741435486
 		{ &Z_Construct_UFunction_UsableItemsContainer_GetSelected, "GetSelected" }, // 3613297422
 		{ &Z_Construct_UFunction_UsableItemsContainer_GetSelectedMaterial, "GetSelectedMaterial" }, // 1315529434
+		{ &Z_Construct_UFunction_UsableItemsContainer_GetSelectedSpawnActor, "GetSelectedSpawnActor" }, // 3218982014
 		{ &Z_Construct_UFunction_UsableItemsContainer_OperateEntities, "OperateEntities" }, // 4084687618
-		{ &Z_Construct_UFunction_UsableItemsContainer_SetParams, "SetParams" }, // 3120962344
+		{ &Z_Construct_UFunction_UsableItemsContainer_SetParams, "SetParams" }, // 1269771108
 		{ &Z_Construct_UFunction_UsableItemsContainer_SwitchSelected, "SwitchSelected" }, // 293364942
 	};
 #if WITH_METADATA
@@ -487,14 +542,14 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		{ "ModuleRelativePath", "UsableItems/UsableItemsContainer.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_Inner = { "EntitiesRepresentation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 4030801916
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_Inner = { "EntitiesRepresentation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 144391771
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "ModuleRelativePath", "UsableItems/UsableItemsContainer.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation = { "EntitiesRepresentation", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UsableItemsContainer, EntitiesRepresentation), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_MetaData)) }; // 4030801916
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation = { "EntitiesRepresentation", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(UsableItemsContainer, EntitiesRepresentation), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_MetaData)) }; // 144391771
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UsableItemsContainer_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UsableItemsContainer_Statics::NewProp_EntitiesRepresentation,
@@ -541,12 +596,12 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FInteractableItemEn
 		{ EInteractableItemType_StaticEnum, TEXT("EInteractableItemType"), &Z_Registration_Info_UEnum_EInteractableItemType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 668409034U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ScriptStructInfo[] = {
-		{ FInteractableItemEntity::StaticStruct, Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewStructOps, TEXT("InteractableItemEntity"), &Z_Registration_Info_UScriptStruct_InteractableItemEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractableItemEntity), 4030801916U) },
+		{ FInteractableItemEntity::StaticStruct, Z_Construct_UScriptStruct_FInteractableItemEntity_Statics::NewStructOps, TEXT("InteractableItemEntity"), &Z_Registration_Info_UScriptStruct_InteractableItemEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractableItemEntity), 144391771U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UsableItemsContainer, UsableItemsContainer::StaticClass, TEXT("UsableItemsContainer"), &Z_Registration_Info_UClass_UsableItemsContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UsableItemsContainer), 466259562U) },
+		{ Z_Construct_UClass_UsableItemsContainer, UsableItemsContainer::StaticClass, TEXT("UsableItemsContainer"), &Z_Registration_Info_UClass_UsableItemsContainer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UsableItemsContainer), 3941392941U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_1838936903(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_279421222(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_UsableItems_UsableItemsContainer_h_Statics::EnumInfo));

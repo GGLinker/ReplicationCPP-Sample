@@ -23,16 +23,18 @@ struct FInteractableItemEntity
 	TEnumAsByte<EInteractableItemType> entityType;
 	UPROPERTY(BlueprintReadWrite)
 	UMaterialInstance* material;
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<AActor> actorSpawnClass;
 	UPROPERTY()
 	int itemsAmount;
-	
-	
-	FInteractableItemEntity(EInteractableItemType itemType, int initialAmount, UMaterialInstance* materialInstance) : entityType{itemType}, material{materialInstance}, itemsAmount(initialAmount)
-	{}
-	FInteractableItemEntity(EInteractableItemType itemType) : FInteractableItemEntity(itemType, 0, nullptr)
-	{}
-	FInteractableItemEntity() : FInteractableItemEntity(GreenMedium)
-	{}
+		
+
+	FInteractableItemEntity() = default;
+	FInteractableItemEntity(EInteractableItemType itemType, int initialAmount, UMaterialInstance* materialInstance, TSubclassOf<AActor> itemActorSpawnClass) : entityType{itemType}, material{materialInstance}, itemsAmount{initialAmount},  actorSpawnClass(itemActorSpawnClass)
+	{
+		static ConstructorHelpers::FClassFinder<AActor> BaseMeshClass(TEXT("/Game/LevelPrototyping/Meshes/Items/BP_ChamferCubeBase"));
+	}
+
 
 	//copy
 	FInteractableItemEntity(const FInteractableItemEntity& other) = default;
@@ -73,4 +75,6 @@ public:
 
 	UFUNCTION()
 	UMaterialInstance* GetSelectedMaterial() const;
+	UFUNCTION()
+	TSubclassOf<AActor> GetSelectedSpawnActor() const;
 };

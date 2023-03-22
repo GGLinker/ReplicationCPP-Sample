@@ -48,6 +48,8 @@ public:
 	UMaterialInstance* GetSelectedMaterialInstance() const;
 	UFUNCTION()
 	EInteractableItemType GetSelectedType() const;
+	UFUNCTION()
+	TSubclassOf<AActor> GetSelectedSpawnActor() const;
 	
 	AInteractionPlayerController();
 };

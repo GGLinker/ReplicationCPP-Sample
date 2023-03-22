@@ -6,11 +6,6 @@
 AInteractionPlayerController::AInteractionPlayerController()
 {
 	ItemsContainer = NewObject<UsableItemsContainer>();        
-	ItemsContainer->SetParams({
-		BlueSmall,
-		GreenMedium,
-		RedHuge
-	});
 }
 
 void AInteractionPlayerController::SetupEntitiesRepresentation(TArray<FInteractableItemEntity> Data)
@@ -65,6 +60,10 @@ EInteractableItemType AInteractionPlayerController::GetSelected() const
 UMaterialInstance* AInteractionPlayerController::GetSelectedMaterialInstance() const
 {
 	return ItemsContainer->GetSelectedMaterial();
+}
+TSubclassOf<AActor> AInteractionPlayerController::GetSelectedSpawnActor() const
+{
+	return ItemsContainer->GetSelectedSpawnActor();
 }
 EInteractableItemType AInteractionPlayerController::GetSelectedType() const
 {

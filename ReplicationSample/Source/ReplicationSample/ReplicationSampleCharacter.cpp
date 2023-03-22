@@ -252,27 +252,24 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, HoldTime.ToString());
 			
-			const FRotator Rotation = Controller->GetControlRotation();
-			const FRotator YawRotation(0, Rotation.Yaw, 0);
 			// get forward vector
-			const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+			FVector ForwardDirection = this->GetActorForwardVector();
+			ForwardDirection.Normalize(0.001f);
 
-			const auto Missile = Controller->GetWorld()->SpawnActor<AStaticMeshActor>(
-				Controller->GetTargetLocation() + ForwardDirection,
-				YawRotation,
-				FActorSpawnParameters());
-
-			const auto TagComponent = Cast<UItemUsabilityTag>(Missile->AddComponentByClass(UItemUsabilityTag::StaticClass(), false, FTransform{}, false));
-			TagComponent->SetType(InteractionController->GetSelectedType());
-
-			const auto MeshComponent = Missile->GetStaticMeshComponent();
-			MeshComponent->SetMaterial(0, InteractionController->GetSelectedMaterialInstance());
-			MeshComponent->SetSimulatePhysics(true);
-			Missile->SetMobility(EComponentMobility::Movable);
-
-			auto ForwardNormalizedVector {ForwardDirection};
-			ForwardNormalizedVector.Normalize(0.0001f);
-			MeshComponent->AddImpulse(ForwardNormalizedVector * NormalizedHoldTime * ShootingImpulseIntense);
+			const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
+			auto SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
+			SpawnLocation.X += 40;
+			const auto Missile = Controller->GetWorld()->SpawnActor<AActor>(
+				SpawnActorClass,
+				SpawnLocation,
+				GetActorRotation());
+			
+			if(UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->GetComponentByClass(UStaticMeshComponent::StaticClass())))
+			{
+				Component->SetSimulatePhysics(true);
+				Component->SetEnableGravity(true);
+				Component->AddImpulse(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
+			}
 		}
 	}
 }

@@ -10,6 +10,8 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstance_NoRegister();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_AInteractionPlayerController();
@@ -88,6 +90,13 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		}
 		return ReturnFunction;
 	}
+	DEFINE_FUNCTION(AInteractionPlayerController::execGetSelectedSpawnActor)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TSubclassOf<AActor> *)Z_Param__Result=P_THIS->GetSelectedSpawnActor();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execGetSelectedType)
 	{
 		P_FINISH;
@@ -155,6 +164,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 			{ "GetItemsRepresentation", &AInteractionPlayerController::execGetItemsRepresentation },
 			{ "GetSelected", &AInteractionPlayerController::execGetSelected },
 			{ "GetSelectedMaterialInstance", &AInteractionPlayerController::execGetSelectedMaterialInstance },
+			{ "GetSelectedSpawnActor", &AInteractionPlayerController::execGetSelectedSpawnActor },
 			{ "GetSelectedType", &AInteractionPlayerController::execGetSelectedType },
 			{ "OperateItemsContainer", &AInteractionPlayerController::execOperateItemsContainer },
 			{ "SetupEntitiesRepresentation", &AInteractionPlayerController::execSetupEntitiesRepresentation },
@@ -177,8 +187,8 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 4030801916
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventGetItemsRepresentation_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 4030801916
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 144391771
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventGetItemsRepresentation_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 144391771
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation_Statics::NewProp_ReturnValue,
@@ -259,6 +269,38 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AInteractionPlayerController_GetSelectedMaterialInstance_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics
+	{
+		struct InteractionPlayerController_eventGetSelectedSpawnActor_Parms
+		{
+			TSubclassOf<AActor>  ReturnValue;
+		};
+		static const UECodeGen_Private::FClassPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0014000000000580, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventGetSelectedSpawnActor_Parms, ReturnValue), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InteractionPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "GetSelectedSpawnActor", nullptr, nullptr, sizeof(Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::InteractionPlayerController_eventGetSelectedSpawnActor_Parms), Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -344,8 +386,8 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_Inner = { "Data", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 4030801916
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data = { "Data", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventSetupEntitiesRepresentation_Parms, Data), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 4030801916
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_Inner = { "Data", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 144391771
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data = { "Data", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventSetupEntitiesRepresentation_Parms, Data), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 144391771
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data,
@@ -470,12 +512,13 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ReplicationSample,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AInteractionPlayerController_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation, "GetItemsRepresentation" }, // 3249419323
+		{ &Z_Construct_UFunction_AInteractionPlayerController_GetItemsRepresentation, "GetItemsRepresentation" }, // 772481691
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelected, "GetSelected" }, // 556844722
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedMaterialInstance, "GetSelectedMaterialInstance" }, // 2232665896
+		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor, "GetSelectedSpawnActor" }, // 1982391267
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedType, "GetSelectedType" }, // 1630400925
 		{ &Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer, "OperateItemsContainer" }, // 2906705278
-		{ &Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation, "SetupEntitiesRepresentation" }, // 1392699440
+		{ &Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation, "SetupEntitiesRepresentation" }, // 3431965748
 		{ &Z_Construct_UFunction_AInteractionPlayerController_Shoot, "Shoot" }, // 3372537794
 		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 364108946
 	};
@@ -543,9 +586,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 1152893900U) },
+		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 2265005435U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_4130134860(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_3296175936(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
