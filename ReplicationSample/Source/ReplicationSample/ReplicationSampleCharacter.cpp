@@ -62,9 +62,9 @@ void AReplicationSampleCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	//Add Input Mapping Context
-	interactionController = Cast<AInteractionPlayerController>(Controller);
+	InteractionController = Cast<AInteractionPlayerController>(Controller);
 
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(interactionController->GetLocalPlayer()))
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(InteractionController->GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
 	}
@@ -192,7 +192,7 @@ void AReplicationSampleCharacter::Look(const FInputActionValue& Value)
 
 void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 {
-	if (interactionController && OverlappedItemsContainer.Num() > 0)
+	if (InteractionController && OverlappedItemsContainer.Num() > 0)
 	{
 		float MinDist = std::numeric_limits<float>::max();
 		int MinIndex = 0;
@@ -220,7 +220,7 @@ void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 				Actor->Destroy();
 			}
 
-			interactionController->OperateItemsContainer(SelectedItem.type, 1);
+			InteractionController->OperateItemsContainer(SelectedItem.type, 1);
 			OverlappedItemsContainer.Remove(SelectedItem);
 		}
 	}
@@ -230,9 +230,9 @@ void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
 {
 	const float WheelAxis = Value.Get<float>();
 	
-	if (interactionController)
+	if (InteractionController)
 	{
-		interactionController->SwitchSelected(WheelAxis > 0);
+		InteractionController->SwitchSelected(WheelAxis > 0);
 	}
 }
 
@@ -243,15 +243,15 @@ void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
 }
 void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 {
-	if (interactionController)
+	if (InteractionController)
 	{
 		const auto HoldTime = FDateTime::UtcNow() - LoadingStartTimespan;
 		const double NormalizedHoldTime = (HoldTime < HoldNormalizedThreshold ? HoldTime : HoldNormalizedThreshold).GetTotalSeconds() / HoldNormalizedThreshold.GetTotalSeconds();
-
-		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, HoldTime.ToString());
 		
-		if(interactionController->Shoot())
+		if(InteractionController->Shoot())
 		{
+			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, HoldTime.ToString());
+			
 			const FRotator Rotation = Controller->GetControlRotation();
 			const FRotator YawRotation(0, Rotation.Yaw, 0);
 			// get forward vector
@@ -263,10 +263,10 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 				FActorSpawnParameters());
 
 			const auto TagComponent = Cast<UItemUsabilityTag>(Missile->AddComponentByClass(UItemUsabilityTag::StaticClass(), false, FTransform{}, false));
-			TagComponent->SetType(interactionController->GetSelectedType());
+			TagComponent->SetType(InteractionController->GetSelectedType());
 
 			const auto MeshComponent = Missile->GetStaticMeshComponent();
-			MeshComponent->SetMaterial(0, interactionController->GetSelectedMaterialInstance());
+			MeshComponent->SetMaterial(0, InteractionController->GetSelectedMaterialInstance());
 			MeshComponent->SetSimulatePhysics(true);
 			Missile->SetMobility(EComponentMobility::Movable);
 

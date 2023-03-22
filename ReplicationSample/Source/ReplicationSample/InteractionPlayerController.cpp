@@ -31,7 +31,7 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 	}
 	catch(...)
 	{
-		UE_LOG(LogTemp, Error, TEXT("%s"), typeid(std::current_exception()).name());
+		UE_LOG(LogTemp, Error, TEXT("Operating items container: %s"), typeid(std::current_exception()).name());
 		throw;
 	}
 }
@@ -44,9 +44,10 @@ bool AInteractionPlayerController::Shoot() const
 	}
 	catch(...)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;
 	}
-	OnItemsContainerStateUpdate.Broadcast(ShootingItem, -1);
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting complete");
 	return true;
 }
 

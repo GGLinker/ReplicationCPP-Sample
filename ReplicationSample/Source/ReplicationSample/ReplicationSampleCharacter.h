@@ -39,7 +39,7 @@ class AReplicationSampleCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-	class AInteractionPlayerController* interactionController;
+	class AInteractionPlayerController* InteractionController;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
