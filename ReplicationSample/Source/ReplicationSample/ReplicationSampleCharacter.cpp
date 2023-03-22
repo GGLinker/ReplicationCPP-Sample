@@ -84,14 +84,14 @@ void AReplicationSampleCharacter::BeginPlay()
 
 void AReplicationSampleCharacter::OnTriggerSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (const auto tagComponent = OtherActor->FindComponentByClass<UItemUsabilityTag>())
+	if (const auto tagComponent = Cast<UItemUsabilityTag>(OtherActor->GetComponentByClass(UItemUsabilityTag::StaticClass())))
 	{
 		TriggerHandler(tagComponent, OtherActor, true);
 	}
 }
 void AReplicationSampleCharacter::OnTriggerSphereEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (const auto tagComponent = OtherActor->FindComponentByClass<UItemUsabilityTag>())
+	if (const auto tagComponent = Cast<UItemUsabilityTag>(OtherActor->GetComponentByClass(UItemUsabilityTag::StaticClass())))
 	{
 		TriggerHandler(tagComponent, OtherActor, false);
 	}
@@ -103,6 +103,7 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 	
 	if(overlap)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, TEXT("BEGIN: " + actorRef->GetName()));
 		OverlappedItemsContainer.Add(FOverlapElem{type, actorRef});
 		return;
 	}
@@ -111,6 +112,10 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 	{
 		if(!item.actorRef || actorRef == item.actorRef)
 		{
+			if(actorRef == item.actorRef)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Red, TEXT("END: " + actorRef->GetName()));
+			}
 			OverlappedItemsContainer.Remove(item);
 		}
 	}
@@ -256,6 +261,7 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 
 			const auto MeshComponent = Missile->GetStaticMeshComponent();
 			MeshComponent->SetMaterial(0, interactionController->GetSelectedMaterialInstance());
+			MeshComponent->SetSimulatePhysics(true);
 			Missile->SetMobility(EComponentMobility::Movable);
 
 			auto ForwardNormalizedVector {ForwardDirection};
