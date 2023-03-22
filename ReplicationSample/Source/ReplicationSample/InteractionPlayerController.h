@@ -46,6 +46,8 @@ public:
 	bool Shoot() const;
 	UFUNCTION()
 	UMaterialInstance* GetSelectedMaterialInstance() const;
+	UFUNCTION()
+	EInteractableItemType GetSelectedType() const;
 	
 	AInteractionPlayerController();
 };

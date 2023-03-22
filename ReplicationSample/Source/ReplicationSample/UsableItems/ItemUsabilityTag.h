@@ -30,4 +30,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	inline EInteractableItemType GetType() const;
+	UFUNCTION(BlueprintCallable)
+	inline void SetType(EInteractableItemType type);
 };

@@ -245,13 +245,16 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 			const FRotator YawRotation(0, Rotation.Yaw, 0);
 			// get forward vector
 			const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-			
-			auto Missile = Controller->GetWorld()->SpawnActor<AStaticMeshActor>(
+
+			const auto Missile = Controller->GetWorld()->SpawnActor<AStaticMeshActor>(
 				Controller->GetTargetLocation() + ForwardDirection,
 				YawRotation,
 				FActorSpawnParameters());
 
-			auto MeshComponent = Missile->GetStaticMeshComponent();
+			const auto TagComponent = Cast<UItemUsabilityTag>(Missile->AddComponentByClass(UItemUsabilityTag::StaticClass(), false, FTransform{}, false));
+			TagComponent->SetType(interactionController->GetSelectedType());
+
+			const auto MeshComponent = Missile->GetStaticMeshComponent();
 			MeshComponent->SetMaterial(0, interactionController->GetSelectedMaterialInstance());
 			Missile->SetMobility(EComponentMobility::Movable);
 

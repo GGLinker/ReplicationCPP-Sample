@@ -47,6 +47,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_SPARSE_DATA
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetSelectedType); \
 	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execSwitchSelected); \
@@ -58,6 +59,7 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 
 #define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetSelectedType); \
 	DECLARE_FUNCTION(execGetSelectedMaterialInstance); \
 	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execSwitchSelected); \

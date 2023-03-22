@@ -65,3 +65,7 @@ UMaterialInstance* AInteractionPlayerController::GetSelectedMaterialInstance() c
 {
 	return ItemsContainer->GetSelectedMaterial();
 }
+EInteractableItemType AInteractionPlayerController::GetSelectedType() const
+{
+	return ItemsContainer->GetSelected();
+}

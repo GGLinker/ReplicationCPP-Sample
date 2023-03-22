@@ -14,6 +14,11 @@ UItemUsabilityTag::UItemUsabilityTag()
 	// ...
 }
 
+void UItemUsabilityTag::SetType(EInteractableItemType type)
+{
+	this->itemType = type;
+}
+
 EInteractableItemType UItemUsabilityTag::GetType() const { return itemType; }
 
 // Called when the game starts
