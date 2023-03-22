@@ -1,6 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "ReplicationSampleCharacter.h"
+
+#include <string>
+
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -103,7 +106,7 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 	
 	if(overlap)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, TEXT("BEGIN: " + actorRef->GetName()));
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("ADDED: %d"), static_cast<int>(type)));
 		OverlappedItemsContainer.Add(FOverlapElem{type, actorRef});
 		return;
 	}
@@ -114,7 +117,7 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 		{
 			if(actorRef == item.actorRef)
 			{
-				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Red, TEXT("END: " + actorRef->GetName()));
+				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("DELETED: %d"), static_cast<int>(type)));
 			}
 			OverlappedItemsContainer.Remove(item);
 		}
@@ -236,6 +239,7 @@ void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
 void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
 {
 	LoadingStartTimespan = FDateTime::UtcNow();
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, TEXT("Loading: " + LoadingStartTimespan.ToString()));
 }
 void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 {
@@ -243,6 +247,8 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 	{
 		const auto HoldTime = FDateTime::UtcNow() - LoadingStartTimespan;
 		const double NormalizedHoldTime = (HoldTime < HoldNormalizedThreshold ? HoldTime : HoldNormalizedThreshold).GetTotalSeconds() / HoldNormalizedThreshold.GetTotalSeconds();
+
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, HoldTime.ToString());
 		
 		if(interactionController->Shoot())
 		{
