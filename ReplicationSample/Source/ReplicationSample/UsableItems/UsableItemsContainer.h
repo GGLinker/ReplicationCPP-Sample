@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SpawnableItemBase.h"
 #include "UObject/Object.h"
 #include "UsableItemsContainer.generated.h"
 
@@ -24,15 +25,16 @@ struct FInteractableItemEntity
 	UPROPERTY(BlueprintReadWrite)
 	UMaterialInstance* material;
 	UPROPERTY(BlueprintReadWrite)
-	TSubclassOf<AActor> actorSpawnClass;
+	TSubclassOf<ASpawnableItemBase> actorSpawnClass;
 	UPROPERTY()
 	int itemsAmount;
 		
 
 	FInteractableItemEntity() = default;
-	FInteractableItemEntity(EInteractableItemType itemType, int initialAmount, UMaterialInstance* materialInstance, TSubclassOf<AActor> itemActorSpawnClass) : entityType{itemType}, material{materialInstance}, itemsAmount{initialAmount},  actorSpawnClass(itemActorSpawnClass)
+	FInteractableItemEntity(EInteractableItemType itemType, int initialAmount, UMaterialInstance* materialInstance, TSubclassOf<AActor> itemActorSpawnClass) : entityType{itemType}, material{materialInstance},  actorSpawnClass{itemActorSpawnClass}, itemsAmount(initialAmount)
 	{
-		static ConstructorHelpers::FClassFinder<AActor> BaseMeshClass(TEXT("/Game/LevelPrototyping/Meshes/Items/BP_ChamferCubeBase"));
+		static ConstructorHelpers::FClassFinder<ASpawnableItemBase> BaseMeshClass(TEXT("/Game/LevelPrototyping/Meshes/Items/BP_ChamferCubeBase"));
+		if(!actorSpawnClass && BaseMeshClass.Class) actorSpawnClass = BaseMeshClass.Class;
 	}
 
 
@@ -76,5 +78,5 @@ public:
 	UFUNCTION()
 	UMaterialInstance* GetSelectedMaterial() const;
 	UFUNCTION()
-	TSubclassOf<AActor> GetSelectedSpawnActor() const;
+	TSubclassOf<ASpawnableItemBase> GetSelectedSpawnActor() const;
 };

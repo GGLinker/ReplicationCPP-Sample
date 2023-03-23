@@ -23,7 +23,7 @@
 // AReplicationSampleCharacter
 
 AReplicationSampleCharacter::AReplicationSampleCharacter()
-{
+{	
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
@@ -256,20 +256,45 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 			FVector ForwardDirection = this->GetActorForwardVector();
 			ForwardDirection.Normalize(0.001f);
 
-			const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
+			/*const auto SpawnActorClass = AActor::StaticClass();
 			auto SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
-			SpawnLocation.X += 40;
+			SpawnLocation.Z += 40;
 			const auto Missile = Controller->GetWorld()->SpawnActor<AActor>(
 				SpawnActorClass,
 				SpawnLocation,
 				GetActorRotation());
-			
-			if(UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->GetComponentByClass(UStaticMeshComponent::StaticClass())))
+			Missile->SetActorEnableCollision(true);
+			UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->AddComponentByClass(sss, false, FTransform{}, true));
+						
+			if(Component)
 			{
 				Component->SetSimulatePhysics(true);
 				Component->SetEnableGravity(true);
+				Component->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 				Component->AddImpulse(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
-			}
+			}*/
+			
+			const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
+			auto SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
+			SpawnLocation.Z += 40;
+			auto SpawnParameters = FActorSpawnParameters();
+			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+			ASpawnableItemBase* Missile = Controller->GetWorld()->SpawnActor<ASpawnableItemBase>(
+				SpawnActorClass,
+				SpawnLocation,
+				GetActorRotation(),
+				SpawnParameters
+				);
+			//Missile->SetActorEnableCollision(true);
+			Missile->AddImpulseToMesh(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
+			
+			/*if(UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->GetComponentByClass(UStaticMeshComponent::StaticClass())))
+			{
+				Component->SetSimulatePhysics(true);
+				Component->SetEnableGravity(true);
+				Component->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+				Component->AddImpulse(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
+			}*/
 		}
 	}
 }

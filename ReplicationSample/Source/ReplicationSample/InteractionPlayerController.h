@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "UsableItems/SpawnableItemBase.h"
 #include "UsableItems/UsableItemsContainer.h"
 #include "InteractionPlayerController.generated.h"
 
@@ -49,7 +50,7 @@ public:
 	UFUNCTION()
 	EInteractableItemType GetSelectedType() const;
 	UFUNCTION()
-	TSubclassOf<AActor> GetSelectedSpawnActor() const;
+	TSubclassOf<ASpawnableItemBase> GetSelectedSpawnActor() const;
 	
 	AInteractionPlayerController();
 };

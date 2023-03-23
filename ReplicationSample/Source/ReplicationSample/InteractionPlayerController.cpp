@@ -61,7 +61,7 @@ UMaterialInstance* AInteractionPlayerController::GetSelectedMaterialInstance() c
 {
 	return ItemsContainer->GetSelectedMaterial();
 }
-TSubclassOf<AActor> AInteractionPlayerController::GetSelectedSpawnActor() const
+TSubclassOf<ASpawnableItemBase> AInteractionPlayerController::GetSelectedSpawnActor() const
 {
 	return ItemsContainer->GetSelectedSpawnActor();
 }

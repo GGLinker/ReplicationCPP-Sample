@@ -50,7 +50,7 @@ UMaterialInstance* UsableItemsContainer::GetSelectedMaterial() const
 {
 	return EntitiesRepresentation[SelectedIndex].material;
 }
-TSubclassOf<AActor> UsableItemsContainer::GetSelectedSpawnActor() const
+TSubclassOf<ASpawnableItemBase> UsableItemsContainer::GetSelectedSpawnActor() const
 {
 	return EntitiesRepresentation[SelectedIndex].actorSpawnClass;
 }
