@@ -11,16 +11,19 @@ class REPLICATIONSAMPLE_API ASpawnableItemBase : public AActor
 {
 	GENERATED_BODY()
 
+	UPROPERTY()
+    FVector InitialImpulse;
+
+public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, meta = (AllowPrivateAccess))
 	UStaticMeshComponent* ComponentRef;
 
-public:
 	// Sets default values for this actor's properties
 	ASpawnableItemBase();
 
-	void AddImpulseToMesh(FVector Vector) const
+	void AddImpulseToMesh(FVector Vector)
 	{
-		ComponentRef->AddImpulse(Vector);
+	    InitialImpulse = Vector;
 	}
 
 protected:

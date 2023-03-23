@@ -285,6 +285,7 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 				GetActorRotation(),
 				SpawnParameters
 				);
+			
 			//Missile->SetActorEnableCollision(true);
 			Missile->AddImpulseToMesh(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
 			

@@ -21,6 +21,8 @@ void ASpawnableItemBase::BeginPlay()
 	ComponentRef->SetSimulatePhysics(true);
 	ComponentRef->SetEnableGravity(true);
 	ComponentRef->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+
+	ComponentRef->AddImpulse(InitialImpulse);
 }
 
 // Called every frame
