@@ -51,10 +51,6 @@ class AReplicationSampleCharacter : public ACharacter
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class ATriggerSphere* TriggerSphere;
-
-	/** Shooting SM */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<UStaticMesh> ShootingStaticMeshClass;
 	
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -70,9 +66,9 @@ class AReplicationSampleCharacter : public ACharacter
 
 	FDateTime LoadingStartTimespan;
 
-	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	FTimespan HoldNormalizedThreshold;
-	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Shooting, meta = (AllowPrivateAccess = "true"))
+	double HoldNormalizedThresholdInSeconds;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Shooting, meta = (AllowPrivateAccess = "true"))
 	float ShootingImpulseIntense;
 	
 

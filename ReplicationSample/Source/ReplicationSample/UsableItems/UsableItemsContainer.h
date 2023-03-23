@@ -26,7 +26,7 @@ struct FInteractableItemEntity
 	UMaterialInstance* material;
 	UPROPERTY(BlueprintReadWrite)
 	TSubclassOf<ASpawnableItemBase> actorSpawnClass;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	int itemsAmount;
 		
 

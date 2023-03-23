@@ -11,7 +11,9 @@ class REPLICATIONSAMPLE_API ASpawnableItemBase : public AActor
 {
 	GENERATED_BODY()
 
-	UPROPERTY()
+	bool bBeginPlayFired = false;
+	bool bInitialImpulseApplied = false;
+	
     FVector InitialImpulse;
 
 public:
@@ -21,16 +23,19 @@ public:
 	// Sets default values for this actor's properties
 	ASpawnableItemBase();
 
-	void AddImpulseToMesh(FVector Vector)
+	void AddImpulseToMesh(const FVector InnerVector)
 	{
-	    InitialImpulse = Vector;
+	    InitialImpulse = InnerVector;
+		if(bBeginPlayFired && !bInitialImpulseApplied) ApplyImpulse();
 	}
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	
+	void ApplyImpulse()
+	{
+		bInitialImpulseApplied = true;
+		ComponentRef->AddImpulse(InitialImpulse, "None", true);
+	}
 };

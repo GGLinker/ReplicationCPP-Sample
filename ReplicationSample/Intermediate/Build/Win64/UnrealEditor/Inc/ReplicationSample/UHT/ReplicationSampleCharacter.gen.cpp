@@ -10,15 +10,12 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeReplicationSampleCharacter() {}
 // Cross Module References
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTimespan();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ATriggerSphere_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
@@ -300,10 +297,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TriggerSphere;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShootingStaticMeshClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_ShootingStaticMeshClass;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMappingContext_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMappingContext;
@@ -313,9 +306,9 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_OverlappedItemsContainer;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_HoldNormalizedThreshold_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HoldNormalizedThresholdInSeconds_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_HoldNormalizedThreshold;
+		static const UECodeGen_Private::FDoublePropertyParams NewProp_HoldNormalizedThresholdInSeconds;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShootingImpulseIntense_MetaData[];
 #endif
@@ -394,16 +387,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_TriggerSphere = { "TriggerSphere", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, TriggerSphere), Z_Construct_UClass_ATriggerSphere_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_TriggerSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_TriggerSphere_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingStaticMeshClass_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Input" },
-		{ "Comment", "/** Shooting SM */" },
-		{ "ModuleRelativePath", "ReplicationSampleCharacter.h" },
-		{ "ToolTip", "Shooting SM" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingStaticMeshClass = { "ShootingStaticMeshClass", nullptr, (EPropertyFlags)0x0044000000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, ShootingStaticMeshClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingStaticMeshClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingStaticMeshClass_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
@@ -421,21 +404,21 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_OverlappedItemsContainer = { "OverlappedItemsContainer", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, OverlappedItemsContainer), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_OverlappedItemsContainer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_OverlappedItemsContainer_MetaData)) }; // 889368574
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThreshold_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThresholdInSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "ReplicationSampleCharacter" },
+		{ "Category", "Shooting" },
 		{ "ModuleRelativePath", "ReplicationSampleCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThreshold = { "HoldNormalizedThreshold", nullptr, (EPropertyFlags)0x0040000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, HoldNormalizedThreshold), Z_Construct_UScriptStruct_FTimespan, METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThreshold_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThreshold_MetaData)) };
+	const UECodeGen_Private::FDoublePropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThresholdInSeconds = { "HoldNormalizedThresholdInSeconds", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Double, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, HoldNormalizedThresholdInSeconds), METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThresholdInSeconds_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThresholdInSeconds_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "ReplicationSampleCharacter" },
+		{ "Category", "Shooting" },
 		{ "ModuleRelativePath", "ReplicationSampleCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense = { "ShootingImpulseIntense", nullptr, (EPropertyFlags)0x0040000000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, ShootingImpulseIntense), METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense_MetaData)) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense = { "ShootingImpulseIntense", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AReplicationSampleCharacter, ShootingImpulseIntense), METADATA_PARAMS(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_JumpAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -494,11 +477,10 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_CameraBoom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_FollowCamera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_TriggerSphere,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingStaticMeshClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_OverlappedItemsContainer_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_OverlappedItemsContainer,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThreshold,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_HoldNormalizedThresholdInSeconds,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_ShootingImpulseIntense,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_JumpAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AReplicationSampleCharacter_Statics::NewProp_MoveAction,
@@ -548,9 +530,9 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		{ FOverlapElem::StaticStruct, Z_Construct_UScriptStruct_FOverlapElem_Statics::NewStructOps, TEXT("OverlapElem"), &Z_Registration_Info_UScriptStruct_OverlapElem, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FOverlapElem), 889368574U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AReplicationSampleCharacter, AReplicationSampleCharacter::StaticClass, TEXT("AReplicationSampleCharacter"), &Z_Registration_Info_UClass_AReplicationSampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleCharacter), 4036506608U) },
+		{ Z_Construct_UClass_AReplicationSampleCharacter, AReplicationSampleCharacter::StaticClass, TEXT("AReplicationSampleCharacter"), &Z_Registration_Info_UClass_AReplicationSampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleCharacter), 3972939324U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_3803581186(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_2094731667(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -17,17 +17,13 @@ ASpawnableItemBase::ASpawnableItemBase()
 void ASpawnableItemBase::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	ComponentRef->SetSimulatePhysics(true);
 	ComponentRef->SetEnableGravity(true);
 	ComponentRef->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 
-	ComponentRef->AddImpulse(InitialImpulse);
-}
+	bBeginPlayFired = true;
 
-// Called every frame
-void ASpawnableItemBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+	if(InitialImpulse != FVector::ZeroVector && !bInitialImpulseApplied) ApplyImpulse();
 }
 

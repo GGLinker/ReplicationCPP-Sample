@@ -225,13 +225,12 @@ void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 		}
 	}
 }
-
+// ReSharper disable once CppMemberFunctionMayBeConst
 void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
 {
-	const float WheelAxis = Value.Get<float>();
-	
 	if (InteractionController)
 	{
+		const float WheelAxis = Value.Get<float>();
 		InteractionController->SwitchSelected(WheelAxis > 0);
 	}
 }
@@ -241,41 +240,22 @@ void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
 	LoadingStartTimespan = FDateTime::UtcNow();
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, TEXT("Loading: " + LoadingStartTimespan.ToString()));
 }
+// ReSharper disable once CppMemberFunctionMayBeConst
 void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 {
 	if (InteractionController)
 	{
-		const auto HoldTime = FDateTime::UtcNow() - LoadingStartTimespan;
-		const double NormalizedHoldTime = (HoldTime < HoldNormalizedThreshold ? HoldTime : HoldNormalizedThreshold).GetTotalSeconds() / HoldNormalizedThreshold.GetTotalSeconds();
+		const auto HoldSeconds = (FDateTime::UtcNow() - LoadingStartTimespan).GetTotalSeconds();
+		const double NormalizedHoldTime = (HoldSeconds < HoldNormalizedThresholdInSeconds ? HoldSeconds : HoldNormalizedThresholdInSeconds) / HoldNormalizedThresholdInSeconds;
 		
 		if(InteractionController->Shoot())
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Purple, HoldTime.ToString());
-			
+		{			
 			// get forward vector
-			FVector ForwardDirection = this->GetActorForwardVector();
+			FVector ForwardDirection = CameraBoom->GetTargetRotation().Vector();
 			ForwardDirection.Normalize(0.001f);
-
-			/*const auto SpawnActorClass = AActor::StaticClass();
-			auto SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
-			SpawnLocation.Z += 40;
-			const auto Missile = Controller->GetWorld()->SpawnActor<AActor>(
-				SpawnActorClass,
-				SpawnLocation,
-				GetActorRotation());
-			Missile->SetActorEnableCollision(true);
-			UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->AddComponentByClass(sss, false, FTransform{}, true));
-						
-			if(Component)
-			{
-				Component->SetSimulatePhysics(true);
-				Component->SetEnableGravity(true);
-				Component->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-				Component->AddImpulse(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
-			}*/
 			
 			const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
-			auto SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
+			FVector SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
 			SpawnLocation.Z += 40;
 			auto SpawnParameters = FActorSpawnParameters();
 			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
@@ -283,19 +263,12 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 				SpawnActorClass,
 				SpawnLocation,
 				GetActorRotation(),
-				SpawnParameters
-				);
-			
-			//Missile->SetActorEnableCollision(true);
+				SpawnParameters);
+
+			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString{TEXT("FDir: ") + ForwardDirection.ToString()});
+			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("NHT: %f, SII: %f"), HoldSeconds, ShootingImpulseIntense));
+			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Emerald, FString{TEXT("FDir: ") + (ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense).ToString()});
 			Missile->AddImpulseToMesh(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
-			
-			/*if(UStaticMeshComponent* Component = Cast<UStaticMeshComponent>(Missile->GetComponentByClass(UStaticMeshComponent::StaticClass())))
-			{
-				Component->SetSimulatePhysics(true);
-				Component->SetEnableGravity(true);
-				Component->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-				Component->AddImpulse(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
-			}*/
 		}
 	}
 }
