@@ -7,6 +7,8 @@
         "Includes": [
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\debuggame\\replicationsample\\definitions.replicationsample.h",
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\interactionplayercontroller.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\usableitems\\spawnableitembase.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\spawnableitembase.generated.h",
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\usableitems\\usableitemscontainer.h",
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\usableitemscontainer.generated.h",
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\inc\\replicationsample\\uht\\interactionplayercontroller.generated.h"

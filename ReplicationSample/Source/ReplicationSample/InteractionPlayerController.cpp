@@ -3,6 +3,8 @@
 
 #include "InteractionPlayerController.h"
 
+#include <excpt.h>
+
 AInteractionPlayerController::AInteractionPlayerController()
 {
 	ItemsContainer = NewObject<UsableItemsContainer>();        
@@ -19,13 +21,12 @@ TArray<FInteractableItemEntity> AInteractionPlayerController::GetItemsRepresenta
 
 void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType operateEntityType, int accum) const
 {
-	try
+	__try
 	{
 		const auto NewAmount = ItemsContainer->OperateEntities(operateEntityType, accum);
-		OnItemsContainerStateUpdate.Broadcast(operateEntityType, NewAmount);		
+		OnItemsContainerStateUpdate.Broadcast(operateEntityType, NewAmount);
 	}
-	catch(...)
-	{
+	__except (EXCEPTION_EXECUTE_HANDLER) {
 		UE_LOG(LogTemp, Error, TEXT("Operating items container: %s"), typeid(std::current_exception()).name());
 		throw;
 	}
@@ -33,11 +34,11 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 bool AInteractionPlayerController::Shoot() const
 {
 	const auto ShootingItem = GetSelected();
-	try
+	__try
 	{
 		OperateItemsContainer(ShootingItem, -1);
 	}
-	catch(...)
+	__except (EXCEPTION_EXECUTE_HANDLER)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;

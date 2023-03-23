@@ -29,7 +29,7 @@ public:
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable)
-	inline EInteractableItemType GetType() const;
+	EInteractableItemType GetType() const;
 	UFUNCTION(BlueprintCallable)
-	inline void SetType(EInteractableItemType type);
+	void SetType(EInteractableItemType type);
 };
