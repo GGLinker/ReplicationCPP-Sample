@@ -16,6 +16,7 @@ class REPLICATIONSAMPLE_API AInteractionPlayerController : public APlayerControl
 {
 	GENERATED_BODY()
 
+	UPROPERTY(Replicated)
 	UsableItemsContainer* ItemsContainer;
 
 	//**UI update delegate**//
@@ -33,14 +34,14 @@ protected:
 public:
 
 
-	UFUNCTION(BlueprintCallable)
-	void SetupEntitiesRepresentation(TArray<FInteractableItemEntity> Data);
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	void SetupEntitiesRepresentation(const TArray<FInteractableItemEntity>& Data);
 	UFUNCTION(BlueprintCallable)
 	TArray<FInteractableItemEntity> GetItemsRepresentation() const;
 	
-	UFUNCTION()
+	UFUNCTION(Server, Reliable)
 	void OperateItemsContainer(EInteractableItemType operateEntityType, int accum) const;
-	UFUNCTION()
+	UFUNCTION(Server, Reliable)
 	void SwitchSelected(bool bNext) const;
 	//Returns true if there's an item to shoot
 	UFUNCTION()

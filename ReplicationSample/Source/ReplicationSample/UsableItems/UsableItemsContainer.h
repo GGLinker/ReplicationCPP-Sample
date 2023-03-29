@@ -61,7 +61,7 @@ public:
 
 	//SETUP
 	UFUNCTION()
-	void SetParams(const TArray<FInteractableItemEntity> Representation)
+	void SetParams(const TArray<FInteractableItemEntity>& Representation)
 	{
 		EntitiesRepresentation = Representation;
 	}

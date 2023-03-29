@@ -1,12 +1,12 @@
 {
     "Version": "1.1",
     "Data": {
-        "Source": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\replicationsamplegamemode.cpp",
+        "Source": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\gamemodes\\replicationsamplegamemode.cpp",
         "ProvidedModule": "",
         "PCH": "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\replicationsampleeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
             "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\intermediate\\build\\win64\\unrealeditor\\development\\replicationsample\\definitions.replicationsample.h",
-            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\replicationsamplegamemode.h",
+            "z:\\unrealengineprojects\\replicationcpp-sample\\replicationsample\\source\\replicationsample\\gamemodes\\replicationsamplegamemode.h",
             "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
             "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
             "d:\\unrealengine\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",

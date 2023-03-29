@@ -73,23 +73,10 @@
 #define IMPLEMENT_SIGNING_KEY_REGISTRATION() 
 #define DEPRECATED_FORGAME DEPRECATED
 #define UE_DEPRECATED_FORGAME UE_DEPRECATED
-#define WITH_CLOTH_COLLISION_DETECTION 1
-#define INCLUDE_CHAOS UE_DEPRECATED_MACRO(5.1, "INCLUDE_CHAOS is deprecated and should always be considered 1.") 1
-#define WITH_CHAOS UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS is deprecated and should always be considered 1.") 1
-#define WITH_CHAOS_CLOTHING UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS_CLOTHING is deprecated and should always be considered 1.") 1
-#define WITH_CHAOS_NEEDS_TO_BE_FIXED UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS_NEEDS_TO_BE_FIXED is deprecated and should always be considered 1.") 1
-#define WITH_PHYSX UE_DEPRECATED_MACRO(5.1, "WITH_PHYSX is deprecated and should always be considered 1.") 1
-#define WITH_PHYSX_COOKING UE_DEPRECATED_MACRO(5.1, "WITH_PHYSX_COOKING is deprecated and should always be considered 0.") 0
-#define PHYSICS_INTERFACE_PHYSX UE_DEPRECATED_MACRO(5.1, "PHYSICS_INTERFACE_PHYSX is deprecated and should always be considered 0.") 0
-#define WITH_APEX UE_DEPRECATED_MACRO(5.1, "WITH_APEX is deprecated and should always be considered 0.") 0
-#define WITH_APEX_CLOTHING UE_DEPRECATED_MACRO(5.1, "WITH_APEX_CLOTHING is deprecated and should always be considered 0.") 0
-#define WITH_NVCLOTH UE_DEPRECATED_MACRO(5.1, "WITH_NVCLOTH is deprecated and should always be considered 0.") 0
-#define WITH_IMMEDIATE_PHYSX UE_DEPRECATED_MACRO(5.1, "WITH_IMMEDIATE_PHYSX is deprecated and should always be considered 0.") 0
-#define WITH_CUSTOM_SQ_STRUCTURE UE_DEPRECATED_MACRO(5.1, "WITH_CUSTOM_SQ_STRUCTURE is deprecated and should always be considered 0.") 0
-#define GPUPARTICLE_LOCAL_VF_ONLY 0
-#define WITH_ODSC 0
-#define UE_WITH_IRIS 0
-#define ENGINE_API DLLIMPORT
+#define ONLINESUBSYSTEM_PACKAGE 1
+#define DEBUG_LAN_BEACON 0
+#define ONLINESUBSYSTEM_API DLLIMPORT
+#define JSON_API DLLIMPORT
 #define UE_MEMORY_TAGS_TRACE_ENABLED 1
 #define UE_ENABLE_ICU 1
 #define WITH_ADDITIONAL_CRASH_CONTEXTS 1
@@ -109,15 +96,36 @@
 #define PLATFORM_MAX_LOCAL_PLAYERS 0
 #define COREONLINE_API DLLIMPORT
 #define COREUOBJECT_API DLLIMPORT
-#define NETCORE_API DLLIMPORT
+#define ONLINEBASE_API DLLIMPORT
+#define SOCKETS_PACKAGE 1
+#define SOCKETS_API DLLIMPORT
 #define NETCOMMON_API DLLIMPORT
+#define SIGNALPROCESSING_API DLLIMPORT
+#define INTEL_ISPC 1
+#define WITH_CLOTH_COLLISION_DETECTION 1
+#define INCLUDE_CHAOS UE_DEPRECATED_MACRO(5.1, "INCLUDE_CHAOS is deprecated and should always be considered 1.") 1
+#define WITH_CHAOS UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS is deprecated and should always be considered 1.") 1
+#define WITH_CHAOS_CLOTHING UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS_CLOTHING is deprecated and should always be considered 1.") 1
+#define WITH_CHAOS_NEEDS_TO_BE_FIXED UE_DEPRECATED_MACRO(5.1, "WITH_CHAOS_NEEDS_TO_BE_FIXED is deprecated and should always be considered 1.") 1
+#define WITH_PHYSX UE_DEPRECATED_MACRO(5.1, "WITH_PHYSX is deprecated and should always be considered 1.") 1
+#define WITH_PHYSX_COOKING UE_DEPRECATED_MACRO(5.1, "WITH_PHYSX_COOKING is deprecated and should always be considered 0.") 0
+#define PHYSICS_INTERFACE_PHYSX UE_DEPRECATED_MACRO(5.1, "PHYSICS_INTERFACE_PHYSX is deprecated and should always be considered 0.") 0
+#define WITH_APEX UE_DEPRECATED_MACRO(5.1, "WITH_APEX is deprecated and should always be considered 0.") 0
+#define WITH_APEX_CLOTHING UE_DEPRECATED_MACRO(5.1, "WITH_APEX_CLOTHING is deprecated and should always be considered 0.") 0
+#define WITH_NVCLOTH UE_DEPRECATED_MACRO(5.1, "WITH_NVCLOTH is deprecated and should always be considered 0.") 0
+#define WITH_IMMEDIATE_PHYSX UE_DEPRECATED_MACRO(5.1, "WITH_IMMEDIATE_PHYSX is deprecated and should always be considered 0.") 0
+#define WITH_CUSTOM_SQ_STRUCTURE UE_DEPRECATED_MACRO(5.1, "WITH_CUSTOM_SQ_STRUCTURE is deprecated and should always be considered 0.") 0
+#define GPUPARTICLE_LOCAL_VF_ONLY 0
+#define WITH_ODSC 0
+#define UE_WITH_IRIS 0
+#define ENGINE_API DLLIMPORT
+#define NETCORE_API DLLIMPORT
 #define UE_WINDOWS_USING_UIA 1
 #define APPLICATIONCORE_API DLLIMPORT
 #define RHI_WANT_BREADCRUMB_EVENTS 1
 #define RHI_WANT_RESOURCE_INFO 1
 #define RHI_API DLLIMPORT
 #define IMAGECORE_API DLLIMPORT
-#define JSON_API DLLIMPORT
 #define JSONUTILITIES_API DLLIMPORT
 #define WITH_FREETYPE 1
 #define SLATECORE_API DLLIMPORT
@@ -134,8 +142,6 @@
 #define RENDERCORE_API DLLIMPORT
 #define ANALYTICSET_API DLLIMPORT
 #define ANALYTICS_API DLLIMPORT
-#define SOCKETS_PACKAGE 1
-#define SOCKETS_API DLLIMPORT
 #define ASSETREGISTRY_API DLLIMPORT
 #define ENGINEMESSAGES_API DLLIMPORT
 #define ENGINESETTINGS_API DLLIMPORT
@@ -175,10 +181,8 @@
 #define CHAOS_CHECKED 0
 #define CHAOS_DEBUG_NAME 1
 #define CHAOSCORE_API DLLIMPORT
-#define INTEL_ISPC 1
 #define VORONOI_API DLLIMPORT
 #define GEOMETRYCORE_API DLLIMPORT
-#define SIGNALPROCESSING_API DLLIMPORT
 #define AUDIOEXTENSIONS_API DLLIMPORT
 #define AUDIOMIXERCORE_API DLLIMPORT
 #define AUDIOLINKCORE_API DLLIMPORT

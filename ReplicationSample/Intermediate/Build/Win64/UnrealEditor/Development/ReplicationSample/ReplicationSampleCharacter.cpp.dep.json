@@ -77,7 +77,9 @@
             "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\engine\\triggersphere.h",
             "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\engine\\triggerbase.h",
             "d:\\unrealengine\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\triggerbase.generated.h",
-            "d:\\unrealengine\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\triggersphere.generated.h"
+            "d:\\unrealengine\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\triggersphere.generated.h",
+            "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\engine\\public\\net\\unrealnetwork.h",
+            "d:\\unrealengine\\ue_5.1\\engine\\source\\runtime\\net\\core\\public\\net\\core\\propertyconditions\\propertyconditions.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

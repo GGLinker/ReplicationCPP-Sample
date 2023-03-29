@@ -60,7 +60,7 @@ class AReplicationSampleCharacter : public ACharacter
 	TScriptDelegate<FWeakObjectPtr> RegisterWorldObjItem;
 	TScriptDelegate<FWeakObjectPtr> FreeWorldObjItem;
 
-	UPROPERTY()
+	UPROPERTY(Replicated)
 	TArray<FOverlapElem> OverlappedItemsContainer;
 
 
@@ -108,6 +108,9 @@ protected:
 	void SelectItem(const FInputActionValue& Value);
 	void StartLoadTimer(const FInputActionValue& Value);
 	void Shoot(const FInputActionValue& Value);
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void Shoot_Server(const FVector& ForwardDirection, const float HoldTime_InSec);
 
 
 	UFUNCTION()

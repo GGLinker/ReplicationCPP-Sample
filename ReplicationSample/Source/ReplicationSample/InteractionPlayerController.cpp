@@ -5,21 +5,29 @@
 
 #include <excpt.h>
 
+#include "Net/UnrealNetwork.h"
+
 AInteractionPlayerController::AInteractionPlayerController()
 {
+	bReplicates = true;
 	ItemsContainer = NewObject<UsableItemsContainer>();        
 }
+void AInteractionPlayerController::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
+{
+	DOREPLIFETIME( AInteractionPlayerController, ItemsContainer );
+}
 
-void AInteractionPlayerController::SetupEntitiesRepresentation(TArray<FInteractableItemEntity> Data)
+void AInteractionPlayerController::SetupEntitiesRepresentation_Implementation(const TArray<FInteractableItemEntity>& Data)
 {
 	ItemsContainer->SetParams(Data);
 }
+
 TArray<FInteractableItemEntity> AInteractionPlayerController::GetItemsRepresentation() const
 {
 	return ItemsContainer->GetRepresentation();
 }
 
-void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType operateEntityType, int accum) const
+void AInteractionPlayerController::OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int accum) const
 {
 	__try
 	{
@@ -34,11 +42,11 @@ void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType o
 bool AInteractionPlayerController::Shoot() const
 {
 	const auto ShootingItem = GetSelected();
-	__try
+	try
 	{
 		OperateItemsContainer(ShootingItem, -1);
 	}
-	__except (EXCEPTION_EXECUTE_HANDLER)
+	catch (...)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;
@@ -48,7 +56,7 @@ bool AInteractionPlayerController::Shoot() const
 }
 
 
-void AInteractionPlayerController::SwitchSelected(const bool bNext) const
+void AInteractionPlayerController::SwitchSelected_Implementation(const bool bNext) const
 {
 	OnSelectedItemSwitch.Broadcast(ItemsContainer->SwitchSelected(bNext));
 }

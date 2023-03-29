@@ -16,6 +16,7 @@
 #include "Components/SphereComponent.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/TriggerSphere.h"
+#include "Net/UnrealNetwork.h"
 #include "UsableItems/ItemUsabilityTag.h"
 
 
@@ -23,7 +24,10 @@
 // AReplicationSampleCharacter
 
 AReplicationSampleCharacter::AReplicationSampleCharacter()
-{	
+{
+	bReplicates = true;
+	bNetLoadOnClient = true;
+	
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
@@ -54,6 +58,10 @@ AReplicationSampleCharacter::AReplicationSampleCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to armz
+}
+void AReplicationSampleCharacter::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
+{
+	DOREPLIFETIME( AReplicationSampleCharacter, OverlappedItemsContainer );
 }
 
 void AReplicationSampleCharacter::BeginPlay()
@@ -247,28 +255,37 @@ void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 	{
 		const auto HoldSeconds = (FDateTime::UtcNow() - LoadingStartTimespan).GetTotalSeconds();
 		const double NormalizedHoldTime = (HoldSeconds < HoldNormalizedThresholdInSeconds ? HoldSeconds : HoldNormalizedThresholdInSeconds) / HoldNormalizedThresholdInSeconds;
+		// get forward vector
+		FVector ForwardDirection = CameraBoom->GetTargetRotation().Vector();
+		ForwardDirection.Normalize(0.001f);
 		
-		if(InteractionController->Shoot())
-		{			
-			// get forward vector
-			FVector ForwardDirection = CameraBoom->GetTargetRotation().Vector();
-			ForwardDirection.Normalize(0.001f);
-			
-			const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
-			FVector SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
-			SpawnLocation.Z += 40;
-			auto SpawnParameters = FActorSpawnParameters();
-			SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-			ASpawnableItemBase* Missile = Controller->GetWorld()->SpawnActor<ASpawnableItemBase>(
-				SpawnActorClass,
-				SpawnLocation,
-				GetActorRotation(),
-				SpawnParameters);
-
-			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString{TEXT("FDir: ") + ForwardDirection.ToString()});
-			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("NHT: %f, SII: %f"), HoldSeconds, ShootingImpulseIntense));
-			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Emerald, FString{TEXT("FDir: ") + (ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense).ToString()});
-			Missile->AddImpulseToMesh(ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense);
-		}
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("NHT: %f, SII: %f"), HoldSeconds, ShootingImpulseIntense));
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString{TEXT("FDir: ") + ForwardDirection.ToString()});
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Emerald, FString{TEXT("FDir: ") + (ForwardDirection * NormalizedHoldTime * ShootingImpulseIntense).ToString()});
+		
+		Shoot_Server(ForwardDirection, NormalizedHoldTime);
 	}
+}
+
+void AReplicationSampleCharacter::Shoot_Server_Implementation(const FVector& ForwardDirection, const float HoldTime_InSec)
+{
+	
+			
+	const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
+	FVector SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
+	SpawnLocation.Z += 40;
+	auto SpawnParameters = FActorSpawnParameters();
+	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	ASpawnableItemBase* Missile = Controller->GetWorld()->SpawnActor<ASpawnableItemBase>(
+		SpawnActorClass,
+		SpawnLocation,
+		GetActorRotation(),
+		SpawnParameters);
+
+	Missile->AddImpulseToMesh(ForwardDirection * HoldTime_InSec * ShootingImpulseIntense);
+}
+
+bool AReplicationSampleCharacter::Shoot_Server_Validate(const FVector& ForwardDirection, const float HoldTime_InSec)
+{
+	return InteractionController->Shoot();
 }

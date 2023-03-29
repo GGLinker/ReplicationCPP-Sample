@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "ReplicationSample/ReplicationSampleGameMode.h"
+#include "ReplicationSample/GameModes/ReplicationSampleGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeReplicationSampleGameMode() {}
 // Cross Module References
@@ -38,8 +38,8 @@ void EmptyLinkFunctionForGeneratedCodeReplicationSampleGameMode() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AReplicationSampleGameMode_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "ReplicationSampleGameMode.h" },
-		{ "ModuleRelativePath", "ReplicationSampleGameMode.h" },
+		{ "IncludePath", "GameModes/ReplicationSampleGameMode.h" },
+		{ "ModuleRelativePath", "GameModes/ReplicationSampleGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
@@ -75,15 +75,15 @@ void EmptyLinkFunctionForGeneratedCodeReplicationSampleGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AReplicationSampleGameMode);
 	AReplicationSampleGameMode::~AReplicationSampleGameMode() {}
-	struct Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_GameModes_ReplicationSampleGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AReplicationSampleGameMode, AReplicationSampleGameMode::StaticClass, TEXT("AReplicationSampleGameMode"), &Z_Registration_Info_UClass_AReplicationSampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleGameMode), 1982477641U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_GameModes_ReplicationSampleGameMode_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AReplicationSampleGameMode, AReplicationSampleGameMode::StaticClass, TEXT("AReplicationSampleGameMode"), &Z_Registration_Info_UClass_AReplicationSampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleGameMode), 4138451641U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleGameMode_h_3500618220(TEXT("/Script/ReplicationSample"),
-		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_GameModes_ReplicationSampleGameMode_h_3180526489(TEXT("/Script/ReplicationSample"),
+		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_GameModes_ReplicationSampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_GameModes_ReplicationSampleGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

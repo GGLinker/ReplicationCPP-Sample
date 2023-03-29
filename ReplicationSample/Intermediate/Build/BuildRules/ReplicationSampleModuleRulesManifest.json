@@ -1,6 +1,12 @@
 {
 	"SourceFiles": [
 		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Source\\ReplicationSample\\ReplicationSample.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RD\\RD.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RiderBlueprint\\RiderBlueprint.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RiderGameControl\\RiderGameControl.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RiderLink\\RiderLink.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RiderLogging\\RiderLogging.Build.cs",
+		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Plugins\\Developer\\RiderLink\\Source\\RiderShaderInfoDump\\RiderShaderInfoDump.Build.cs",
 		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Source\\ReplicationSample.Target.cs",
 		"Z:\\UnrealEngineProjects\\ReplicationCPP-Sample\\ReplicationSample\\Source\\ReplicationSampleEditor.Target.cs"
 	],

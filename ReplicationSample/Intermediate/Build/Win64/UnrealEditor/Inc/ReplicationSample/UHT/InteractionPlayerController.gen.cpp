@@ -16,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_AInteractionPlayerController();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_AInteractionPlayerController_NoRegister();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_ASpawnableItemBase_NoRegister();
+	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_UsableItemsContainer_NoRegister();
 	REPLICATIONSAMPLE_API UEnum* Z_Construct_UEnum_ReplicationSample_EInteractableItemType();
 	REPLICATIONSAMPLE_API UFunction* Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerSelectionOperate__DelegateSignature();
 	REPLICATIONSAMPLE_API UFunction* Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature();
@@ -123,7 +124,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		P_GET_UBOOL(Z_Param_bNext);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SwitchSelected(Z_Param_bNext);
+		P_THIS->SwitchSelected_Implementation(Z_Param_bNext);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execOperateItemsContainer)
@@ -132,7 +133,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		P_GET_PROPERTY(FIntProperty,Z_Param_accum);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OperateItemsContainer(EInteractableItemType(Z_Param_operateEntityType),Z_Param_accum);
+		P_THIS->OperateItemsContainer_Implementation(EInteractableItemType(Z_Param_operateEntityType),Z_Param_accum);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execGetItemsRepresentation)
@@ -147,7 +148,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		P_GET_TARRAY(FInteractableItemEntity,Z_Param_Data);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetupEntitiesRepresentation(Z_Param_Data);
+		P_THIS->SetupEntitiesRepresentation_Implementation(Z_Param_Data);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execGetSelected)
@@ -156,6 +157,41 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		P_NATIVE_BEGIN;
 		*(TEnumAsByte<EInteractableItemType>*)Z_Param__Result=P_THIS->GetSelected();
 		P_NATIVE_END;
+	}
+	struct InteractionPlayerController_eventOperateItemsContainer_Parms
+	{
+		TEnumAsByte<EInteractableItemType> operateEntityType;
+		int32 accum;
+	};
+	struct InteractionPlayerController_eventSetupEntitiesRepresentation_Parms
+	{
+		TArray<FInteractableItemEntity> Data;
+	};
+	struct InteractionPlayerController_eventSwitchSelected_Parms
+	{
+		bool bNext;
+	};
+	static FName NAME_AInteractionPlayerController_OperateItemsContainer = FName(TEXT("OperateItemsContainer"));
+	void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType operateEntityType, int32 accum) const
+	{
+		InteractionPlayerController_eventOperateItemsContainer_Parms Parms;
+		Parms.operateEntityType=operateEntityType;
+		Parms.accum=accum;
+		const_cast<AInteractionPlayerController*>(this)->ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_OperateItemsContainer),&Parms);
+	}
+	static FName NAME_AInteractionPlayerController_SetupEntitiesRepresentation = FName(TEXT("SetupEntitiesRepresentation"));
+	void AInteractionPlayerController::SetupEntitiesRepresentation(TArray<FInteractableItemEntity> const& Data)
+	{
+		InteractionPlayerController_eventSetupEntitiesRepresentation_Parms Parms;
+		Parms.Data=Data;
+		ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_SetupEntitiesRepresentation),&Parms);
+	}
+	static FName NAME_AInteractionPlayerController_SwitchSelected = FName(TEXT("SwitchSelected"));
+	void AInteractionPlayerController::SwitchSelected(bool bNext) const
+	{
+		InteractionPlayerController_eventSwitchSelected_Parms Parms;
+		Parms.bNext=bNext ? true : false;
+		const_cast<AInteractionPlayerController*>(this)->ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_SwitchSelected),&Parms);
 	}
 	void AInteractionPlayerController::StaticRegisterNativesAInteractionPlayerController()
 	{
@@ -338,11 +374,6 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	}
 	struct Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics
 	{
-		struct InteractionPlayerController_eventOperateItemsContainer_Parms
-		{
-			TEnumAsByte<EInteractableItemType> operateEntityType;
-			int32 accum;
-		};
 		static const UECodeGen_Private::FBytePropertyParams NewProp_operateEntityType;
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_accum;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -362,7 +393,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "OperateItemsContainer", nullptr, nullptr, sizeof(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::InteractionPlayerController_eventOperateItemsContainer_Parms), Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::Function_MetaDataParams)) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "OperateItemsContainer", nullptr, nullptr, sizeof(InteractionPlayerController_eventOperateItemsContainer_Parms), Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -374,11 +405,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	}
 	struct Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics
 	{
-		struct InteractionPlayerController_eventSetupEntitiesRepresentation_Parms
-		{
-			TArray<FInteractableItemEntity> Data;
-		};
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Data_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Data_MetaData[];
+#endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_Data;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -387,7 +417,12 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_Inner = { "Data", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, 0, Z_Construct_UScriptStruct_FInteractableItemEntity, METADATA_PARAMS(nullptr, 0) }; // 3100447343
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data = { "Data", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventSetupEntitiesRepresentation_Parms, Data), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) }; // 3100447343
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data = { "Data", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventSetupEntitiesRepresentation_Parms, Data), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_MetaData)) }; // 3100447343
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::NewProp_Data,
@@ -397,7 +432,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "SetupEntitiesRepresentation", nullptr, nullptr, sizeof(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::InteractionPlayerController_eventSetupEntitiesRepresentation_Parms), Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::Function_MetaDataParams)) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "SetupEntitiesRepresentation", nullptr, nullptr, sizeof(InteractionPlayerController_eventSetupEntitiesRepresentation_Parms), Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -448,10 +483,6 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	}
 	struct Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics
 	{
-		struct InteractionPlayerController_eventSwitchSelected_Parms
-		{
-			bool bNext;
-		};
 		static void NewProp_bNext_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bNext;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -473,7 +504,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "SwitchSelected", nullptr, nullptr, sizeof(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::InteractionPlayerController_eventSwitchSelected_Parms), Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::Function_MetaDataParams)) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "SwitchSelected", nullptr, nullptr, sizeof(InteractionPlayerController_eventSwitchSelected_Parms), Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -496,6 +527,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemsContainer_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemsContainer;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnItemsContainerStateUpdate_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnItemsContainerStateUpdate;
@@ -517,10 +552,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedMaterialInstance, "GetSelectedMaterialInstance" }, // 2232665896
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor, "GetSelectedSpawnActor" }, // 3332232099
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedType, "GetSelectedType" }, // 1630400925
-		{ &Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer, "OperateItemsContainer" }, // 2906705278
-		{ &Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation, "SetupEntitiesRepresentation" }, // 1572373869
+		{ &Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer, "OperateItemsContainer" }, // 3566272911
+		{ &Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation, "SetupEntitiesRepresentation" }, // 1846740996
 		{ &Z_Construct_UFunction_AInteractionPlayerController_Shoot, "Shoot" }, // 3372537794
-		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 364108946
+		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 376543703
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::Class_MetaDataParams[] = {
@@ -529,6 +564,12 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer_MetaData[] = {
+		{ "ModuleRelativePath", "InteractionPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer = { "ItemsContainer", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, ItemsContainer), Z_Construct_UClass_UsableItemsContainer_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate_MetaData[] = {
 		{ "Comment", "//**UI update delegate**//\n//Update items consistency\n" },
@@ -546,6 +587,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch = { "OnSelectedItemSwitch", nullptr, (EPropertyFlags)0x0040000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, OnSelectedItemSwitch), Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerSelectionOperate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch_MetaData)) }; // 2371701465
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AInteractionPlayerController_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch,
 	};
@@ -579,6 +621,16 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	{
 		return AInteractionPlayerController::StaticClass();
 	}
+
+	void AInteractionPlayerController::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_ItemsContainer(TEXT("ItemsContainer"));
+
+		const bool bIsValid = true
+			&& Name_ItemsContainer == ClassReps[(int32)ENetFields_Private::ItemsContainer].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AInteractionPlayerController"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AInteractionPlayerController);
 	AInteractionPlayerController::~AInteractionPlayerController() {}
 	struct Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics
@@ -586,9 +638,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 1464200338U) },
+		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 1323105692U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_3645011196(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_1281776932(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
