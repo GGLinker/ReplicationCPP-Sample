@@ -12,4 +12,5 @@ ALobbyGameMode::ALobbyGameMode()
 	HUDClass = HUD_BP.Class;
 	
 	GameStateClass = ALobbyGameState::StaticClass();
+	DefaultPawnClass = APawn::StaticClass();
 }

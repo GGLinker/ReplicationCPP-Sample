@@ -33,6 +33,8 @@ protected:
 	
 public:
 
+	void BeginPlay() override;
+
 
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void SetupEntitiesRepresentation(const TArray<FInteractableItemEntity>& Data);

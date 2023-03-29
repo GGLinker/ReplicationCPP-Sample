@@ -10,11 +10,17 @@
 AInteractionPlayerController::AInteractionPlayerController()
 {
 	bReplicates = true;
-	ItemsContainer = NewObject<UsableItemsContainer>();        
 }
 void AInteractionPlayerController::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
 {
 	DOREPLIFETIME( AInteractionPlayerController, ItemsContainer );
+}
+void AInteractionPlayerController::BeginPlay()
+{
+	if(HasAuthority())
+	{
+		ItemsContainer = NewObject<UsableItemsContainer>();
+	}
 }
 
 void AInteractionPlayerController::SetupEntitiesRepresentation_Implementation(const TArray<FInteractableItemEntity>& Data)
@@ -42,6 +48,15 @@ void AInteractionPlayerController::OperateItemsContainer_Implementation(EInterac
 bool AInteractionPlayerController::Shoot() const
 {
 	const auto ShootingItem = GetSelected();
+	/*__try
+	{
+		OperateItemsContainer(ShootingItem, -1);
+	}
+	__except (EXCEPTION_EXECUTE_HANDLER)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
+		return false;
+	}*/
 	try
 	{
 		OperateItemsContainer(ShootingItem, -1);
@@ -51,6 +66,7 @@ bool AInteractionPlayerController::Shoot() const
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;
 	}
+
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting complete");
 	return true;
 }

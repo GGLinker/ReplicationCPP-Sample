@@ -8,11 +8,9 @@
 #include "GameFramework/GameSession.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "Kismet/GameplayStatics.h"
-#include "ReplicationSample/UI/BaseSampleHUD.h"
 
 ALobbyGameState::ALobbyGameState(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
-{
-
+{	
 	OnCreateSessionCompleteDelegate = FOnCreateSessionCompleteDelegate::CreateUObject(this, &ALobbyGameState::OnCreateSessionComplete);
 	OnStartSessionCompleteDelegate = FOnStartSessionCompleteDelegate::CreateUObject(this, &ALobbyGameState::OnStartOnlineGameComplete);
 	OnFindSessionsCompleteDelegate = FOnFindSessionsCompleteDelegate::CreateUObject(this, &ALobbyGameState::OnFindSessionsComplete);
