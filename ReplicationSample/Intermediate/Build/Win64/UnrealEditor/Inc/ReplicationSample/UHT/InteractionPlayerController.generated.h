@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class APlayerStart;
 class ASpawnableItemBase;
 class UMaterialInstance;
 struct FInteractableItemEntity;
@@ -17,7 +18,7 @@ struct FInteractableItemEntity;
 #endif
 #define REPLICATIONSAMPLE_InteractionPlayerController_generated_h
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_11_DELEGATE \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_12_DELEGATE \
 struct _Script_ReplicationSample_eventItemsContainerStateUpdate_Parms \
 { \
 	TEnumAsByte<EInteractableItemType> EntityType; \
@@ -32,7 +33,7 @@ static inline void FItemsContainerStateUpdate_DelegateWrapper(const FMulticastSc
 }
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_12_DELEGATE \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_13_DELEGATE \
 struct _Script_ReplicationSample_eventItemsContainerSelectionOperate_Parms \
 { \
 	int32 NewIndex; \
@@ -45,11 +46,13 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 }
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_SPARSE_DATA
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_RPC_WRAPPERS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_SPARSE_DATA
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_RPC_WRAPPERS \
 	virtual void SwitchSelected_Implementation(bool bNext) const; \
 	virtual void OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int32 accum) const; \
 	virtual void SetupEntitiesRepresentation_Implementation(TArray<FInteractableItemEntity> const& Data); \
+	virtual void SetInitialSpawnPoint_Implementation(APlayerStart* Start); \
+	virtual void Init_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
 	DECLARE_FUNCTION(execGetSelectedType); \
@@ -59,13 +62,17 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
 	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
+	DECLARE_FUNCTION(execSetInitialSpawnPoint); \
+	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execGetSelected);
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void SwitchSelected_Implementation(bool bNext) const; \
 	virtual void OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int32 accum) const; \
 	virtual void SetupEntitiesRepresentation_Implementation(TArray<FInteractableItemEntity> const& Data); \
+	virtual void SetInitialSpawnPoint_Implementation(APlayerStart* Start); \
+	virtual void Init_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
 	DECLARE_FUNCTION(execGetSelectedType); \
@@ -75,12 +82,14 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
 	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
+	DECLARE_FUNCTION(execSetInitialSpawnPoint); \
+	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execGetSelected);
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_ACCESSORS
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_CALLBACK_WRAPPERS
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_ACCESSORS
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_CALLBACK_WRAPPERS
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAInteractionPlayerController(); \
 	friend struct Z_Construct_UClass_AInteractionPlayerController_Statics; \
@@ -96,7 +105,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_INCLASS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesAInteractionPlayerController(); \
 	friend struct Z_Construct_UClass_AInteractionPlayerController_Statics; \
@@ -112,7 +121,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_STANDARD_CONSTRUCTORS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AInteractionPlayerController(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AInteractionPlayerController) \
@@ -126,7 +135,7 @@ public: \
 	NO_API virtual ~AInteractionPlayerController();
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AInteractionPlayerController(AInteractionPlayerController&&); \
@@ -138,29 +147,29 @@ public: \
 	NO_API virtual ~AInteractionPlayerController();
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_14_PROLOG
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_GENERATED_BODY_LEGACY \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_15_PROLOG
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_SPARSE_DATA \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_RPC_WRAPPERS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_ACCESSORS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_CALLBACK_WRAPPERS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_INCLASS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_STANDARD_CONSTRUCTORS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_SPARSE_DATA \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_RPC_WRAPPERS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_ACCESSORS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_CALLBACK_WRAPPERS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_INCLASS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_GENERATED_BODY \
+#define FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_SPARSE_DATA \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_ACCESSORS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_CALLBACK_WRAPPERS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_INCLASS_NO_PURE_DECLS \
-	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_17_ENHANCED_CONSTRUCTORS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_SPARSE_DATA \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_ACCESSORS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_CALLBACK_WRAPPERS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_INCLASS_NO_PURE_DECLS \
+	FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

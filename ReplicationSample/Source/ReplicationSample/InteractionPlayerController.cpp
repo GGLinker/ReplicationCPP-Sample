@@ -5,6 +5,7 @@
 
 #include <excpt.h>
 
+#include "GameFramework/Character.h"
 #include "Net/UnrealNetwork.h"
 
 AInteractionPlayerController::AInteractionPlayerController()
@@ -15,12 +16,19 @@ void AInteractionPlayerController::GetLifetimeReplicatedProps( TArray< FLifetime
 {
 	DOREPLIFETIME( AInteractionPlayerController, ItemsContainer );
 }
+
+void AInteractionPlayerController::Init_Implementation()
+{
+	ItemsContainer = NewObject<UsableItemsContainer>();
+}
 void AInteractionPlayerController::BeginPlay()
 {
-	if(HasAuthority())
-	{
-		ItemsContainer = NewObject<UsableItemsContainer>();
-	}
+	Init_Implementation();
+}
+
+void AInteractionPlayerController::SetInitialSpawnPoint_Implementation(APlayerStart* Start)
+{
+	SpawnPS = Start;
 }
 
 void AInteractionPlayerController::SetupEntitiesRepresentation_Implementation(const TArray<FInteractableItemEntity>& Data)

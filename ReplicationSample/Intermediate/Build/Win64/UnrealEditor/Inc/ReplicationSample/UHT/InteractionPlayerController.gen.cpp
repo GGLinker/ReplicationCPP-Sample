@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
+	ENGINE_API UClass* Z_Construct_UClass_APlayerStart_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstance_NoRegister();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_AInteractionPlayerController();
 	REPLICATIONSAMPLE_API UClass* Z_Construct_UClass_AInteractionPlayerController_NoRegister();
@@ -151,6 +152,21 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		P_THIS->SetupEntitiesRepresentation_Implementation(Z_Param_Data);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AInteractionPlayerController::execSetInitialSpawnPoint)
+	{
+		P_GET_OBJECT(APlayerStart,Z_Param_Start);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetInitialSpawnPoint_Implementation(Z_Param_Start);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AInteractionPlayerController::execInit)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Init_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AInteractionPlayerController::execGetSelected)
 	{
 		P_FINISH;
@@ -163,6 +179,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		TEnumAsByte<EInteractableItemType> operateEntityType;
 		int32 accum;
 	};
+	struct InteractionPlayerController_eventSetInitialSpawnPoint_Parms
+	{
+		APlayerStart* Start;
+	};
 	struct InteractionPlayerController_eventSetupEntitiesRepresentation_Parms
 	{
 		TArray<FInteractableItemEntity> Data;
@@ -171,6 +191,11 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 	{
 		bool bNext;
 	};
+	static FName NAME_AInteractionPlayerController_Init = FName(TEXT("Init"));
+	void AInteractionPlayerController::Init()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_Init),NULL);
+	}
 	static FName NAME_AInteractionPlayerController_OperateItemsContainer = FName(TEXT("OperateItemsContainer"));
 	void AInteractionPlayerController::OperateItemsContainer(EInteractableItemType operateEntityType, int32 accum) const
 	{
@@ -178,6 +203,13 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		Parms.operateEntityType=operateEntityType;
 		Parms.accum=accum;
 		const_cast<AInteractionPlayerController*>(this)->ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_OperateItemsContainer),&Parms);
+	}
+	static FName NAME_AInteractionPlayerController_SetInitialSpawnPoint = FName(TEXT("SetInitialSpawnPoint"));
+	void AInteractionPlayerController::SetInitialSpawnPoint(APlayerStart* Start)
+	{
+		InteractionPlayerController_eventSetInitialSpawnPoint_Parms Parms;
+		Parms.Start=Start;
+		ProcessEvent(FindFunctionChecked(NAME_AInteractionPlayerController_SetInitialSpawnPoint),&Parms);
 	}
 	static FName NAME_AInteractionPlayerController_SetupEntitiesRepresentation = FName(TEXT("SetupEntitiesRepresentation"));
 	void AInteractionPlayerController::SetupEntitiesRepresentation(TArray<FInteractableItemEntity> const& Data)
@@ -202,7 +234,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 			{ "GetSelectedMaterialInstance", &AInteractionPlayerController::execGetSelectedMaterialInstance },
 			{ "GetSelectedSpawnActor", &AInteractionPlayerController::execGetSelectedSpawnActor },
 			{ "GetSelectedType", &AInteractionPlayerController::execGetSelectedType },
+			{ "Init", &AInteractionPlayerController::execInit },
 			{ "OperateItemsContainer", &AInteractionPlayerController::execOperateItemsContainer },
+			{ "SetInitialSpawnPoint", &AInteractionPlayerController::execSetInitialSpawnPoint },
 			{ "SetupEntitiesRepresentation", &AInteractionPlayerController::execSetupEntitiesRepresentation },
 			{ "Shoot", &AInteractionPlayerController::execShoot },
 			{ "SwitchSelected", &AInteractionPlayerController::execSwitchSelected },
@@ -372,6 +406,28 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AInteractionPlayerController_Init_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInteractionPlayerController_Init_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InteractionPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_Init_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "Init", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_Init_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_Init_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInteractionPlayerController_Init()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AInteractionPlayerController_Init_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics
 	{
 		static const UECodeGen_Private::FBytePropertyParams NewProp_operateEntityType;
@@ -400,6 +456,34 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Start;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::NewProp_Start = { "Start", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InteractionPlayerController_eventSetInitialSpawnPoint_Parms, Start), Z_Construct_UClass_APlayerStart_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::NewProp_Start,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InteractionPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AInteractionPlayerController, nullptr, "SetInitialSpawnPoint", nullptr, nullptr, sizeof(InteractionPlayerController_eventSetInitialSpawnPoint_Parms), Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -527,6 +611,10 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpawnPS_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SpawnPS;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemsContainer_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemsContainer;
@@ -552,7 +640,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedMaterialInstance, "GetSelectedMaterialInstance" }, // 2232665896
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedSpawnActor, "GetSelectedSpawnActor" }, // 3332232099
 		{ &Z_Construct_UFunction_AInteractionPlayerController_GetSelectedType, "GetSelectedType" }, // 1630400925
+		{ &Z_Construct_UFunction_AInteractionPlayerController_Init, "Init" }, // 3359777966
 		{ &Z_Construct_UFunction_AInteractionPlayerController_OperateItemsContainer, "OperateItemsContainer" }, // 3566272911
+		{ &Z_Construct_UFunction_AInteractionPlayerController_SetInitialSpawnPoint, "SetInitialSpawnPoint" }, // 1821673684
 		{ &Z_Construct_UFunction_AInteractionPlayerController_SetupEntitiesRepresentation, "SetupEntitiesRepresentation" }, // 1846740996
 		{ &Z_Construct_UFunction_AInteractionPlayerController_Shoot, "Shoot" }, // 3372537794
 		{ &Z_Construct_UFunction_AInteractionPlayerController_SwitchSelected, "SwitchSelected" }, // 376543703
@@ -564,6 +654,12 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_SpawnPS_MetaData[] = {
+		{ "ModuleRelativePath", "InteractionPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_SpawnPS = { "SpawnPS", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, SpawnPS), Z_Construct_UClass_APlayerStart_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_SpawnPS_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_SpawnPS_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer_MetaData[] = {
 		{ "ModuleRelativePath", "InteractionPlayerController.h" },
@@ -587,6 +683,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch = { "OnSelectedItemSwitch", nullptr, (EPropertyFlags)0x0040000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(AInteractionPlayerController, OnSelectedItemSwitch), Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerSelectionOperate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch_MetaData)) }; // 2371701465
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AInteractionPlayerController_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_SpawnPS,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_ItemsContainer,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnItemsContainerStateUpdate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInteractionPlayerController_Statics::NewProp_OnSelectedItemSwitch,
@@ -638,9 +735,9 @@ void EmptyLinkFunctionForGeneratedCodeInteractionPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 1323105692U) },
+		{ Z_Construct_UClass_AInteractionPlayerController, AInteractionPlayerController::StaticClass, TEXT("AInteractionPlayerController"), &Z_Registration_Info_UClass_AInteractionPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInteractionPlayerController), 1004898212U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_1281776932(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_78466145(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_InteractionPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/PlayerStart.h"
 #include "UsableItems/SpawnableItemBase.h"
 #include "UsableItems/UsableItemsContainer.h"
 #include "InteractionPlayerController.generated.h"
@@ -16,6 +17,9 @@ class REPLICATIONSAMPLE_API AInteractionPlayerController : public APlayerControl
 {
 	GENERATED_BODY()
 
+	UPROPERTY()
+	APlayerStart* SpawnPS;
+	
 	UPROPERTY(Replicated)
 	UsableItemsContainer* ItemsContainer;
 
@@ -32,9 +36,12 @@ protected:
 	EInteractableItemType GetSelected() const;
 	
 public:
+	UFUNCTION(Server, Reliable)
+	void Init();
+	virtual void BeginPlay() override;
 
-	void BeginPlay() override;
-
+	UFUNCTION(Server, Reliable)
+	void SetInitialSpawnPoint(APlayerStart* Start);
 
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void SetupEntitiesRepresentation(const TArray<FInteractableItemEntity>& Data);
