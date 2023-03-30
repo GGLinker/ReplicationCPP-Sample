@@ -66,18 +66,14 @@ void AReplicationSampleCharacter::GetLifetimeReplicatedProps( TArray< FLifetimeP
 
 void AReplicationSampleCharacter::BeginPlay()
 {
-	// Call the base class  
 	Super::BeginPlay();
-
-	//Add Input Mapping Context
+	ServerSetup();
+	ClientSetup();
+}
+void AReplicationSampleCharacter::ServerSetup_Implementation()
+{
 	InteractionController = Cast<AInteractionPlayerController>(Controller);
-
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(InteractionController->GetLocalPlayer()))
-	{
-		Subsystem->AddMappingContext(DefaultMappingContext, 0);
-	}
-
-
+	
 	// Setup trigger
 	TriggerSphere = GetWorld()->SpawnActor<ATriggerSphere>(ATriggerSphere::StaticClass(), FVector::Zero(), FRotator::ZeroRotator);
 	const auto collisionSphere = Cast<USphereComponent>(TriggerSphere->GetCollisionComponent());
@@ -90,6 +86,13 @@ void AReplicationSampleCharacter::BeginPlay()
 	TriggerSphere->OnActorBeginOverlap.Add(RegisterWorldObjItem);
 	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
 	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
+}
+void AReplicationSampleCharacter::ClientSetup_Implementation()
+{
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(InteractionController->GetLocalPlayer()))
+	{
+		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+	}
 }
 
 
@@ -134,6 +137,7 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 
 //////////////////////////////////////////////////////////////////////////
 // Input
+
 
 void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {

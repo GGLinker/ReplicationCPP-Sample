@@ -26,11 +26,6 @@ void AInteractionPlayerController::BeginPlay()
 	Init_Implementation();
 }
 
-void AInteractionPlayerController::SetInitialSpawnPoint_Implementation(APlayerStart* Start)
-{
-	SpawnPS = Start;
-}
-
 void AInteractionPlayerController::SetupEntitiesRepresentation_Implementation(const TArray<FInteractableItemEntity>& Data)
 {
 	ItemsContainer->SetParams(Data);

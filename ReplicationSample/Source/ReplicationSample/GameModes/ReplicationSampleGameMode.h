@@ -16,8 +16,7 @@ class AReplicationSampleGameMode : public AGameModeBase
 	FName UntakenTag;
 	UPROPERTY(VisibleAnywhere, meta = (AllowPrivateAccess = true))
 	TArray<APlayerStart*> UntakenPlayerStarts;
-
-	virtual void BeginPlay() override;
+	
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	
 protected:

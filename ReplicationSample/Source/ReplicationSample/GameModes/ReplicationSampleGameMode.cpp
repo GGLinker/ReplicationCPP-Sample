@@ -25,47 +25,31 @@ AReplicationSampleGameMode::AReplicationSampleGameMode() : UntakenTag{"Untaken"}
 	HUDClass = HUD_BP.Class;
 }
 
-void AReplicationSampleGameMode::BeginPlay()
-{
-	Super::BeginPlay();
-
-	TArray<AActor*> PlayerStartActors;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), PlayerStartActors);
-	for(auto actor : PlayerStartActors)
-	{
-		auto PS = Cast<APlayerStart>(actor);
-		if(PS->PlayerStartTag == UntakenTag)
-		{
-			UntakenPlayerStarts.Add(PS);
-		}
-		else PlayerStartActors.Remove(actor);
-	}
-}
-
 AActor* AReplicationSampleGameMode::ChoosePlayerStart_Implementation(AController* Player)
 {
-	if(UntakenPlayerStarts.Num() > 0)
+	if(UntakenPlayerStarts.Num() == 0)
 	{
-		const auto SelectedPS = UntakenPlayerStarts[0];
-		SelectedPS->PlayerStartTag = "Taken";
-
+		TArray<AActor*> PlayerStartActors;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), PlayerStartActors);
+		for(auto actor : PlayerStartActors)
 		{
-			AInteractionPlayerController* NewPlayer = Cast<AInteractionPlayerController>(Player);
-			NewPlayer->SetInitialSpawnPoint(SelectedPS);
-			NewPlayer->GetCharacter()->SetActorLocation(SelectedPS->GetActorLocation());
-			NewPlayer->GetCharacter()->SetActorRotation(SelectedPS->GetActorRotation());
+			auto PS = Cast<APlayerStart>(actor);
+			if(PS->PlayerStartTag == UntakenTag)
+			{
+				UntakenPlayerStarts.Add(PS);
+			}
+			else PlayerStartActors.Remove(actor);
 		}
-		
-		
-		UntakenPlayerStarts.RemoveAt(0);
-
-		return SelectedPS;
 	}
-	return nullptr;
+
+	if(UntakenPlayerStarts.Num() == 0) return nullptr;
+
+	const auto SelectedPS = UntakenPlayerStarts[0];
+	SelectedPS->PlayerStartTag = "Taken";
+	UntakenPlayerStarts.RemoveAt(0);
+	return SelectedPS;
 }
 void AReplicationSampleGameMode::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
-
-	
 }

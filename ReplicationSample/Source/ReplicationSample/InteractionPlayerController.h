@@ -17,9 +17,6 @@ class REPLICATIONSAMPLE_API AInteractionPlayerController : public APlayerControl
 {
 	GENERATED_BODY()
 
-	UPROPERTY()
-	APlayerStart* SpawnPS;
-	
 	UPROPERTY(Replicated)
 	UsableItemsContainer* ItemsContainer;
 
@@ -40,8 +37,6 @@ public:
 	void Init();
 	virtual void BeginPlay() override;
 
-	UFUNCTION(Server, Reliable)
-	void SetInitialSpawnPoint(APlayerStart* Start);
 
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void SetupEntitiesRepresentation(const TArray<FInteractableItemEntity>& Data);

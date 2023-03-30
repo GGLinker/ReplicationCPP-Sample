@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class APlayerStart;
 class ASpawnableItemBase;
 class UMaterialInstance;
 struct FInteractableItemEntity;
@@ -51,7 +50,6 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	virtual void SwitchSelected_Implementation(bool bNext) const; \
 	virtual void OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int32 accum) const; \
 	virtual void SetupEntitiesRepresentation_Implementation(TArray<FInteractableItemEntity> const& Data); \
-	virtual void SetInitialSpawnPoint_Implementation(APlayerStart* Start); \
 	virtual void Init_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
@@ -62,7 +60,6 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
 	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
-	DECLARE_FUNCTION(execSetInitialSpawnPoint); \
 	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execGetSelected);
 
@@ -71,7 +68,6 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	virtual void SwitchSelected_Implementation(bool bNext) const; \
 	virtual void OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int32 accum) const; \
 	virtual void SetupEntitiesRepresentation_Implementation(TArray<FInteractableItemEntity> const& Data); \
-	virtual void SetInitialSpawnPoint_Implementation(APlayerStart* Start); \
 	virtual void Init_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetSelectedSpawnActor); \
@@ -82,7 +78,6 @@ static inline void FItemsContainerSelectionOperate_DelegateWrapper(const FMultic
 	DECLARE_FUNCTION(execOperateItemsContainer); \
 	DECLARE_FUNCTION(execGetItemsRepresentation); \
 	DECLARE_FUNCTION(execSetupEntitiesRepresentation); \
-	DECLARE_FUNCTION(execSetInitialSpawnPoint); \
 	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execGetSelected);
 

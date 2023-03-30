@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "GameFramework/PlayerStart.h"
 #include "UsableItems/ItemUsabilityTag.h"
 #include "UsableItems/UsableItemsContainer.h"
 #include "ReplicationSampleCharacter.generated.h"
@@ -38,7 +39,7 @@ UCLASS(config=Game)
 class AReplicationSampleCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
+		
 	class AInteractionPlayerController* InteractionController;
 
 	/** Camera boom positioning the camera behind the character */
@@ -120,7 +121,11 @@ protected:
 
 	void TriggerHandler(const UItemUsabilityTag* tag, AActor* actorRef, bool overlap);
 
-protected:
+	UFUNCTION(Server, Reliable)
+	void ServerSetup();
+	UFUNCTION(Client, Reliable)
+	void ClientSetup();
+	
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
