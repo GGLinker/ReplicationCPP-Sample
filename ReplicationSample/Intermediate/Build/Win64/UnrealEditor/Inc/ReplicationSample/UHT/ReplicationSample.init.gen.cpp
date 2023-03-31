@@ -9,6 +9,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeReplicationSample_init() {}
 	REPLICATIONSAMPLE_API UFunction* Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerSelectionOperate__DelegateSignature();
 	REPLICATIONSAMPLE_API UFunction* Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature();
+	REPLICATIONSAMPLE_API UFunction* Z_Construct_UDelegateFunction_ReplicationSample_ServerSetupComplete__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_ReplicationSample;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_ReplicationSample()
 	{
@@ -17,19 +18,20 @@ void EmptyLinkFunctionForGeneratedCodeReplicationSample_init() {}
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerSelectionOperate__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_ReplicationSample_ItemsContainerStateUpdate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_ReplicationSample_ServerSetupComplete__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/ReplicationSample",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x050DB722,
-				0x926A0880,
+				0x212E14C5,
+				0x49039743,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_ReplicationSample.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_ReplicationSample.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_ReplicationSample(Z_Construct_UPackage__Script_ReplicationSample, TEXT("/Script/ReplicationSample"), Z_Registration_Info_UPackage__Script_ReplicationSample, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x050DB722, 0x926A0880));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_ReplicationSample(Z_Construct_UPackage__Script_ReplicationSample, TEXT("/Script/ReplicationSample"), Z_Registration_Info_UPackage__Script_ReplicationSample, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x212E14C5, 0x49039743));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

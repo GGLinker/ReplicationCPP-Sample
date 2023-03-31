@@ -37,22 +37,27 @@ struct FInteractableItemEntity
 		if(!actorSpawnClass && BaseMeshClass.Class) actorSpawnClass = BaseMeshClass.Class;
 	}
 
-
-	//copy
-	FInteractableItemEntity(const FInteractableItemEntity& other) = default;
-	FInteractableItemEntity& operator=(const FInteractableItemEntity& other) = default;
-
-	
+	FInteractableItemEntity(const FInteractableItemEntity& other)
+	: entityType{other.entityType}, material{other.material}, actorSpawnClass{other.actorSpawnClass}, itemsAmount(other.itemsAmount)
+	{}
+	FInteractableItemEntity& operator=(const FInteractableItemEntity& other)
+	{
+		entityType = other.entityType;
+		material = other.material;
+		actorSpawnClass = other.actorSpawnClass;
+		itemsAmount = other.itemsAmount;
+		return *this;
+	}
 };
 
 UCLASS(Blueprintable)
 class REPLICATIONSAMPLE_API UsableItemsContainer final : public UObject
 {
 	GENERATED_BODY()
-	using EntitySet = TArray<FInteractableItemEntity>;
 
-	UPROPERTY(meta = (AllowPrivateAccess = true))
+	UPROPERTY()
 	TArray<FInteractableItemEntity> EntitiesRepresentation;
+	UPROPERTY()
 	int SelectedIndex;
 
 public:

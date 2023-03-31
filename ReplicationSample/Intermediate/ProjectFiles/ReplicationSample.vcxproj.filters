@@ -1420,6 +1420,12 @@
     <ClInclude Include="..\..\Source\ReplicationSample\ReplicationSampleCharacter.h">
       <Filter>Source\ReplicationSample</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\ReplicationSample\StartupGameState.cpp">
+      <Filter>Source\ReplicationSample</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ReplicationSample\StartupGameState.h">
+      <Filter>Source\ReplicationSample</Filter>
+    </ClInclude>
     <Filter Include="Source\ReplicationSample\GameModes">
       <UniqueIdentifier>{F9F883D5-EA86-3125-8751-2306ABB8DB95}</UniqueIdentifier>
     </Filter>
@@ -1434,6 +1440,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\ReplicationSample\GameModes\ReplicationSampleGameMode.h">
       <Filter>Source\ReplicationSample\GameModes</Filter>
+    </ClInclude>
+    <Filter Include="Source\ReplicationSample\GameSession">
+      <UniqueIdentifier>{DD98CE97-33CC-3A16-8901-C4843441BEC6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ReplicationSample\GameSession\RepSampleGameInstance.cpp">
+      <Filter>Source\ReplicationSample\GameSession</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ReplicationSample\GameSession\RepSampleGameInstance.h">
+      <Filter>Source\ReplicationSample\GameSession</Filter>
     </ClInclude>
     <Filter Include="Source\ReplicationSample\UI">
       <UniqueIdentifier>{EDC182AC-881D-3951-BBE9-36298452BCD7}</UniqueIdentifier>

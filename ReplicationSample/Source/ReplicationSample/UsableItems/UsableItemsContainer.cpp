@@ -6,7 +6,7 @@
 UsableItemsContainer::UsableItemsContainer()
 {}
 
-UsableItemsContainer::EntitySet UsableItemsContainer::GetRepresentation() const
+TArray<FInteractableItemEntity> UsableItemsContainer::GetRepresentation() const
 { return EntitiesRepresentation; }
 
 int UsableItemsContainer::OperateEntities(EInteractableItemType OperateEntityType, int Accum)

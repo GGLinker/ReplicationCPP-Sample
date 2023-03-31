@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "GameFramework/PlayerStart.h"
 #include "UsableItems/SpawnableItemBase.h"
 #include "UsableItems/UsableItemsContainer.h"
 #include "InteractionPlayerController.generated.h"
@@ -16,9 +15,11 @@ UCLASS()
 class REPLICATIONSAMPLE_API AInteractionPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-
+	
 	UPROPERTY(Replicated)
 	UsableItemsContainer* ItemsContainer;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
+	TArray<FInteractableItemEntity> InitialContainerData;
 
 	//**UI update delegate**//
 	//Update items consistency
@@ -36,10 +37,7 @@ public:
 	UFUNCTION(Server, Reliable)
 	void Init();
 	virtual void BeginPlay() override;
-
-
-	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void SetupEntitiesRepresentation(const TArray<FInteractableItemEntity>& Data);
+	
 	UFUNCTION(BlueprintCallable)
 	TArray<FInteractableItemEntity> GetItemsRepresentation() const;
 	

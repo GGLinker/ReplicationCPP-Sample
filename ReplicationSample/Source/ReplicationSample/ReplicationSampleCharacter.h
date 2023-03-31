@@ -35,12 +35,19 @@ struct FOverlapElem
 	}
 };
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FServerSetupComplete, UInputComponent*, PlayerInputComponent);
+
 UCLASS(config=Game)
 class AReplicationSampleCharacter : public ACharacter
 {
 	GENERATED_BODY()
 		
 	class AInteractionPlayerController* InteractionController;
+
+	bool bServerSetupFired = false;
+	UInputComponent* PlayerInputComponentRef;
+	TScriptDelegate<FWeakObjectPtr> ServerSetupComplete;
+	FServerSetupComplete OnServerSetupComplete;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -105,20 +112,23 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
+	UFUNCTION(Server, Reliable)
 	void Pickup(const FInputActionValue& Value);
+	UFUNCTION(Server, Reliable)
 	void SelectItem(const FInputActionValue& Value);
 	void StartLoadTimer(const FInputActionValue& Value);
+	UFUNCTION(Server, Reliable)
 	void Shoot(const FInputActionValue& Value);
 
 	UFUNCTION(Server, Reliable, WithValidation)
 	void Shoot_Server(const FVector& ForwardDirection, const float HoldTime_InSec);
 
 
-	UFUNCTION()
+	UFUNCTION(Server, Reliable)
 	void OnTriggerSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	UFUNCTION()
+	UFUNCTION(Server, Reliable)
 	void OnTriggerSphereEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
+	UFUNCTION(Server, Reliable)
 	void TriggerHandler(const UItemUsabilityTag* tag, AActor* actorRef, bool overlap);
 
 	UFUNCTION(Server, Reliable)
@@ -128,6 +138,9 @@ protected:
 	
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	// APawn interface
+	UFUNCTION(Client, Reliable)
+	void SetupPIC_Local(class UInputComponent* PlayerInputComponent);
 	
 	// To add mapping context
 	virtual void BeginPlay() override;

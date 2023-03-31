@@ -67,9 +67,14 @@ void AReplicationSampleCharacter::GetLifetimeReplicatedProps( TArray< FLifetimeP
 void AReplicationSampleCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	if(auto Character = Controller->GetCharacter())
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("Chrctr: %s; %hs"), ToCStr(Character->GetName()), HasAuthority() ? "true" : "false"));
+	}
+	
 	ServerSetup();
-	ClientSetup();
 }
+
 void AReplicationSampleCharacter::ServerSetup_Implementation()
 {
 	InteractionController = Cast<AInteractionPlayerController>(Controller);
@@ -86,24 +91,30 @@ void AReplicationSampleCharacter::ServerSetup_Implementation()
 	TriggerSphere->OnActorBeginOverlap.Add(RegisterWorldObjItem);
 	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
 	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
+
+	bServerSetupFired = true;
+	ClientSetup();
 }
 void AReplicationSampleCharacter::ClientSetup_Implementation()
 {
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(InteractionController->GetLocalPlayer()))
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, FString::Printf(TEXT("ClientSetup_Implementation: %hs"), HasAuthority() ? "true" : "false"));
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+
+		OnServerSetupComplete.Broadcast(PlayerInputComponentRef);
 	}
 }
 
 
-void AReplicationSampleCharacter::OnTriggerSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void AReplicationSampleCharacter::OnTriggerSphereBeginOverlap_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (const auto tagComponent = Cast<UItemUsabilityTag>(OtherActor->GetComponentByClass(UItemUsabilityTag::StaticClass())))
 	{
 		TriggerHandler(tagComponent, OtherActor, true);
 	}
 }
-void AReplicationSampleCharacter::OnTriggerSphereEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void AReplicationSampleCharacter::OnTriggerSphereEndOverlap_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (const auto tagComponent = Cast<UItemUsabilityTag>(OtherActor->GetComponentByClass(UItemUsabilityTag::StaticClass())))
 	{
@@ -111,7 +122,7 @@ void AReplicationSampleCharacter::OnTriggerSphereEndOverlap(UPrimitiveComponent*
 	}
 }
 
-void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, AActor* actorRef, bool overlap)
+void AReplicationSampleCharacter::TriggerHandler_Implementation(const UItemUsabilityTag* tag, AActor* actorRef, bool overlap)
 {
 	const auto type {tag->GetType()};
 	
@@ -122,27 +133,41 @@ void AReplicationSampleCharacter::TriggerHandler(const UItemUsabilityTag* tag, A
 		return;
 	}
 
-	for(auto item : OverlappedItemsContainer)
+	for(int i = 0; i < OverlappedItemsContainer.Num(); i++)
 	{
+		auto item = OverlappedItemsContainer[0];
 		if(!item.actorRef || actorRef == item.actorRef)
 		{
 			if(actorRef == item.actorRef)
 			{
 				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("DELETED: %d"), static_cast<int>(type)));
 			}
-			OverlappedItemsContainer.Remove(item);
+			OverlappedItemsContainer.RemoveAt(i--);
 		}
 	}
 }
 
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
-
 void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
+	ServerSetupComplete.BindUFunction(this, "SetupPIC_Local");
+	OnServerSetupComplete.Add(ServerSetupComplete);
+	PlayerInputComponentRef = PlayerInputComponent;
+	
+	if(bServerSetupFired) SetupPIC_Local(PlayerInputComponent);
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("SPI (Native)/bServerSetupFired: %hs"), bServerSetupFired ? "true" : "false"));
+}
+void AReplicationSampleCharacter::SetupPIC_Local_Implementation(class UInputComponent* PlayerInputComponent)
+{
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("SPI: %hs"), HasAuthority() ? "true" : "false"));
+	OnServerSetupComplete.Remove(ServerSetupComplete);
+	
 	// Set up action bindings
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent)) {
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("Action bindings to %ls, authority: %hs"), ToCStr(EnhancedInputComponent->GetName()), HasAuthority() ? "true" : "false"));
 		
 		//Jumping
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
@@ -163,13 +188,13 @@ void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponen
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Started, this, &AReplicationSampleCharacter::StartLoadTimer);
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AReplicationSampleCharacter::Shoot);
 	}
-
 }
 
 void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
-{
+{	
 	// input is a Vector2D
 	const FVector2D MovementVector = Value.Get<FVector2D>();
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::White, FString::Printf(TEXT("MOVE %s"), ToCStr(MovementVector.ToString())));
 
 	if (Controller != nullptr)
 	{
@@ -202,7 +227,7 @@ void AReplicationSampleCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
+void AReplicationSampleCharacter::Pickup_Implementation(const FInputActionValue& Value)
 {
 	if (InteractionController && OverlappedItemsContainer.Num() > 0)
 	{
@@ -229,6 +254,7 @@ void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 			const auto SelectedItem = OverlappedItemsContainer[MinIndex];
 			if(const auto Actor = SelectedItem.actorRef)
 			{
+				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::White, FString::Printf(TEXT("PICKUP %s"), ToCStr(Actor->GetName())));
 				Actor->Destroy();
 			}
 
@@ -237,12 +263,14 @@ void AReplicationSampleCharacter::Pickup(const FInputActionValue& Value)
 		}
 	}
 }
+
 // ReSharper disable once CppMemberFunctionMayBeConst
-void AReplicationSampleCharacter::SelectItem(const FInputActionValue& Value)
+void AReplicationSampleCharacter::SelectItem_Implementation(const FInputActionValue& Value)
 {
 	if (InteractionController)
 	{
 		const float WheelAxis = Value.Get<float>();
+		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::White, FString::Printf(TEXT("MOVE %hs"), WheelAxis > 0 ? "Up" : "Down"));
 		InteractionController->SwitchSelected(WheelAxis > 0);
 	}
 }
@@ -253,7 +281,7 @@ void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, TEXT("Loading: " + LoadingStartTimespan.ToString()));
 }
 // ReSharper disable once CppMemberFunctionMayBeConst
-void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
+void AReplicationSampleCharacter::Shoot_Implementation(const FInputActionValue& Value)
 {
 	if (InteractionController)
 	{

@@ -17,24 +17,22 @@ void AInteractionPlayerController::GetLifetimeReplicatedProps( TArray< FLifetime
 	DOREPLIFETIME( AInteractionPlayerController, ItemsContainer );
 }
 
+void AInteractionPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+	//items container server setup
+	Init();
+}
 void AInteractionPlayerController::Init_Implementation()
 {
 	ItemsContainer = NewObject<UsableItemsContainer>();
+	ItemsContainer->SetParams(InitialContainerData);
 }
-void AInteractionPlayerController::BeginPlay()
-{
-	Init_Implementation();
-}
-
-void AInteractionPlayerController::SetupEntitiesRepresentation_Implementation(const TArray<FInteractableItemEntity>& Data)
-{
-	ItemsContainer->SetParams(Data);
-}
-
 TArray<FInteractableItemEntity> AInteractionPlayerController::GetItemsRepresentation() const
 {
 	return ItemsContainer->GetRepresentation();
 }
+
 
 void AInteractionPlayerController::OperateItemsContainer_Implementation(EInteractableItemType operateEntityType, int accum) const
 {
