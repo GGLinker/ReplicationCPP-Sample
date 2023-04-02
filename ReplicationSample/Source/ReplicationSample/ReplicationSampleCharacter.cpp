@@ -2,8 +2,6 @@
 
 #include "ReplicationSampleCharacter.h"
 
-#include <string>
-
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -64,15 +62,19 @@ void AReplicationSampleCharacter::GetLifetimeReplicatedProps( TArray< FLifetimeP
 	DOREPLIFETIME( AReplicationSampleCharacter, OverlappedItemsContainer );
 }
 
-void AReplicationSampleCharacter::BeginPlay()
+void AReplicationSampleCharacter::PossessedBy(AController* NewController)
 {
-	Super::BeginPlay();
-	if(auto Character = Controller->GetCharacter())
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("Chrctr: %s; %hs"), ToCStr(Character->GetName()), HasAuthority() ? "true" : "false"));
-	}
+	Super::PossessedBy(NewController);
+	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("PossessedBy: %s"), ToCStr(NewController->GetName())));
 	
 	ServerSetup();
+}
+void AReplicationSampleCharacter::OnRep_Controller()
+{
+	Super::OnRep_Controller();
+	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("OnRep_Controller: %s"), ToCStr(Controller->GetName())));
+		
+	if(Controller) ClientSetup();
 }
 
 void AReplicationSampleCharacter::ServerSetup_Implementation()
@@ -93,11 +95,10 @@ void AReplicationSampleCharacter::ServerSetup_Implementation()
 	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
 
 	bServerSetupFired = true;
-	ClientSetup();
 }
 void AReplicationSampleCharacter::ClientSetup_Implementation()
 {
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(InteractionController->GetLocalPlayer()))
+	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(Cast<AInteractionPlayerController>(Controller)->GetLocalPlayer()))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, FString::Printf(TEXT("ClientSetup_Implementation: %hs"), HasAuthority() ? "true" : "false"));
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
@@ -135,10 +136,10 @@ void AReplicationSampleCharacter::TriggerHandler_Implementation(const UItemUsabi
 
 	for(int i = 0; i < OverlappedItemsContainer.Num(); i++)
 	{
-		auto item = OverlappedItemsContainer[0];
-		if(!item.actorRef || actorRef == item.actorRef)
+		const auto Item = OverlappedItemsContainer[0];
+		if(!Item.actorRef || actorRef == Item.actorRef)
 		{
-			if(actorRef == item.actorRef)
+			if(actorRef == Item.actorRef)
 			{
 				GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Green, FString::Printf(TEXT("DELETED: %d"), static_cast<int>(type)));
 			}
@@ -301,8 +302,6 @@ void AReplicationSampleCharacter::Shoot_Implementation(const FInputActionValue& 
 
 void AReplicationSampleCharacter::Shoot_Server_Implementation(const FVector& ForwardDirection, const float HoldTime_InSec)
 {
-	
-			
 	const auto SpawnActorClass = InteractionController->GetSelectedSpawnActor();
 	FVector SpawnLocation = this->GetTargetLocation() + ForwardDirection * 180;
 	SpawnLocation.Z += 40;

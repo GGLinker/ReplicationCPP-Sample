@@ -3,7 +3,6 @@
 
 #include "LobbyGameMode.h"
 
-#include "ReplicationSample/StartupGameState.h"
 #include "ReplicationSample/UI/BaseSampleHUD.h"
 
 ALobbyGameMode::ALobbyGameMode()
@@ -11,6 +10,5 @@ ALobbyGameMode::ALobbyGameMode()
 	static ConstructorHelpers::FClassFinder<ABaseSampleHUD> HUD_BP(TEXT("/Game/ThirdPerson/Blueprints/UI/BP_Lobby_HUD"));
 	HUDClass = HUD_BP.Class;
 	
-	GameStateClass = AStartupGameState::StaticClass();
 	DefaultPawnClass = APawn::StaticClass();
 }

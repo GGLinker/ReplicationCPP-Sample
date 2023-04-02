@@ -142,8 +142,9 @@ protected:
 	UFUNCTION(Client, Reliable)
 	void SetupPIC_Local(class UInputComponent* PlayerInputComponent);
 	
-	// To add mapping context
-	virtual void BeginPlay() override;
+
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_Controller() override;
 
 public:
 	/** Returns CameraBoom subobject **/
