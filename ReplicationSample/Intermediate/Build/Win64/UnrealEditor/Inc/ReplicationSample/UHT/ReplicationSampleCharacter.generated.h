@@ -50,9 +50,9 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	virtual void OnTriggerSphereBeginOverlap_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, FHitResult const& SweepResult); \
 	virtual bool Shoot_Server_Validate(FVector const& , const float ); \
 	virtual void Shoot_Server_Implementation(FVector const& ForwardDirection, const float HoldTime_InSec); \
-	virtual void Shoot_Implementation(FInputActionValue const& Value); \
 	virtual void SelectItem_Implementation(FInputActionValue const& Value); \
 	virtual void Pickup_Implementation(FInputActionValue const& Value); \
+	virtual void Move_Server_Implementation(FVector2D const& MovementVector, FVector const& ForwardDirection, FVector const& RightDirection); \
  \
 	DECLARE_FUNCTION(execSetupPIC_Local); \
 	DECLARE_FUNCTION(execClientSetup); \
@@ -61,9 +61,9 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	DECLARE_FUNCTION(execOnTriggerSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnTriggerSphereBeginOverlap); \
 	DECLARE_FUNCTION(execShoot_Server); \
-	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execSelectItem); \
-	DECLARE_FUNCTION(execPickup);
+	DECLARE_FUNCTION(execPickup); \
+	DECLARE_FUNCTION(execMove_Server);
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -75,9 +75,9 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	virtual void OnTriggerSphereBeginOverlap_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, FHitResult const& SweepResult); \
 	virtual bool Shoot_Server_Validate(FVector const& , const float ); \
 	virtual void Shoot_Server_Implementation(FVector const& ForwardDirection, const float HoldTime_InSec); \
-	virtual void Shoot_Implementation(FInputActionValue const& Value); \
 	virtual void SelectItem_Implementation(FInputActionValue const& Value); \
 	virtual void Pickup_Implementation(FInputActionValue const& Value); \
+	virtual void Move_Server_Implementation(FVector2D const& MovementVector, FVector const& ForwardDirection, FVector const& RightDirection); \
  \
 	DECLARE_FUNCTION(execSetupPIC_Local); \
 	DECLARE_FUNCTION(execClientSetup); \
@@ -86,9 +86,9 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	DECLARE_FUNCTION(execOnTriggerSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnTriggerSphereBeginOverlap); \
 	DECLARE_FUNCTION(execShoot_Server); \
-	DECLARE_FUNCTION(execShoot); \
 	DECLARE_FUNCTION(execSelectItem); \
-	DECLARE_FUNCTION(execPickup);
+	DECLARE_FUNCTION(execPickup); \
+	DECLARE_FUNCTION(execMove_Server);
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_ACCESSORS
@@ -99,14 +99,7 @@ private: \
 	friend struct Z_Construct_UClass_AReplicationSampleCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AReplicationSampleCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ReplicationSample"), NO_API) \
-	DECLARE_SERIALIZER(AReplicationSampleCharacter) \
-	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
-	enum class ENetFields_Private : uint16 \
-	{ \
-		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		OverlappedItemsContainer=NETFIELD_REP_START, \
-		NETFIELD_REP_END=OverlappedItemsContainer	}; \
-	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
+	DECLARE_SERIALIZER(AReplicationSampleCharacter)
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_INCLASS \
@@ -115,14 +108,7 @@ private: \
 	friend struct Z_Construct_UClass_AReplicationSampleCharacter_Statics; \
 public: \
 	DECLARE_CLASS(AReplicationSampleCharacter, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ReplicationSample"), NO_API) \
-	DECLARE_SERIALIZER(AReplicationSampleCharacter) \
-	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
-	enum class ENetFields_Private : uint16 \
-	{ \
-		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		OverlappedItemsContainer=NETFIELD_REP_START, \
-		NETFIELD_REP_END=OverlappedItemsContainer	}; \
-	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
+	DECLARE_SERIALIZER(AReplicationSampleCharacter)
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_STANDARD_CONSTRUCTORS \

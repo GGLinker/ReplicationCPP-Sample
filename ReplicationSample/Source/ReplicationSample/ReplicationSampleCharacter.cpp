@@ -24,7 +24,26 @@
 AReplicationSampleCharacter::AReplicationSampleCharacter()
 {
 	bReplicates = true;
+	ACharacter::SetReplicateMovement(true);
 	bNetLoadOnClient = true;
+
+
+	if(const auto Movement = GetCharacterMovement())
+	{
+		Movement->SetIsReplicated(true);
+
+		// Configure character movement
+		Movement->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+		Movement->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
+
+		// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
+		// instead of recompiling to adjust them
+		Movement->JumpZVelocity = 700.f;
+		Movement->AirControl = 0.35f;
+		Movement->MaxWalkSpeed = 500.f;
+		Movement->MinAnalogWalkSpeed = 20.f;
+		Movement->BrakingDecelerationWalking = 2000.f;
+	}
 	
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -34,17 +53,7 @@ AReplicationSampleCharacter::AReplicationSampleCharacter()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 
-	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
-
-	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
-	// instead of recompiling to adjust them
-	GetCharacterMovement()->JumpZVelocity = 700.f;
-	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxWalkSpeed = 500.f;
-	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
-	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+	
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -57,10 +66,6 @@ AReplicationSampleCharacter::AReplicationSampleCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to armz
 }
-void AReplicationSampleCharacter::GetLifetimeReplicatedProps( TArray< FLifetimeProperty > & OutLifetimeProps ) const
-{
-	DOREPLIFETIME( AReplicationSampleCharacter, OverlappedItemsContainer );
-}
 
 void AReplicationSampleCharacter::PossessedBy(AController* NewController)
 {
@@ -69,20 +74,15 @@ void AReplicationSampleCharacter::PossessedBy(AController* NewController)
 	
 	ServerSetup();
 }
-void AReplicationSampleCharacter::OnRep_Controller()
-{
-	Super::OnRep_Controller();
-	/*GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("OnRep_Controller: %s"), ToCStr(Controller->GetName())));
-		
-	if(Controller) ClientSetup();*/
-}
 void AReplicationSampleCharacter::NotifyControllerChanged()
 {
 	Super::NotifyControllerChanged();
-	
-	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("Notification - ControllerChanged: %s"), ToCStr(Controller->GetName())));
-		
-	if(Controller) ClientSetup();
+
+	if(Controller)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("Notification - ControllerChanged: %s"), ToCStr(Controller->GetName())));
+		ClientSetup();
+	}
 }
 
 void AReplicationSampleCharacter::ServerSetup_Implementation()
@@ -204,42 +204,44 @@ void AReplicationSampleCharacter::SetupPIC_Local_Implementation(class UInputComp
 	}
 }
 
+
 void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
 {	
 	// input is a Vector2D
 	const FVector2D MovementVector = Value.Get<FVector2D>();
-	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::White, FString::Printf(TEXT("MOVE %s"), ToCStr(MovementVector.ToString())));
+	GEngine->AddOnScreenDebugMessage(-1, .005f, FColor::White, FString::Printf(TEXT("MOVE %s"), ToCStr(MovementVector.ToString())));
 
-	if (Controller != nullptr)
+	if (Controller)
 	{
-		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-
-		// get forward vector
+		
 		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-	
-		// get right vector 
 		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
-		// add movement 
-		AddMovementInput(ForwardDirection, MovementVector.Y);
-		AddMovementInput(RightDirection, MovementVector.X);
+		Move_Server(MovementVector, ForwardDirection, RightDirection);
 	}
 }
+void AReplicationSampleCharacter::Move_Server_Implementation(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection)
+{
+	AddMovementInput(ForwardDirection, MovementVector.Y);
+	AddMovementInput(RightDirection, MovementVector.X);
+	GEngine->AddOnScreenDebugMessage(-1, .005f, FColor::Cyan, FString::Printf(TEXT("%s"), ToCStr(GetMovementComponent()->Velocity.ToString())));
+}
+
 
 void AReplicationSampleCharacter::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
 	const FVector2D LookAxisVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
+	if (Controller)
 	{
-		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
 
 void AReplicationSampleCharacter::Pickup_Implementation(const FInputActionValue& Value)
 {
@@ -278,6 +280,7 @@ void AReplicationSampleCharacter::Pickup_Implementation(const FInputActionValue&
 	}
 }
 
+
 // ReSharper disable once CppMemberFunctionMayBeConst
 void AReplicationSampleCharacter::SelectItem_Implementation(const FInputActionValue& Value)
 {
@@ -289,15 +292,16 @@ void AReplicationSampleCharacter::SelectItem_Implementation(const FInputActionVa
 	}
 }
 
+
 void AReplicationSampleCharacter::StartLoadTimer(const FInputActionValue& Value)
 {
 	LoadingStartTimespan = FDateTime::UtcNow();
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, TEXT("Loading: " + LoadingStartTimespan.ToString()));
 }
 // ReSharper disable once CppMemberFunctionMayBeConst
-void AReplicationSampleCharacter::Shoot_Implementation(const FInputActionValue& Value)
+void AReplicationSampleCharacter::Shoot(const FInputActionValue& Value)
 {
-	if (InteractionController)
+	if (Controller)
 	{
 		const auto HoldSeconds = (FDateTime::UtcNow() - LoadingStartTimespan).GetTotalSeconds();
 		const double NormalizedHoldTime = (HoldSeconds < HoldNormalizedThresholdInSeconds ? HoldSeconds : HoldNormalizedThresholdInSeconds) / HoldNormalizedThresholdInSeconds;
@@ -312,6 +316,7 @@ void AReplicationSampleCharacter::Shoot_Implementation(const FInputActionValue& 
 		Shoot_Server(ForwardDirection, NormalizedHoldTime);
 	}
 }
+
 
 void AReplicationSampleCharacter::Shoot_Server_Implementation(const FVector& ForwardDirection, const float HoldTime_InSec)
 {

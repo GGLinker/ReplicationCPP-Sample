@@ -67,8 +67,7 @@ class AReplicationSampleCharacter : public ACharacter
 
 	TScriptDelegate<FWeakObjectPtr> RegisterWorldObjItem;
 	TScriptDelegate<FWeakObjectPtr> FreeWorldObjItem;
-
-	UPROPERTY(Replicated)
+	
 	TArray<FOverlapElem> OverlappedItemsContainer;
 
 
@@ -108,7 +107,9 @@ protected:
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
-
+	UFUNCTION(Server, Unreliable)
+	void Move_Server(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection);
+	
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
@@ -117,9 +118,7 @@ protected:
 	UFUNCTION(Server, Reliable)
 	void SelectItem(const FInputActionValue& Value);
 	void StartLoadTimer(const FInputActionValue& Value);
-	UFUNCTION(Server, Reliable)
 	void Shoot(const FInputActionValue& Value);
-
 	UFUNCTION(Server, Reliable, WithValidation)
 	void Shoot_Server(const FVector& ForwardDirection, const float HoldTime_InSec);
 
@@ -144,7 +143,6 @@ protected:
 	
 
 	virtual void PossessedBy(AController* NewController) override;
-	virtual void OnRep_Controller() override;
 	virtual void NotifyControllerChanged() override;
 
 public:
