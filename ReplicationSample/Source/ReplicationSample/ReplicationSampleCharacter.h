@@ -44,7 +44,7 @@ class AReplicationSampleCharacter : public ACharacter
 		
 	class AInteractionPlayerController* InteractionController;
 
-	bool bServerSetupFired = false;
+	bool bClientSetupFired = false;
 	UInputComponent* PlayerInputComponentRef;
 	TScriptDelegate<FWeakObjectPtr> ServerSetupComplete;
 	FServerSetupComplete OnServerSetupComplete;
@@ -145,6 +145,7 @@ protected:
 
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_Controller() override;
+	virtual void NotifyControllerChanged() override;
 
 public:
 	/** Returns CameraBoom subobject **/

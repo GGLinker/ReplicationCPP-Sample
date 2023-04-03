@@ -72,7 +72,15 @@ void AReplicationSampleCharacter::PossessedBy(AController* NewController)
 void AReplicationSampleCharacter::OnRep_Controller()
 {
 	Super::OnRep_Controller();
-	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("OnRep_Controller: %s"), ToCStr(Controller->GetName())));
+	/*GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("OnRep_Controller: %s"), ToCStr(Controller->GetName())));
+		
+	if(Controller) ClientSetup();*/
+}
+void AReplicationSampleCharacter::NotifyControllerChanged()
+{
+	Super::NotifyControllerChanged();
+	
+	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::White, FString::Printf(TEXT("Notification - ControllerChanged: %s"), ToCStr(Controller->GetName())));
 		
 	if(Controller) ClientSetup();
 }
@@ -94,16 +102,21 @@ void AReplicationSampleCharacter::ServerSetup_Implementation()
 	FreeWorldObjItem.BindUFunction(this, "OnTriggerSphereEndOverlap");
 	TriggerSphere->OnActorEndOverlap.Add(FreeWorldObjItem);
 
-	bServerSetupFired = true;
+	GEngine->AddOnScreenDebugMessage(-1, 60, FColor::Green, FString::Printf(TEXT("SERVER SETUP ENDED")));
+	ClientSetup();
 }
 void AReplicationSampleCharacter::ClientSetup_Implementation()
 {
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(Cast<AInteractionPlayerController>(Controller)->GetLocalPlayer()))
+	if(Controller)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, FString::Printf(TEXT("ClientSetup_Implementation: %hs"), HasAuthority() ? "true" : "false"));
-		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(Cast<AInteractionPlayerController>(Controller)->GetLocalPlayer()))
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Yellow, FString::Printf(TEXT("ClientSetup_Implementation: %hs"), HasAuthority() ? "true" : "false"));
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 
-		OnServerSetupComplete.Broadcast(PlayerInputComponentRef);
+			bClientSetupFired = true;
+			OnServerSetupComplete.Broadcast(PlayerInputComponentRef);
+		}
 	}
 }
 
@@ -158,8 +171,8 @@ void AReplicationSampleCharacter::SetupPlayerInputComponent(class UInputComponen
 	OnServerSetupComplete.Add(ServerSetupComplete);
 	PlayerInputComponentRef = PlayerInputComponent;
 	
-	if(bServerSetupFired) SetupPIC_Local(PlayerInputComponent);
-	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("SPI (Native)/bServerSetupFired: %hs"), bServerSetupFired ? "true" : "false"));
+	if(bClientSetupFired) SetupPIC_Local(PlayerInputComponent);
+	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Black, FString::Printf(TEXT("SPI (Native)/bServerSetupFired: %hs"), bClientSetupFired ? "true" : "false"));
 }
 void AReplicationSampleCharacter::SetupPIC_Local_Implementation(class UInputComponent* PlayerInputComponent)
 {

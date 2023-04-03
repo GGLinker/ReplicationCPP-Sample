@@ -49,7 +49,7 @@ void AInteractionPlayerController::OperateItemsContainer_Implementation(EInterac
 bool AInteractionPlayerController::Shoot() const
 {
 	const auto ShootingItem = GetSelected();
-	__try
+	/*__try
 	{
 		OperateItemsContainer(ShootingItem, -1);
 	}
@@ -57,8 +57,8 @@ bool AInteractionPlayerController::Shoot() const
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;
-	}
-	/*try
+	}*/
+	try
 	{
 		OperateItemsContainer(ShootingItem, -1);
 	}
@@ -66,7 +66,7 @@ bool AInteractionPlayerController::Shoot() const
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting incomplete");
 		return false;
-	}*/
+	}
 
 	GEngine->AddOnScreenDebugMessage(-1, 10, FColor::Blue, "Shooting complete");
 	return true;
