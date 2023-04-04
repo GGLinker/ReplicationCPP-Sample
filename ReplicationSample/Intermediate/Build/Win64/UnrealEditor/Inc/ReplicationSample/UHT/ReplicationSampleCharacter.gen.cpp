@@ -13,7 +13,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeReplicationSampleCharacter() {}
 // Cross Module References
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ATriggerSphere_NoRegister();
@@ -211,22 +210,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		P_THIS->Pickup_Implementation(Z_Param_Value);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AReplicationSampleCharacter::execMove_Server)
-	{
-		P_GET_STRUCT(FVector2D,Z_Param_MovementVector);
-		P_GET_STRUCT(FVector,Z_Param_ForwardDirection);
-		P_GET_STRUCT(FVector,Z_Param_RightDirection);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->Move_Server_Implementation(Z_Param_MovementVector,Z_Param_ForwardDirection,Z_Param_RightDirection);
-		P_NATIVE_END;
-	}
-	struct ReplicationSampleCharacter_eventMove_Server_Parms
-	{
-		FVector2D MovementVector;
-		FVector ForwardDirection;
-		FVector RightDirection;
-	};
 	struct ReplicationSampleCharacter_eventOnTriggerSphereBeginOverlap_Parms
 	{
 		UPrimitiveComponent* OverlappedComp;
@@ -272,15 +255,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 	void AReplicationSampleCharacter::ClientSetup()
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AReplicationSampleCharacter_ClientSetup),NULL);
-	}
-	static FName NAME_AReplicationSampleCharacter_Move_Server = FName(TEXT("Move_Server"));
-	void AReplicationSampleCharacter::Move_Server(FVector2D const& MovementVector, FVector const& ForwardDirection, FVector const& RightDirection)
-	{
-		ReplicationSampleCharacter_eventMove_Server_Parms Parms;
-		Parms.MovementVector=MovementVector;
-		Parms.ForwardDirection=ForwardDirection;
-		Parms.RightDirection=RightDirection;
-		ProcessEvent(FindFunctionChecked(NAME_AReplicationSampleCharacter_Move_Server),&Parms);
 	}
 	static FName NAME_AReplicationSampleCharacter_OnTriggerSphereBeginOverlap = FName(TEXT("OnTriggerSphereBeginOverlap"));
 	void AReplicationSampleCharacter::OnTriggerSphereBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, FHitResult const& SweepResult)
@@ -354,7 +328,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		UClass* Class = AReplicationSampleCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ClientSetup", &AReplicationSampleCharacter::execClientSetup },
-			{ "Move_Server", &AReplicationSampleCharacter::execMove_Server },
 			{ "OnTriggerSphereBeginOverlap", &AReplicationSampleCharacter::execOnTriggerSphereBeginOverlap },
 			{ "OnTriggerSphereEndOverlap", &AReplicationSampleCharacter::execOnTriggerSphereEndOverlap },
 			{ "Pickup", &AReplicationSampleCharacter::execPickup },
@@ -385,64 +358,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AReplicationSampleCharacter_ClientSetup_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MovementVector_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_MovementVector;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ForwardDirection_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ForwardDirection;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RightDirection_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_RightDirection;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_MovementVector_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_MovementVector = { "MovementVector", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ReplicationSampleCharacter_eventMove_Server_Parms, MovementVector), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_MovementVector_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_MovementVector_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_ForwardDirection_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_ForwardDirection = { "ForwardDirection", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ReplicationSampleCharacter_eventMove_Server_Parms, ForwardDirection), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_ForwardDirection_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_ForwardDirection_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_RightDirection_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_RightDirection = { "RightDirection", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(ReplicationSampleCharacter_eventMove_Server_Parms, RightDirection), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_RightDirection_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_RightDirection_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_MovementVector,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_ForwardDirection,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::NewProp_RightDirection,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "ReplicationSampleCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AReplicationSampleCharacter, nullptr, "Move_Server", nullptr, nullptr, sizeof(ReplicationSampleCharacter_eventMove_Server_Parms), Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00A80C40, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -887,7 +802,6 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AReplicationSampleCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AReplicationSampleCharacter_ClientSetup, "ClientSetup" }, // 2291559077
-		{ &Z_Construct_UFunction_AReplicationSampleCharacter_Move_Server, "Move_Server" }, // 140435027
 		{ &Z_Construct_UFunction_AReplicationSampleCharacter_OnTriggerSphereBeginOverlap, "OnTriggerSphereBeginOverlap" }, // 3030848763
 		{ &Z_Construct_UFunction_AReplicationSampleCharacter_OnTriggerSphereEndOverlap, "OnTriggerSphereEndOverlap" }, // 4129773920
 		{ &Z_Construct_UFunction_AReplicationSampleCharacter_Pickup, "Pickup" }, // 616170347
@@ -1069,9 +983,9 @@ template<> REPLICATIONSAMPLE_API UScriptStruct* StaticStruct<FOverlapElem>()
 		{ FOverlapElem::StaticStruct, Z_Construct_UScriptStruct_FOverlapElem_Statics::NewStructOps, TEXT("OverlapElem"), &Z_Registration_Info_UScriptStruct_OverlapElem, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FOverlapElem), 889368574U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AReplicationSampleCharacter, AReplicationSampleCharacter::StaticClass, TEXT("AReplicationSampleCharacter"), &Z_Registration_Info_UClass_AReplicationSampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleCharacter), 4202107226U) },
+		{ Z_Construct_UClass_AReplicationSampleCharacter, AReplicationSampleCharacter::StaticClass, TEXT("AReplicationSampleCharacter"), &Z_Registration_Info_UClass_AReplicationSampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AReplicationSampleCharacter), 2126311068U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_251237239(TEXT("/Script/ReplicationSample"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_3745726604(TEXT("/Script/ReplicationSample"),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_Statics::ScriptStructInfo),
 		nullptr, 0);

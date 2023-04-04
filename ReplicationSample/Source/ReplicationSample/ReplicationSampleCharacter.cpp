@@ -222,7 +222,7 @@ void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
 		Move_Server(MovementVector, ForwardDirection, RightDirection);
 	}
 }
-void AReplicationSampleCharacter::Move_Server_Implementation(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection)
+void AReplicationSampleCharacter::Move_Server(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection)
 {
 	AddMovementInput(ForwardDirection, MovementVector.Y);
 	AddMovementInput(RightDirection, MovementVector.X);

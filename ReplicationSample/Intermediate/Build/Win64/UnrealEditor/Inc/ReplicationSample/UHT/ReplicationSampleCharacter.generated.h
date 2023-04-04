@@ -52,7 +52,6 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	virtual void Shoot_Server_Implementation(FVector const& ForwardDirection, const float HoldTime_InSec); \
 	virtual void SelectItem_Implementation(FInputActionValue const& Value); \
 	virtual void Pickup_Implementation(FInputActionValue const& Value); \
-	virtual void Move_Server_Implementation(FVector2D const& MovementVector, FVector const& ForwardDirection, FVector const& RightDirection); \
  \
 	DECLARE_FUNCTION(execSetupPIC_Local); \
 	DECLARE_FUNCTION(execClientSetup); \
@@ -62,8 +61,7 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	DECLARE_FUNCTION(execOnTriggerSphereBeginOverlap); \
 	DECLARE_FUNCTION(execShoot_Server); \
 	DECLARE_FUNCTION(execSelectItem); \
-	DECLARE_FUNCTION(execPickup); \
-	DECLARE_FUNCTION(execMove_Server);
+	DECLARE_FUNCTION(execPickup);
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -77,7 +75,6 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	virtual void Shoot_Server_Implementation(FVector const& ForwardDirection, const float HoldTime_InSec); \
 	virtual void SelectItem_Implementation(FInputActionValue const& Value); \
 	virtual void Pickup_Implementation(FInputActionValue const& Value); \
-	virtual void Move_Server_Implementation(FVector2D const& MovementVector, FVector const& ForwardDirection, FVector const& RightDirection); \
  \
 	DECLARE_FUNCTION(execSetupPIC_Local); \
 	DECLARE_FUNCTION(execClientSetup); \
@@ -87,8 +84,7 @@ static inline void FServerSetupComplete_DelegateWrapper(const FMulticastScriptDe
 	DECLARE_FUNCTION(execOnTriggerSphereBeginOverlap); \
 	DECLARE_FUNCTION(execShoot_Server); \
 	DECLARE_FUNCTION(execSelectItem); \
-	DECLARE_FUNCTION(execPickup); \
-	DECLARE_FUNCTION(execMove_Server);
+	DECLARE_FUNCTION(execPickup);
 
 
 #define FID_ReplicationSample_Source_ReplicationSample_ReplicationSampleCharacter_h_43_ACCESSORS
