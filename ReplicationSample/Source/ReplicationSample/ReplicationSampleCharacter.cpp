@@ -218,15 +218,12 @@ void AReplicationSampleCharacter::Move(const FInputActionValue& Value)
 		
 		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		
+		AddMovementInput(ForwardDirection, MovementVector.Y);
+		AddMovementInput(RightDirection, MovementVector.X);
+		GEngine->AddOnScreenDebugMessage(-1, .005f, FColor::Cyan, FString::Printf(TEXT("%s"), ToCStr(GetMovementComponent()->Velocity.ToString())));
 
-		Move_Server(MovementVector, ForwardDirection, RightDirection);
 	}
-}
-void AReplicationSampleCharacter::Move_Server(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection)
-{
-	AddMovementInput(ForwardDirection, MovementVector.Y);
-	AddMovementInput(RightDirection, MovementVector.X);
-	GEngine->AddOnScreenDebugMessage(-1, .005f, FColor::Cyan, FString::Printf(TEXT("%s"), ToCStr(GetMovementComponent()->Velocity.ToString())));
 }
 
 

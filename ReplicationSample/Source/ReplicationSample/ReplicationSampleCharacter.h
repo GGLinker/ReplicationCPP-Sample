@@ -107,9 +107,6 @@ protected:
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
-	//UFUNCTION(Server, Unreliable)
-	void Move_Server(const FVector2D& MovementVector, const FVector& ForwardDirection, const FVector& RightDirection);
-	
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
